@@ -141,3 +141,55 @@
     margin-top: 65px;
 
 }
+
+
+
+
+
+@media (max-width: 1240px){
+    /* FOOTER */
+    .footer-container {
+        margin: 68px 25px;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 911px){
+    /* FOOTER */
+    .footer-container {
+        margin: 68px 25px;
+        min-width: 35%;
+    }
+
+}
+
+
+@media (max-width: 600px){
+    /* FOOTER */
+    .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container{
+   
+        margin: 35px 0;
+        min-width: 300px;
+       
+    }
+    
+    #copyright{
+        flex-direction: column;
+        
+    }
+
+    #copyright p{
+        margin: 5px 0;
+    }
+}
+
+
+
+
+
+
