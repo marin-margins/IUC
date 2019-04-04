@@ -71,8 +71,6 @@
             <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><defs><style>.afc{fill:#fff;}</style></defs><path class="afc" d="M7.5,1.352c2,0,2.24.008,3.031.044A2.818,2.818,0,0,1,13.606,4.47c.036.791.043,1.028.043,3.031s-.007,2.24-.043,3.031c-.093,2.016-1.04,2.982-3.074,3.074-.791.036-1.028.044-3.031.044s-2.24-.007-3.031-.044c-2.038-.093-2.982-1.062-3.074-3.075C1.359,9.74,1.351,9.5,1.351,7.5s.008-2.239.044-3.031C1.488,2.453,2.435,1.488,4.469,1.4,5.261,1.359,5.5,1.352,7.5,1.352ZM7.5,0C5.463,0,5.208.009,4.408.045A4.14,4.14,0,0,0,.046,4.408C.009,5.208,0,5.463,0,7.5s.009,2.293.045,3.092a4.14,4.14,0,0,0,4.363,4.363c.8.036,1.056.045,3.092.045s2.293-.009,3.092-.045a4.14,4.14,0,0,0,4.362-4.363c.037-.8.046-1.056.046-3.092s-.009-2.292-.045-3.092A4.14,4.14,0,0,0,10.593.046C9.792.009,9.537,0,7.5,0Zm0,3.649A3.852,3.852,0,1,0,11.351,7.5,3.851,3.851,0,0,0,7.5,3.649ZM7.5,10A2.5,2.5,0,1,1,10,7.5,2.5,2.5,0,0,1,7.5,10Zm4-7.4a.9.9,0,1,0,.9.9A.9.9,0,0,0,11.5,2.6Z"/></svg></a>
         </div>
 
-
-
     </div>
 
     <div class="collapsible-box">
@@ -167,8 +165,98 @@
 
     </div>
 
-    <div class="upcoming">
+    <!-- UPCOMING -->
 
+    <div class="upcoming">
+        <div class="upcoming-title">
+        <h1>Upcoming</h1>
+
+        <div class="upcoming-co">
+            
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+             Courses     
+             
+            
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.aco{fill:#202948;}.bco{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#010727"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bco" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="aco" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+            Conferences
+            
+        </div>
+        </div>
+
+        <div class="upcoming-content">
+            <div class="row">
+                <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 11 MAR 2019 - 16 MAR 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">SED UT PERSPICIATIS UNDE OMNIS ISTE NATUS ERROR</div>
+                    </div>
+                </div>
+
+                <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 10 JUN 2019 - 16 JUN 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.aco1{fill:#202948;}.bco1{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#010727"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bco1" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="aco1" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">QUI DOLOREM IPSUM QUIA DOLOR SIT AMET, CONSECTETUR, ADIPISCI VELIT</div>
+                </div>
+                </div>
+                <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 05 AUG 2019 - 10 AUG 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.aco{fill:#202948;}.bco{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#010727"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bco" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="aco" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">QUIS AUTEM VEL EUM</div>
+                </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+            <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 29 MAR 2019 - 04 APR 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">NEQUE PORRO QUISQUAM EST QUI DOLOREM IPSUM QUIA DOLOR</div>
+                    </div>
+                </div>
+
+                <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 22 JUN 2019 - 28 JUN 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.aco1{fill:#202948;}.bco1{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#010727"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bco1" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="aco1" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">QUIS AUTEM VEL EUM IURE REPREHENDERIT </div>
+                </div>
+                </div>
+                <div class="upcoming-row-content">
+                    <div class="upcoming-date"> 30 AUG 2019 - 08 SEP 2019 </div>
+                    <div class="upcoming-full-desc">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+                    <div class="upcoming-description">EAQUE IPSA QUAE AB ILLO INVENTORE VERITATIS ET QUASI</div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- READ MORE -->
+
+    <div class="header parallax">
+        
+        <div class="img"></div>
+        <div class="overlay"></div>
+        <div class="content-wrap">
+            <div class="content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><defs><style>.aorg{fill:#fff;}</style></defs><path class="aorg" d="M29.648,9.036A1.6,1.6,0,0,1,29.7,6.773L36.2.463A1.627,1.627,0,0,1,37.335,0a1.567,1.567,0,0,1,1.132.482l-8.82,8.554Zm-10.7,16.072a.673.673,0,0,0-.2.478.664.664,0,0,0,1.127.476L20.97,25l-.924-.954Zm9.232-12.285-3.739,3.624a15.448,15.448,0,0,0-3.983,6.471l1.652,1.7a15.436,15.436,0,0,0,6.589-3.78l3.739-3.626-4.258-4.393ZM39.088,1.652l-9.632,9.341L34.305,16l9.634-9.338a3.487,3.487,0,0,0-4.851-5.012ZM16.875,24.375h-7.5V26.25h7.5ZM33.75,21.844v3.549C33.75,33.094,22.5,30,22.5,30s2.846,11.25-4.946,11.25H3.75V3.75H27.429L31.3,0H0V45H19.1c5.931,0,18.4-13.543,18.4-18.026V18.186l-3.75,3.658Z"/></svg>
+                <h1><span class="text-blue">ORGANIZE</span> new IUC programme</h1>
+                <div class ="rd-more">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                    <a href="" class="btn">READ MORE</a>
+                </div>
+            </div>
+         
+        </div>
+      
     </div>
 
 
