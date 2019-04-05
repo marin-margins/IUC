@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
     
-    <script src="main.js"></script>
+    
 </head>
 <body>
     <div id="donate">
@@ -249,6 +249,7 @@
             <div class="content">
             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><defs><style>.aorg{fill:#fff;}</style></defs><path class="aorg" d="M29.648,9.036A1.6,1.6,0,0,1,29.7,6.773L36.2.463A1.627,1.627,0,0,1,37.335,0a1.567,1.567,0,0,1,1.132.482l-8.82,8.554Zm-10.7,16.072a.673.673,0,0,0-.2.478.664.664,0,0,0,1.127.476L20.97,25l-.924-.954Zm9.232-12.285-3.739,3.624a15.448,15.448,0,0,0-3.983,6.471l1.652,1.7a15.436,15.436,0,0,0,6.589-3.78l3.739-3.626-4.258-4.393ZM39.088,1.652l-9.632,9.341L34.305,16l9.634-9.338a3.487,3.487,0,0,0-4.851-5.012ZM16.875,24.375h-7.5V26.25h7.5ZM33.75,21.844v3.549C33.75,33.094,22.5,30,22.5,30s2.846,11.25-4.946,11.25H3.75V3.75H27.429L31.3,0H0V45H19.1c5.931,0,18.4-13.543,18.4-18.026V18.186l-3.75,3.658Z"/></svg>
                 <h1><span class="text-blue">ORGANIZE</span> new IUC programme</h1>
+                <span class="divider"></span>
                 <div class ="rd-more">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
                     <a href="" class="btn">READ MORE</a>
@@ -259,6 +260,25 @@
       
     </div>
 
+
+    <!-- CONNECT THROUGHT IUC -->
+    <div class="connect">
+        <div class="connect-img">
+            <div class="rectangle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="33.705" height="44.941" viewBox="0 0 33.705 44.941"><defs><style>.acon{fill:#fff;}</style></defs><path class="acon" d="M19.853,0A16.853,16.853,0,1,0,36.706,16.853,16.853,16.853,0,0,0,19.853,0ZM27.9,28.344a20.167,20.167,0,0,0-.56-2.183,2.605,2.605,0,0,0-.1-4.048,21.118,21.118,0,0,0,0-10.233,2.26,2.26,0,0,0,.665-.6,19.043,19.043,0,0,1,5.692,2.685A13.988,13.988,0,0,1,27.9,28.344ZM5.809,16.853a14,14,0,0,1,.453-3.475,18.763,18.763,0,0,1,3.015.045l.056.316a21.053,21.053,0,0,0-3.49,3.754l-.034-.64Zm4.47-1.672a2.575,2.575,0,0,0,3.739-.689,19.269,19.269,0,0,1,9.747,7.958,2.61,2.61,0,0,0,.026,3.784A19.391,19.391,0,0,1,20.2,30.878a14.025,14.025,0,0,1-14-10.81A19.262,19.262,0,0,1,10.279,15.181Zm4.054-2.668a19.085,19.085,0,0,1,8.881-1.934,3.052,3.052,0,0,0,2.339,1.638h.009a19.208,19.208,0,0,1,.039,9.409l-.313.032a20.974,20.974,0,0,0-10.9-8.85Zm8.513,18.057a20.765,20.765,0,0,0,2.547-3.691l.38-.011a19.933,19.933,0,0,1,.573,2.429A13.935,13.935,0,0,1,22.845,30.569Zm9.977-19.1A20.5,20.5,0,0,0,28.341,9.63a2.983,2.983,0,0,0-2.975-2.55,21,21,0,0,0-2.841-4.009A14.086,14.086,0,0,1,32.822,11.471Zm-9.091-3.8a2.261,2.261,0,0,0-.736,1.206,20.792,20.792,0,0,0-9.619,2.2,2.57,2.57,0,0,0-3.711.676,20.966,20.966,0,0,0-2.842-.1,14.052,14.052,0,0,1,13.031-8.84h0a19.233,19.233,0,0,1,3.876,4.859ZM12.363,44.941V41.2H17.98V37.451h3.745V41.2h5.618v3.745ZM29.215,41.2v3.745h5.618V41.2Zm-18.725,0H4.873v3.745H10.49Z" transform="translate(-3)"/></svg>
+            </div>
+            <div class="rectangle-45"></div>
+        </div>    
+        
+        <div class="connect-content">
+            <h1>CONNECT through IUC</h1>
+            <span class="divider"></span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <a href="" class="btn">READ MORE</a>
+
+        </div>
+    
+    </div>
 
 
     <?php

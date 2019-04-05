@@ -429,7 +429,9 @@ body{
     background-position: center;
     
 }
-
+.parallax .content .divider{
+    display: none;
+}
 .parallax .content{
     display: flex;
     flex-direction: row;
@@ -463,6 +465,91 @@ body{
 .parallax .content a{
     font-weight: bold;
 }
+
+/* CONNECT THROUGHT IUC */
+
+    .connect{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        max-width: 990px;
+        margin: auto;
+        height: 460px;
+        top: -60px;
+        border-radius: 5px 5px 0 5px;
+        box-shadow: 0 3px 6px rgba(1,7,39,0.28);
+    }
+
+    .connect-img{
+        background: url("to_include/connect-background.jpg");
+        background-size: cover;
+        position: relative;        
+        width: 50%
+    }
+
+    .connect-img .rectangle{
+        position: absolute;
+        background: var(--dark-blue);
+        width: 133px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 80px;
+    }
+
+   
+
+    .connect-img .rectangle-45{
+        position: absolute;
+        background: var(--dark-blue);
+        transform: rotate(45deg);
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        top: 115px;
+
+    }
+
+    .connect-content{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        background: white;
+        border-bottom: 3px solid var(--light-blue);
+       
+    }
+
+    .connect-content h1{
+        font-family: var(--playfair);
+        font-size: 30px;
+        margin:58px 64px 24px 64px;
+        color: var(--dark-blue);
+        font-weight: bold;
+        
+    }
+
+    .connect-content .divider{
+        width: 20%;
+        border: 1px solid var(--light-blue);
+        margin:0px 64px 24px 64px;
+    }
+
+    .connect-content p {
+        font-family: var(--montserrat);
+        font-size: 14px;
+        font-weight: 400;
+        margin:0px 64px 50px 64px;
+        color: var(--dark-blue);
+        line-height: 30px;
+    }
+    
+    .connect-content .btn{
+        margin: 0px 64px 40px 64px;
+        width: 40%;
+        text-align: center;
+    }
 
 /* FOOTER */
 
@@ -656,6 +743,58 @@ body{
     .upcoming-co{
         flex-direction: column;
         justify-content: flex-start;
+    }
+
+    .parallax{
+        max-height:650px;
+    }
+    .parallax .content{
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left:36px;
+    }
+
+    .parallax .content h1{        
+        margin: 50px 90px 24px 0; 
+    }
+    .parallax .content svg{
+        display: none;
+    }
+    .parallax .content .divider{
+        display: block;
+        border: 1px solid var(--light-blue);
+        width:25%;
+        margin: 20px auto 24px 0;
+    }
+
+    .parallax .content .btn{
+        margin-top: 80px;
+        width: 40%;
+    }
+
+    
+    /* CONNECT */
+    .connect{
+        top:0;
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    .connect-img{
+        display: none;
+        
+    }
+
+    .connect-content{
+        width: 100%;
+        min-height: 500px;
+        border-bottom: none;
+        margin: auto;
+    }
+
+    .connect-content .btn{
+        width:70%;
+        margin: 0px 64px 30px 64px;
     }
     /* FOOTER */
     .footer{
