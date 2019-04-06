@@ -277,8 +277,131 @@
             <a href="" class="btn">READ MORE</a>
 
         </div>
+    </div>
+
+
+    <!-- NEWS -->
+
+    <div class="container-news">
+        <div class="news-title">
+            <div class="title">Latest news</div>
+            <a href="" class="more-news">MORE NEWS <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg></a>
+            
+            <div class="mobile-svg"><svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg></div>
+        </div>
+
+        <div class="news-content">
+            <div class="main-news">
+                <img src="to_include/connect-background.jpg" alt="">
+                <div class="main-new-desc">
+                    <div class="news-date">
+                        <h1 class="day">23</h1>
+                        <div class="month">01/19</div>
+                     </div>
+
+                <div class="desc">
+                        <div class="desc-title">Sed ut perspiciatis unde omnis iste natus error sit voluptate</div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, temporibus quos laudantium dolor minus commodi? Vel commodi consequuntur veritatis sint?</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+                </div>
+
+                </div>           
+            </div>
+
+            <div class="news-row">
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="to_include/governing_bodies/WiegerBakker.jpg" alt="">
+                    <div class="title">
+                      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.
+                    </div>
+                </div>
+
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="to_include/governing_bodies/Hloušek.jpg" alt="">
+                    <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+
+                    </div>
+                </div>
+            
+
+            </div>
+            
+            <div class="news-row">
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="to_include/governing_bodies/Drenkhahn.jpg" alt="">
+                    <div class="title">
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam.
+                    </div>
+                </div>
+
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="to_include/governing_bodies/Snjezana.jpg" alt="">
+                    <div class="title">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                </div>
+
+            </div> 
+        </div>
+    
     
     </div>
+    </div>
+
+    <!-- JOURNAL -->
+    <div class="journal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><style>.aJO{fill:#3891cc;}</style></defs><path class="aJO" d="M5.939,18.8,0,20l1.2-5.937Zm-3.562-5.92,4.74,4.741L20,4.741,15.26,0,2.378,12.883Z" transform="translate(-0.001)"/></svg>
+        <h1>IUC JOURNAL</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <a href="">READ MORE</a>
+    </div>
+
+    <!-- STUDENTS ABOUT IUC -->
+
+    <div class="students-about">
+        <h1>Students about IUC</h1>
+        <div class="quote">
+            <span class="divider"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18.701" height="13.387" viewBox="0 0 18.701 13.387"><defs><style>.aqo{fill:#3891cc;}</style></defs><path class="aqo" d="M11.284-11.688a5.947,5.947,0,0,1-.843,2.963A36.931,36.931,0,0,1,7.809-4.892,29.376,29.376,0,0,0,5.2-1.214H4.488A44.237,44.237,0,0,0,3.415-5.608,12.573,12.573,0,0,1,2.7-9.184a5.433,5.433,0,0,1,1.482-3.806A4.912,4.912,0,0,1,7.963-14.6a3.525,3.525,0,0,1,2.376.766A2.821,2.821,0,0,1,11.284-11.688Zm10.116,0a5.947,5.947,0,0,1-.843,2.963,36.931,36.931,0,0,1-2.631,3.832A29.376,29.376,0,0,0,15.32-1.214H14.6a44.236,44.236,0,0,0-1.073-4.394,12.573,12.573,0,0,1-.715-3.576A5.433,5.433,0,0,1,14.3-12.991,4.912,4.912,0,0,1,18.079-14.6a3.525,3.525,0,0,1,2.376.766A2.821,2.821,0,0,1,21.4-11.688Z" transform="translate(-2.7 14.599)"/></svg>
+            <span class="divider"></span>
+        </div>
+        <img src="to_include/governing_bodies/Seitz.jpg" alt="">
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+        <div class="name">John Smith</div>
+        <div class="circles">
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle active-circle"></span>
+                <span class="circle"></span>
+        </div>
+
+    </div>
+
+    <!-- DONATE -->
+    <div class="donate-section">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22.908" height="21" viewBox="0 0 22.908 21"><defs><style>.adone{fill:#fff;opacity:0.54;}</style></defs><path class="adone" d="M11.454,4.1C8.45-1.056,0,.449,0,6.91c0,4.449,5.318,9,11.454,15.089C17.592,15.909,22.909,11.36,22.909,6.91,22.909.427,14.437-1.018,11.454,4.1Z" transform="translate(0 -1)"/></svg>
+        <h1>DONATE</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <a href="">READ MORE</a>
+    </div>
+
 
 
     <?php
