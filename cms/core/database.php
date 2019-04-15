@@ -6,7 +6,7 @@ $database = 'iuc_database';
 
 
 try{
-    $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+    $conn = new mysqli('localhost','username','password','database');
 } catch(PDOException $e){
     die( "Connection failed: " . $e->getMessage());
 }

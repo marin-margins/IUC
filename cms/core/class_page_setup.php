@@ -9,6 +9,9 @@ class class_page_setup
         session_start();
         include_once ("database.php");
         build_header($page_title);
+		
+		
+		return $conn;
 
     }
 
