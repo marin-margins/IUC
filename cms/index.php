@@ -1,37 +1,28 @@
 <?php
 
-session_start();
+require 'core/class_page_setup.php';
+
+$page_setup = new class_page_setup();
 
 
 
-require 'database.php';
+$db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
-if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
-    $records = $conn->prepare('SELECT radnik_id,email,password,mjesto_rada FROM radnik WHERE email = :email');
 
-    $records->bindParam(':email', $_POST['email']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
-    $message = '';
 
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+    if ($_POST['username'] == IUC_USERNAME && $_POST['password'] == IUC_PASSWORD) {
 
-        $_SESSION['user_id'] = $results['radnik_id'];
-        $_SESSION['user_rank'] = $results['mjesto_rada'];
+        $_SESSION['log_in'] = true;
 
-        if ($_SESSION['user_rank'] == 3) {
-            header("Location: provjera_teren.php");
-        } else {
-            header("Location: glavni_izb.php");
-        }
-
+        header("Location: dashboard.php");
     } else {
-        $message = 'Sorry, those credentials do not match';
+        header("Location: logout.php");
     }
-
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,21 +51,23 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
-            <form>
+            <form method="post">
                 <div class="form-group">
                     <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-                        <label for="inputEmail">Email address</label>
+                        <input type="text" id="inputEmail" class="form-control" placeholder="User Name"
+                               required="required" name="username" autofocus="autofocus">
+                        <label for="inputEmail">User Name</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                        <input type="password" id="inputPassword" class="form-control" name="password"
+                               placeholder="Password" required="required">
                         <label for="inputPassword">Password</label>
                     </div>
                 </div>
 
-                <a class="btn btn-primary btn-block" href="index.html">Login</a>
+                <input type="submit" value="Login" class="btn btn-primary btn-block" >
             </form>
 
         </div>
