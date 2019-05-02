@@ -60,8 +60,8 @@
         align-items: center;
         flex-direction: row;
         margin: 0 15px;
-        
-        
+
+
     }
 
     #donate-btn{
@@ -72,7 +72,7 @@
         justify-self: right;
         padding: 15px ;
         margin: 0 15px;
-    
+
     }
 
     #donate-btn svg{
@@ -80,9 +80,13 @@
     }
 
     .navbar{
-        display: flex; 
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .course-navbar {
+      height: 60px;
     }
 
     .nav-left{
@@ -90,7 +94,7 @@
         flex-direction: row;
         width:60%;
         margin: 14px 40px;
-        
+
     }
 
 
@@ -99,6 +103,10 @@
         font-family: var(--montserrat);
         font-size: 20px;
         color: var(--dark-blue);
+    }
+
+    .nav-left p span {
+      color: #3891CC;
     }
 
     .nav-right{
@@ -117,7 +125,7 @@
         color: var(--light-blue);
         font-style: italic;
         font-size: 14px;
-        
+
     }
 
     #divider{
@@ -143,6 +151,10 @@
         right: 70px;
     }
 
+    .course-search-icon {
+      top: 10px;
+    }
+
 
     /* HEADER */
     .header{
@@ -155,10 +167,10 @@
         background-image: url('to_include/home-header-placeholder.jpg') ;
         background-repeat: no-repeat;
         width: 100%;
-        height: 100%;    
+        height: 100%;
         background-size: cover;
         background-position: center;
-    
+
     }
 
 
@@ -191,7 +203,7 @@
         margin-bottom: 9%;
         display: flex;
         flex-direction: column;
-    
+
         align-items: flex-start;
     }
 
@@ -211,7 +223,7 @@
         margin: 0 0 21px;
     }
 
-    .header .content.btn{    
+    .header .content.btn{
         box-shadow: 0px 3px 6px  rgba(0,0,0,0.16);
     }
 
@@ -221,7 +233,7 @@
         top: 37%;
         display: flex;
         flex-direction: column;
-    
+
     }
 
     .circle{
@@ -239,7 +251,7 @@
         flex-direction: row;
         right: 50px;
         top:95%;
-        
+
     }
 
     .header-icons a{
@@ -256,7 +268,7 @@
         border-radius: 5px 5px 0 0;
         background: white;
         max-width: 900px;
-        border-collapse: separate; 
+        border-collapse: separate;
     }
 
 
@@ -275,8 +287,8 @@
         height: auto;
         width: 100%;
         padding: 0px 30px ;
-    
-        
+
+
     }
 
     .active .box-content{
@@ -311,10 +323,10 @@
     padding: 1.5rem 0rem;
         justify-content: space-between;
         border-top: 1px solid  #E2E2E2;
-    
+
         font-family: var(--montserrat);
         font-size: 14px;
-        
+
     }
 
     .row:last-child .row-item {
@@ -344,7 +356,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding-bottom: 20px;   
+        padding-bottom: 20px;
         border-bottom: 2px solid var(--light-blue);
 
     }
@@ -378,17 +390,17 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        
+
     }
 
     .upcoming-row-content{
         display:flex;
         flex-direction: column;
         width: 290px;
-        margin-top: 40px;   
+        margin-top: 40px;
         border-bottom: 1px solid #ccc;
         padding: 0 auto;
-        
+
     }
 
     .upcoming-date{
@@ -427,7 +439,7 @@
     .parallax .img{
         background: url("to_include/organize-background.jpg");
         background-position: center;
-        
+
     }
     .parallax .content .divider{
         display: none;
@@ -482,7 +494,7 @@
         .connect-img{
             background: url("to_include/connect-background.jpg");
             background-size: cover;
-            position: relative;        
+            position: relative;
             width: 50%
         }
 
@@ -498,7 +510,7 @@
             top: 80px;
         }
 
-    
+
 
         .connect-img .rectangle-45{
             position: absolute;
@@ -517,7 +529,7 @@
             width: 50%;
             background: white;
             border-bottom: 3px solid var(--light-blue);
-        
+
         }
 
         .connect-content h1{
@@ -526,7 +538,7 @@
             margin:58px 64px 24px 64px;
             color: var(--dark-blue);
             font-weight: 900;
-            
+
         }
 
         .connect-content .divider{
@@ -543,7 +555,7 @@
             color: var(--dark-blue);
             line-height: 30px;
         }
-        
+
         .connect-content .btn{
             margin: 0px 64px 40px 64px;
             width: 40%;
@@ -566,7 +578,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        border-bottom: 1px solid var(--light-blue); 
+        border-bottom: 1px solid var(--light-blue);
         align-items: flex-end;
         padding-bottom: 15px;
     }
@@ -576,7 +588,7 @@
         font-size: 30px;
         font-weight: 900;
         color: var(--dark-blue);
-        
+
     }
 
     .news-title .more-news{
@@ -585,7 +597,7 @@
         font-weight: 900;
         text-decoration: none;
         color: var(--dark-blue);
-        
+
     }
 
     .news-title .mobile-svg{
@@ -613,10 +625,10 @@
     .main-news img{
         width: 50%;
         height: 100%;
-    
-        
+
+
     }
-    
+
     .main-new-desc{
         display: flex;
         flex-direction: row;
@@ -634,7 +646,7 @@
         display:flex;
         flex-direction: column;
         margin-left: 30px;
-        
+
     }
 
     .news-date .day{
@@ -679,7 +691,7 @@
          justify-content: space-between;
     }
 
-  
+
 
     .news-row{
         display: flex;
@@ -698,7 +710,7 @@
         width: 45%;
         height: 100%;
         border-bottom: 1px solid #ccc;
-        flex: 1 0 350px;    
+        flex: 1 0 350px;
     }
 
 
@@ -730,7 +742,7 @@
         padding: 60px 20px;
         min-height: 270px;
         margin-top:100px;
-        
+
     }
 
     .journal svg{
@@ -769,12 +781,12 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        background: white;        
+        background: white;
         justify-content: center;
         align-items: center;
         padding: 70px 20px;
         min-height: 300px;
-        
+
     }
 
     .students-about h1{
@@ -795,8 +807,8 @@
     }
     .students-about .quote .divider{
         border: 0.5px solid var(--light-blue);
-        
-        width:100px;  
+
+        width:100px;
     }
     .students-about img{
         border-radius: 50%;
@@ -820,7 +832,7 @@
         font-size: 13px;
         color: var(--light-blue);
     }
-    
+
     .students-about .circles{
         display: flex;
         flex-direction: row;
@@ -836,14 +848,14 @@
         height:6px;
         margin-right:7px;
         margin-bottom: 30px;
-    
+
     }
 
-    
+
     .students-about  .circles .active-circle{
        background: #3891CC;
        box-shadow: 0 0 6px #3891CC;
-    
+
     }
 
 
@@ -857,8 +869,8 @@
         align-items: center;
         padding: 60px 20px;
         min-height: 270px;
-        
-        
+
+
     }
 
     .donate-section svg{
@@ -898,14 +910,14 @@
         justify-content: center;
         background: #F2F2F2;
         flex-wrap: wrap;
-    
+
     }
 
     .footer-container{
-    
+
         margin: 68px 50px;
         min-width: 200px;
-    
+
     }
 
     .footer-content{
@@ -923,7 +935,7 @@
         font-family: var(--montserrat);
         font-weight: 900;
         font-size: 14px;
-    
+
     }
 
     #footer-title{
@@ -931,7 +943,7 @@
         font-weight: 900;
         font-size: 20px;
         margin-bottom: 25px;
-        
+
     }
 
     .footer-icon{
@@ -947,7 +959,7 @@
         text-align: center;
         width: 180px;
 
-        
+
     }
 
 
@@ -964,8 +976,8 @@
         padding: 0 25px;
         border: none;
         border: 1px solid #E2E2E2;
-        
-        
+
+
     }
 
     .subscribe input::placeholder{
@@ -974,7 +986,7 @@
 
 
     #subscribe-btn{
-        background: var(--dark-blue);    
+        background: var(--dark-blue);
         border-radius: 0 3px 3px 0;
         height: 45px;
         width: 45px;
@@ -1026,7 +1038,7 @@
         }
         .connect-img{
             display: none;
-            
+
         }
 
         .connect-content{
@@ -1059,7 +1071,7 @@
             font-size: 30px;
         }
 
-        
+
         .header .content p{
             font-size: 14px;
         }
@@ -1096,11 +1108,11 @@
         .item p{
             margin-left: 30px;
         }
-    
+
         .collapsible-box{
             top:0;
         }
-    
+
 
         .upcoming-co{
             flex-direction: column;
@@ -1117,8 +1129,8 @@
             margin-left:36px;
         }
 
-        .parallax .content h1{        
-            margin: 50px 90px 24px 0; 
+        .parallax .content h1{
+            margin: 50px 90px 24px 0;
         }
         .parallax .content svg{
             display: none;
@@ -1135,8 +1147,8 @@
             width: 40%;
         }
 
-        
-        
+
+
 
         /*NEWS*/
 
@@ -1159,7 +1171,7 @@
         .news-title{
             margin: 10px 15px;
             align-items: center;
-           
+
         }
 
         .news-date{
@@ -1170,13 +1182,13 @@
             display: inline-block;
         }
         .news-row{
-            height: unset;  
+            height: unset;
             margin-top: unset;
         }
 
         .news-row-item{
            padding: 20px 20px;
-            
+
         }
         .news-title .more-news{
             display: none;
@@ -1196,8 +1208,8 @@
             display: none;
         }
 
-        
-        
+
+
         /* FOOTER */
         .footer{
             flex-direction: column;
@@ -1205,15 +1217,15 @@
         }
 
         .footer-container{
-    
+
             margin: 35px 0;
             min-width: 300px;
-        
+
         }
-        
+
         #copyright{
             flex-direction: column;
-            
+
         }
 
         #copyright p{
@@ -1247,7 +1259,7 @@
             width: 100%;
             top: 0px;
             background: white;
-        
+
         }
 
         .nav-left{margin-left: 25px;}
@@ -1255,11 +1267,11 @@
         .nav-left img{
             height: 30px;
             width: 63px;
-            
+
         }
 
         .nav-mobile{
-            display: flex;    
+            display: flex;
             font-family: var(--montserrat);
             font-size: 16px;
             color: var(--dark-blue);
@@ -1267,16 +1279,10 @@
 
         }
 
-        
+
         #IUC-subtitle{
         font-size: 12px;
-        
+
         }
 
     }
-
-
-
-
-
-
