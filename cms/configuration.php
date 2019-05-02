@@ -1,5 +1,7 @@
 <?php
 
+require 'autoload.php';
+
 //DEFINE DB DATA
 const DB_SERVER = 'localhost';
 const DB_USER_NAME = 'root';

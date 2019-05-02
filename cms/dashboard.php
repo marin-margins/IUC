@@ -1,6 +1,5 @@
 <?php
-
-include "core/class_page_setup.php"; // PLEASE DEFINE THE CORRECT PATH OF THE CLASS
+require "configuration.php"; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
 
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
@@ -12,7 +11,6 @@ $page_setup->build_header("Dashboard"); //BUILD THE HEADER WITH PAGE TITLE PARAM
 
 
 // --------------- REST OF THE PHP CODE  ------------------
-
 
 
 

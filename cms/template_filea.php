@@ -1,7 +1,7 @@
 <?php
 
 
-include_once "core/class_page_setup"; // PLEASE DEFINE THE CORRECT PATH OF THE CLASS
+require "configuration.php"; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
 
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 

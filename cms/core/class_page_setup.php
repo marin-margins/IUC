@@ -8,8 +8,9 @@ class class_page_setup
     function __construct()
     {
 
-        include 'class_db_setup.php';
-        include 'configuration.php';
+
+        include './configuration.php';
+
         $db_class = new class_db_setup();
         $this->db_connection=$db_class->get_db();
 
