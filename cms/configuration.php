@@ -18,7 +18,7 @@ const SMTP_PASSWORD = 'Iucdevtest123';
 const SMTP_PORT=26;
 
 
-const MAIL_ENABLE = true;
+const MAIL_ENABLE = false;
 
 
 
