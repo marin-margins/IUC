@@ -39,7 +39,6 @@ class class_mail_handler
     public function setup_parameters($mail_from, $from_name, $subject, $msg_html, $to_address, $to_name = "", $alt_body = alt_body_default)
     {
 
-
         $this->mail->SetFrom($mail_from, $from_name);
 
         $this->mail->Subject = $subject;
@@ -48,9 +47,10 @@ class class_mail_handler
 
         $this->mail->MsgHTML($msg_html);
 
-        if ($to_naem = "") {
+        if ($to_name = "") {
             $to_name = $to_address;
         }
+
         $this->mail->AddAddress($to_address, $to_name);
 
     }

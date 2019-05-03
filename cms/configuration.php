@@ -17,8 +17,11 @@ const SMTP_USERNAME = 'iuc_dev_test@iuc.hr';
 const SMTP_PASSWORD = 'Iucdevtest123';
 const SMTP_PORT=26;
 
-
 const MAIL_ENABLE = false;
+
+
+
+define("SERVER_ROOT",$_SERVER['php_self']);
 
 
 
