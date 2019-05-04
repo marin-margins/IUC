@@ -35,6 +35,29 @@
           <p>Inter-University Centre Dubrovnik<br><span id="IUC-subtitle">An independent international centre for advanced studies</span></p>
     </div>
 
+    <!-- HEADER -->
+
+    <div class="course header">
+
+        <div class="img"></div>
+        <div class="overlay"></div>
+        <div class="content-wrap">
+            <div class="content">
+                <h2>Crime prevention through criminal and security studies</h2>
+                <h3>New International Perspectives on Hate Crime</h3>
+            </div>
+
+        </div>
+        <div class="circles">
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+        </div>
+
+    </div>
+
+
     <?php
     include('to_include/footer.php')
     ?>
