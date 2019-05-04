@@ -15,6 +15,10 @@
         background: #f2f2f2;
     }
 
+    h3, h4, h5 {
+      color: #FFF;
+    }
+
     .btn{
         color: white;
         background: #3891CC;
@@ -167,6 +171,24 @@
       height: 47vh;
     }
 
+    .course-category {
+      display: flex;
+      margin-left: 2%;
+    }
+
+    .course-category div {
+      background-color: #3891CC;
+      margin-right: 10px;
+      border-radius: 26px;
+    }
+
+    .course-category h4 {
+      margin: 5px 15px;
+      font-family: Montserrat;
+      font-size: 12px;
+      text-align: left;
+    }
+
     .header .img{
         background-image: url('to_include/home-header-placeholder.jpg') ;
         background-repeat: no-repeat;
@@ -203,7 +225,12 @@
     }
 
     .course .content-wrap {
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .course .content-wrap .content {
+      margin-top: 150px;
     }
 
     .content{
@@ -211,7 +238,6 @@
         margin-bottom: 9%;
         display: flex;
         flex-direction: column;
-
         align-items: flex-start;
     }
 
@@ -286,6 +312,65 @@
 
     .header-icons a{
         margin: 8px;
+    }
+
+    /* TIME AND DURATION */
+
+    .lang-duration {
+      display: flex;
+      flex-direction: row;
+      background-color: #3891CC;
+      width: 100%;
+      height: 90px;
+      justify-content: space-between;
+    }
+
+    .lang-start {
+      display: flex;
+      flex-direction: row;
+      margin-left: 54px;
+      margin-top: 29px;
+      margin-bottom: 15px;
+    }
+
+    .lang-end {
+      margin-top: 15px;
+      height: 60px;
+      width: 223px;
+      border: 1px solid #FFF;
+      margin-right: 46px;
+      text-align: center;
+    }
+
+    .lang-end h5 {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .lang-start svg {
+      margin-top: 12px;
+    }
+
+    .dur {
+      margin-left: 15px;
+    }
+
+    .dur h5 {
+      color: #FFF;
+      font-family: Playfair Display;
+    }
+
+    .dur .dur-date {
+      font-family: Montserrat;
+      font-weight: normal;
+    }
+
+    .vertical-divider {
+      margin-left: 20px;
+      margin-right: 20px;
+      border: 0.5px solid #FFF;
+      background-color: #FFF;
+      height: 32px;
     }
 
     /* COLLAPSIBLE BOX */
