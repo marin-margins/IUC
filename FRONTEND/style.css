@@ -163,6 +163,10 @@
         position: relative;
     }
 
+    .course {
+      height: 47vh;
+    }
+
     .header .img{
         background-image: url('to_include/home-header-placeholder.jpg') ;
         background-repeat: no-repeat;
@@ -198,6 +202,10 @@
         padding: 2rem;
     }
 
+    .course .content-wrap {
+      align-items: flex-end;
+    }
+
     .content{
         margin-left: 20%;
         margin-bottom: 9%;
@@ -207,10 +215,26 @@
         align-items: flex-start;
     }
 
+    .course .content {
+        margin-left: 2%;
+        margin-bottom: 3%;
+    }
+
     .blue-line{
         border: 2px solid var(--light-blue);
         width: 120px;
     }
+
+    .course .content h2 {
+      font-size: 30px;
+      font-family: Playfair Display;
+    }
+
+    .course .content h3 {
+      font-size: 20px;
+      font-family: Playfair Display;
+    }
+
     .header .content h1{
         font-size: 70px;
         font-family: var(--playfair);
@@ -234,6 +258,12 @@
         display: flex;
         flex-direction: column;
 
+    }
+
+    .course .circles {
+      left: 61px;
+      top: 90%;
+      flex-direction: row;
     }
 
     .circle{
