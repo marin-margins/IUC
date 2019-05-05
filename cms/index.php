@@ -1,7 +1,7 @@
 <?php
-require "configuration.php"; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
+require_once './configuration.php';//ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
 
-$page_setup = new class_page_setup();
+$page_setup = new class_page_setup(false);
 
 
 
@@ -11,15 +11,44 @@ $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE 
 
 if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
+    $username = $_POST['username'];
+    $password_hash = md5($_POST['password']);
 
-    if ($_POST['username'] == IUC_USERNAME && $_POST['password'] == IUC_PASSWORD) {
 
-        $_SESSION['log_in'] = true;
+    $stmt = $db_instance->prepare('SELECT
+                                                * 
+                                          FROM 
+                                               user 
+                                          WHERE 
+                                                
+                                                `e-mail`=?');
 
-        header("Location: dashboard.php");
-    } else {
-        header("Location: logout.php");
+
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($row = $result->fetch_assoc()){
+
+       $user_pw = $row['password'];
+
+        if (($password_hash== $user_pw)&& $row['active']==1)  {
+
+            $_SESSION['user_id'] = $row['id'];
+
+            header("Location: dashboard.php");
+        } else {
+            header("Location: logout.php");
+        }
+
+    }else{
+       $error ="Wrong E-mail";
     }
+
+
+
+
+
 }
 
 ?>
@@ -52,8 +81,9 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
         <div class="card-body">
             <form method="post">
                 <div class="form-group">
+                    <?php echo $error ?>
                     <div class="form-label-group">
-                        <input type="text" id="inputEmail" class="form-control" placeholder="User Name"
+                        <input type="email" id="inputEmail" class="form-control" placeholder="User Name"
                                required="required" name="username" autofocus="autofocus">
                         <label for="inputEmail">User Name</label>
                     </div>
@@ -68,7 +98,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
                 <input type="submit" value="Login" class="btn btn-primary btn-block" >
             </form>
-
+            <a  class="btn btn-outline-primary btn-block" style="margin-top: 15px" href="forgot_password.php">Forgot Your Password?</a>
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@
 
 include('PHPMailer/class.phpmailer.php');
 include("PHPMailer/class.smtp.php");
-include("./configuration.php");
+include("../configuration.php");
 
 
 class class_mail_handler
@@ -60,7 +60,7 @@ class class_mail_handler
     {
 
         if (MAIL_ENABLE == true) {
-            if (!$this->mail->Send()) {
+            if ($this->mail->Send()) {
                 return 1;
             } else {
                 return 0;

@@ -1,8 +1,8 @@
 <?php
-require "configuration.php"; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
+require_once './configuration.php';//ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
 
 //User session in ['user']
-if($_SESSION['user_id']){
+
     session_start();
     session_unset();
     session_destroy();
@@ -10,5 +10,5 @@ if($_SESSION['user_id']){
     setcookie(session_name(),'',0,'/');
     session_regenerate_id(true);
     header("Location: index.php");
-}
+
 ?>

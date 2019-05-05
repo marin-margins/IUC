@@ -12,16 +12,21 @@ const DB_NAME = 'iuc_db';
 const IUC_USERNAME = 'admin';
 const IUC_PASSWORD = 'admin';
 
+
+
+
 const SMTP_SERVER = 'mail.iuc.hr';
-const SMTP_USERNAME = 'iuc_dev_test@iuc.hr';
-const SMTP_PASSWORD = 'Iucdevtest123';
-const SMTP_PORT=26;
+const SMTP_USERNAME = 'devtest1@iuc.hr';
+const SMTP_PASSWORD = 'Devtest12345';
+const SMTP_PORT=25;
 
-const MAIL_ENABLE = false;
+const MAIL_ENABLE = true;
 
 
 
-define("SERVER_ROOT",$_SERVER['php_self']);
+define("SERVER_ROOT",$_SERVER['HTTP_HOST']);
+define("CMS_PATH",SERVER_ROOT."/IUC/trunk/cms");
+
 
 
 
