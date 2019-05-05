@@ -12,10 +12,6 @@ MySQL - 10.1.37-MariaDB : Database - iuc_db
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`iuc_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `iuc_db`;
-
 /*Table structure for table `city` */
 
 DROP TABLE IF EXISTS `city`;
@@ -252,9 +248,12 @@ CREATE TABLE `img` (
   `dateAdded` date DEFAULT NULL,
   `aktivan` int(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `img` */
+
+insert  into `img`(`id`,`filename`,`size`,`sequence`,`dateAdded`,`aktivan`) values 
+(1,'da',2,1,'2019-05-01',1);
 
 /*Table structure for table `img_gallery` */
 
@@ -424,17 +423,18 @@ CREATE TABLE `user` (
   `name` varchar(60) DEFAULT NULL,
   `surname` varchar(60) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
   `forgot_hash` varchar(250) DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   `forgot_expires` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`e-mail`,`name`,`surname`,`phone`,`password`,`forgot_hash`,`active`,`forgot_expires`) values 
-(1,'tinmodric@yahoo.com','tin','modric','0959105570','password','ea9ac6f0fed310ad0e46b28cbc6f3780',1,'2019-05-03 10:05:40');
+(1,'tinmodric@yahoo.com','tin','modric','0959105570','21232f297a57a5a743894a0e4a801fc3',NULL,1,NULL),
+(2,'admin@admin.com','admin','adminovic','1234567891','21232f297a57a5a743894a0e4a801fc3',NULL,1,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
