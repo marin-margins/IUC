@@ -42,7 +42,7 @@ class html_handler
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                       <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                      <a class="btn btn-primary" href="login.html">Logout</a>
+                      <a class="btn btn-primary" href="logout.php">Logout</a>
                     </div>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ class html_handler
                               <a class="dropdown-item" href="users_setup.php">User Setup</a>
                             
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
                             </div>
                           </li>
                         </ul>
