@@ -91,6 +91,13 @@
 
     .course-navbar {
       height: 60px;
+      position: fixed;
+      z-index: 10;
+      background-color: #FFF;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
     }
 
     .nav-left{
@@ -168,6 +175,7 @@
     }
 
     .course {
+      margin-top: 60px;
       height: 47vh;
     }
 
