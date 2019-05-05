@@ -4,9 +4,7 @@ require_once './configuration.php';//ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLO
 $page_setup = new class_page_setup(false);
 
 
-
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-
 
 
 if (!empty($_POST['username']) && !empty($_POST['password'])) {
@@ -28,11 +26,11 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if($row = $result->fetch_assoc()){
+    if ($row = $result->fetch_assoc()) {
 
-       $user_pw = $row['password'];
+        $user_pw = $row['password'];
 
-        if (($password_hash== $user_pw)&& $row['active']==1)  {
+        if (($password_hash == $user_pw) && $row['active'] == 1) {
 
             $_SESSION['user_id'] = $row['id'];
 
@@ -41,12 +39,9 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
             header("Location: logout.php");
         }
 
-    }else{
-       $error ="Wrong E-mail";
+    } else {
+        $error = "Wrong E-mail";
     }
-
-
-
 
 
 }
@@ -96,9 +91,10 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
                     </div>
                 </div>
 
-                <input type="submit" value="Login" class="btn btn-primary btn-block" >
+                <input type="submit" value="Login" class="btn btn-primary btn-block">
             </form>
-            <a  class="btn btn-outline-primary btn-block" style="margin-top: 15px" href="forgot_password.php">Forgot Your Password?</a>
+            <a class="btn btn-outline-primary btn-block" style="margin-top: 15px" href="forgot_password.php">Forgot Your
+                Password?</a>
         </div>
     </div>
 </div>

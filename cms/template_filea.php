@@ -13,16 +13,9 @@ html_handler::build_header("Page Title"); //BUILD THE HEADER WITH PAGE TITLE PAR
 // --------------- REST OF THE PHP CODE  ------------------
 
 
-
-
-
-
 ?>
 
 <!--- HTML code here--->
-
-
-
 
 
 <!--- Html code ends--->

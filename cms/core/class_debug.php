@@ -9,20 +9,22 @@
 class class_debug
 {
 
-    static function get_time($add_time = ""){
+    static function get_time($add_time = "")
+    {
 
-        if($add_time==""){
+        if ($add_time == "") {
             $date = date('Y-m-d H:i:s');
-        }else{
-            $date = date('Y-m-d H:i:s',strtotime($add_time));
+        } else {
+            $date = date('Y-m-d H:i:s', strtotime($add_time));
         }
 
         return $date;
     }
 
-    static function debug($data){
+    static function debug($data)
+    {
 
-            echo '<pre>'.var_dump($data).'</pre>';
+        echo '<pre>' . var_dump($data) . '</pre>';
 
     }
 }

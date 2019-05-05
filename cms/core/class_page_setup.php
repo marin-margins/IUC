@@ -1,5 +1,6 @@
 <?php
 require_once './configuration.php';
+
 class class_page_setup
 {
     private $user_id;
@@ -9,27 +10,27 @@ class class_page_setup
     {
         session_start();
 
-        if($check_login==true){
+        if ($check_login == true) {
             $this->check_login();
         }
         $db_class = new class_db_setup();
         $this->db_connection = $db_class->get_db();
     }
 
-    public function check_login(){
+    public function check_login()
+    {
 
 
+        if (!empty($_SESSION['user_id'])) {
 
-
-       if(!empty($_SESSION['user_id'])){
-
-           $this->user_id =$_SESSION['user_id'];
-       }else{
-           header("Location: index.php");
-       }
+            $this->user_id = $_SESSION['user_id'];
+        } else {
+            header("Location: index.php");
+        }
     }
 
-    public function get_user_id(){
+    public function get_user_id()
+    {
         return $this->user_id;
     }
 
@@ -37,8 +38,6 @@ class class_page_setup
     {
         return $this->db_connection;
     }
-
-
 
 
 }

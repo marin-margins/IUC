@@ -8,6 +8,6 @@ $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE 
 
 $mail_hand = new class_mail_handler();
 
-$mail_hand->setup_parameters("vazno.wow@gmail.com","Tinsdd","TESTasdasd5","<h3>Nova poruka</h3>","tinmodric@yahoo.com","TINss","ALasO");
+$mail_hand->setup_parameters("prikenze.zenze@gmail.com","Prikenze","Test342","<h3>Prikenze sto se dogada</h3>","tinmodric@yahoo.com","Tin","Bolesno");
 
 echo $mail_hand->send_mail();
