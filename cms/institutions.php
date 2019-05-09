@@ -31,7 +31,13 @@ $query = 'SELECT institute.id AS instId,currency.name AS currencyName,institute.
 $result = $db_instance->query($query);
 $tr_array = array();
 while ($row = $result->fetch_assoc()) {
-//punjenje tablice s rezultatima
+    //provjera je li se member povukao iz sustava, ako jest prikazat ce datum izlaska, ako nije prikazat ce prazan string
+    //mozda se moze stavit default vrijednost null na  ako se ne upise withdrawal pri unosu/izmjeni
+    //$string = $row["memberTo"];
+    //if ($row["memberTo"] == "0000-00-00") {
+    //  $string = '';
+    //}
+    //punjenje tablice s rezultatima
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
@@ -48,7 +54,6 @@ while ($row = $result->fetch_assoc()) {
     <td>' . $row["webAddress"] . '</td>
     <td>' . $row["memberTo"] . '</td>
     </tr>';
-
 }
 //query za listu svih drzava i punjenje option value-a
 $query = 'SELECT name,id FROM country';
@@ -85,7 +90,16 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
         $query = "INSERT INTO institute (name,cityId,address,webAddress,isMember,president,iucRepresentative,financeContact,internationalContact,memberFrom,memberTo,comment) VALUES ('$instName','$cityID','$address','$webAddress','$status','$president','$iucRepresentative','$financeContact','$internationalContact','$memberFrom','$memberTo','$other')";
         $result = $db_instance->query($query);
     }
+
 }
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+//header('Location:institutions.php');
 ?>
 
 <!--- HTML code here--->
