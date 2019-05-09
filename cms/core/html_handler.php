@@ -176,6 +176,18 @@ class html_handler
                               <span>Institutions</span>
                             </a>
                           </li>
+						  <li class="nav-item active">
+                            <a class="nav-link" href="courses.php">
+                              <i class="fas fa-fw fa-tachometer-alt"></i>
+                              <span>Courses</span>
+                            </a>
+                          </li>
+						  <li class="nav-item active">
+                            <a class="nav-link" href="conferences.php">
+                              <i class="fas fa-fw fa-tachometer-alt"></i>
+                              <span>Conferences</span>
+                            </a>
+                          </li>
 
                           <li class="nav-item">
                             <a class="nav-link" href="charts.html">

@@ -7,7 +7,7 @@ $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
-html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
+html_handler::build_header("Conferences"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
 
 // --------------- REST OF THE PHP CODE  ------------------
@@ -16,13 +16,12 @@ $query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystat
 FROM eventt
 JOIN person ON person.id = eventt.id
 JOIN gover_person ON gover_person.personId = person.id
-WHERE gover_person.title = director
+WHERE gover_person.title = organizer
 AND person.academicStatus = lecturer ';
 $result = $db_instance->query($query);
 echo'<div class="card-body">
             <div class="table-responsive">
-			<h1>Courses</h1>
-			<br>
+			<h1>Conferences</h1>
 			<div class="form-group">
 			<h4>Academic year:</h4>
 			<select class="form-control" id="selectCountry" name="academicYear">
@@ -40,7 +39,7 @@ echo'<div class="card-body">
                     <th>From</th>
                     <th>To</th>
                     <th>Status</th>
-                    <th>Directors</th>
+                    <th>Organizers</th>
                     <th>Lecturers</th>
 					<th>Title</th>
                   </tr>
@@ -51,7 +50,7 @@ echo'<div class="card-body">
                     <th>From</th>
                     <th>To</th>
                     <th>Status</th>
-                    <th>Directors</th>
+                    <th>Organizers</th>
                     <th>Lecturers</th>
 					<th>Title</th>
                   </tr>
