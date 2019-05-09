@@ -230,7 +230,8 @@ $(document).ready(function() {
         $("#other").val("");
         //namjestanje buttona
         $('#delete').attr("disabled", true);
-        $('#apply').attr("disabled", true);
+        $('#update').attr("disabled", true);
+        $('#reset').attr("type", "hidden");
         $('#insert').removeAttr('disabled');
         //sakrivena forma se stavlja na prazno
         $("#formInstitutionID").val("");
@@ -297,7 +298,7 @@ $(document).ready(function() {
                     $("#memberTo").val("");
                     $("#other").val("");
                     $('#delete').attr("disabled", true);
-                    $('#apply').attr("disabled", true);
+                    $('#update').attr("disabled", true);
                     //sakrivena forma se stavlja na prazno
                     $("#formInstitutionID").val("");
                 });
