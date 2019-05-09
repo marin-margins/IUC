@@ -34,35 +34,30 @@ $result = $db_instance->query($query);
 $tr_array = array();
 while ($row = $result->fetch_assoc()) {
 //punjenje tablice s rezultatima
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
+    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     $tr_array[] = '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityName="' . $row['cityName'] . '" data-countryName="' . $row['countryName'] . '">
     <td>' . $row["instName"] . '</td>
     <td>' . $row["cityName"] . '</td>
     <td>' . $row["countryName"] . '</td>
     <td>' . checkMemberStatus($row["isMember"]) . '</td>
-    <td>' . $row["suma"] . '</td>
+    <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
     <td>' . $row["webAddress"] . '</td>
     <td>' . $row["memberTo"] . '</td>
     </tr>';
 
 }
 //query za listu svih drzava i punjenje option value-a
-$country = "";
-$string = "";
-$query = 'SELECT name FROM country';
+$query = 'SELECT name,id FROM country';
 $result = $db_instance->query($query);
 $countries_array = array();
 while ($row = $result->fetch_assoc()) {
-    $countries_array[] = '<option value="' . $row["name"] . '"' . $string . '>' . $row["name"] . '</option>';
-}
-
-//query za listu svih gradova i punjenje option value-a
-$city = "";
-$string = "";
-$query = 'SELECT name FROM city';
-$result = $db_instance->query($query);
-$cities_array = array();
-while ($row = $result->fetch_assoc()) {
-    $cities_array[] = '<option value="' . $row["name"] . '"' . $string . '>' . $row["name"] . '</option>';
+    $countries_array[] = '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
 }
 
 //u slucaju pritiska na Apply Changes ili Create new
@@ -96,7 +91,6 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     } else {
         //u slucaju da se pritisnuo create new onda je updateID prazan pa ulazi ovdje i odvija se insert
         $query = "INSERT INTO institute (name,cityId,address,webAddress,isMember,president,iucRepresentative,financeContact,internationalContact,memberFrom,memberTo,comment) VALUES ('$instName','$cityID','$address','$webAddress','$status','$president','$iucRepresentative','$financeContact','$internationalContact','$memberFrom','$memberTo','$other')";
-        var_dump($query);
         $result = $db_instance->query($query);
     }
 }
@@ -158,9 +152,6 @@ echo "$year fee"?></th>
                 <label>City</label>
                 <select class="form-control" id="selectCity" name="selectCity" required>
                     <option value="" selected disabled hidden>Select City</option>
-                    <?php foreach ($cities_array as $city_row) {
-    echo $city_row;
-}?>
                 </select>
                 <label>Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="">
@@ -235,6 +226,22 @@ $(document).ready(function() {
         $('#insert').removeAttr('disabled');
         //sakrivena forma se stavlja na prazno
         $("#formInstitutionID").val("");
+    });
+    //ajax za dinamične select boxove, grad select box ovisi o tom koja ce se drzava izabrati, inace ce bit prazan
+    $('#selectCountry').change(function() {
+        var country_id = $(this).val();
+        $.ajax({
+            url: "institutionsAjax.php",
+            method: "POST",
+            data: {
+                post_inst_id: country_id,
+                action: "getCities"
+            },
+            dataType: "text",
+            success: function(data) {
+                $('#selectCity').html(data);
+            }
+        });
     });
     //ajax za dohvacanje vise informacija o retku nakon klika na bilo gdje u tom retku
     $('.institutionRow').on('click', function() {
