@@ -28,5 +28,4 @@ switch ($action) {
             $cities .= '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';}
         echo $cities;
         break;
-
 }

@@ -3,10 +3,8 @@
 require_once './configuration.php'; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOLOADER WONT WORK WITHOUT IT
 
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
-
-$db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-
 html_handler::build_header("List of institutions"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
+$db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
 //provjerava status od membera i zamjenjuje to u tablici sa odgovarajućim stringom(Y=Member,N=Associate Member)
 function checkMemberStatus($member)
@@ -29,7 +27,7 @@ function revertMemberStatus($member)
 
 }
 //Query za punjenje tablice
-$query = 'SELECT institute.id AS instId,currency.name AS currencyName,institute.name AS instName,city.name AS cityName,country.name AS countryName,SUM(paidAmount) AS suma,webAddress,isMember,memberTo FROM institute JOIN city ON institute.cityId=city.id LEFT JOIN member_payment ON institute.id=instituteId JOIN country ON city.countryId=country.id LEFT JOIN currency ON currency.id=member_payment.currencyId WHERE institute.aktivan=1 GROUP BY institute.id';
+$query = 'SELECT institute.id AS instId,currency.name AS currencyName,institute.name AS instName,city.name AS cityName,city.id AS cityId,country.name AS countryName,country.id AS countryId,SUM(paidAmount) AS suma,webAddress,isMember,memberTo FROM institute JOIN city ON institute.cityId=city.id LEFT JOIN member_payment ON institute.id=instituteId JOIN country ON city.countryId=country.id LEFT JOIN currency ON currency.id=member_payment.currencyId WHERE institute.aktivan=1 GROUP BY institute.id';
 $result = $db_instance->query($query);
 $tr_array = array();
 while ($row = $result->fetch_assoc()) {
@@ -41,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    $tr_array[] = '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityName="' . $row['cityName'] . '" data-countryName="' . $row['countryName'] . '">
+    $tr_array[] = '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
     <td>' . $row["instName"] . '</td>
     <td>' . $row["cityName"] . '</td>
     <td>' . $row["countryName"] . '</td>
@@ -66,8 +64,7 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     var_dump($_POST);
     $updateID = $_POST["update_id"];
     $instName = $_POST['instName'];
-    $countryName = $_POST['selectCountry'];
-    $cityName = $_POST['selectCity'];
+    $cityID = $_POST['selectCity'];
     $status = revertMemberStatus($_POST['selectStatus']);
     $address = $_POST["address"];
     $webAddress = $_POST["webAddress"];
@@ -79,11 +76,6 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     $other = $_POST["other"];
     $internationalContact = $_POST["internationalContact"];
     $_POST = array();
-    //select upit da bi se dobio ID od grada koji je postan
-    $query = "SELECT id FROM city WHERE name='$cityName'";
-    $result = $db_instance->query($query);
-    $row = $result->fetch_assoc();
-    $cityID = $row['id'];
     if (!empty($updateID)) {
         //query za update tog instituta
         $query = "UPDATE institute SET cityId=$cityID,name='$instName',address='$address',webAddress='$webAddress',isMember='$status',president='$president',iucRepresentative='$iucRepresentative',financeContact='$financeContact',internationalContact='$internationalContact',memberFrom='$memberFrom',memberTo='$memberTo',comment='$other' WHERE id='$updateID'";
@@ -245,21 +237,22 @@ $(document).ready(function() {
     });
     //ajax za dohvacanje vise informacija o retku nakon klika na bilo gdje u tom retku
     $('.institutionRow').on('click', function() {
-        var cityName = $(this).data("cityname");
-        var countryName = $(this).data("countryname");
+        var cityId = $(this).data("cityid");
+        var countryId = $(this).data("countryid");
         var instID = $(this).data("instid");
         //stavljanje hidden ID-a u formi na ID selectanog retka koji se kasnije koristi u POSTU na klikom CREATE NEW
         $("#formInstitutionID").val(instID);
         selectedInst = instID;
-        $.post("institutionsAjax.php", {
+        $.post(
+            "institutionsAjax.php", {
                 post_inst_id: instID,
                 action: "getData"
             },
             function(data, status) {
                 var podaci = JSON.parse(data);
                 $("#institutionName").val(podaci.name);
-                $("#selectCountry").val(countryName).change();
-                $("#selectCity").val(cityName).change();
+                $("#selectCountry").val(countryId).change();
+                $("#selectCity").val(cityId).change();
                 $("#address").val(podaci.address);
                 $("#webAddress").val(podaci.webAddress);
                 //ponovno sam napisao jer ne dohvaca funkciju od gore checkMemberStatus()
