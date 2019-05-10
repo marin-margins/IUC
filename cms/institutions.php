@@ -6,20 +6,15 @@ $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
-
-
 $institutions_object = new class_institutions();
 
 $all_institutions = $institutions_object->get_all_institutions();
-
-
 
 //query za listu svih drzava i punjenje option value-a
 
 $all_countries = class_geo::get_all_countries($db_instance);
 
-
-foreach ($all_countries as $row){
+foreach ($all_countries as $row) {
     $countries_array[] = '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
 }
 
@@ -52,13 +47,10 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     }
     header('Location: institutions.php');
 }
-//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
-
 
 html_handler::build_header("List of institutions"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
 html_handler::import_lib("institutions.js");
-
 
 ?>
 
@@ -81,25 +73,29 @@ html_handler::import_lib("institutions.js");
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"><?php $year = date('Y');
-                                    echo "$year fee"?></th>
+echo "$year fee"?></th>
                                 <th scope="col">Web Adress</th>
                                 <th scope="col">Withdrawal</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <?php foreach ($all_institutions as $row){
-                                        echo '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
+                            <?php foreach ($all_institutions as $row) {
+    $string = $row["memberTo"];
+    if ($row["memberTo"] == "0000-00-00") {
+        $string = null;
+    }
+    echo '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
                                         <td>' . $row["instName"] . '</td>
                                         <td>' . $row["cityName"] . '</td>
                                         <td>' . $row["countryName"] . '</td>
                                         <td>' . $institutions_object->checkMemberStatus($row["isMember"]) . '</td>
                                         <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
                                         <td>' . $row["webAddress"] . '</td>
-                                        <td>' . $row["memberTo"] . '</td>
+                                        <td>' . $string . '</td>
                                         </tr>';
-                                    }
-                            ?>
+}
+?>
                         </tbody>
                     </table>
                 </div>
