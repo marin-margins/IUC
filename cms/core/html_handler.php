@@ -3,6 +3,43 @@
 class html_handler
 {
 
+    public static function import_lib($library){
+
+        $userfile_extn_arr = explode(".", strtolower($library));
+        $userfile_extn = $userfile_extn_arr[1];
+
+
+        if($userfile_extn == "js"){
+
+            if(file_exists ( "./js/".$library )){
+                echo " <script src='js/".$library."'></script>";
+            }
+            else{
+                echo "Js file doesnt exist!";
+
+            }
+
+
+        }
+        elseif($userfile_extn=="css"){
+            if(file_exists ( "./css/".$library )){
+            echo " <link href='css/".$library."' rel='stylesheet'>";
+        }else{
+                echo "Css file doesnt exist!";
+
+
+
+            }
+
+
+        }
+
+
+    }
+
+
+
+
     public static function build_footer()
     {
         echo '</div>
@@ -170,21 +207,21 @@ class html_handler
                               <span>Dashboard</span>
                             </a>
                           </li>
-                          <li class="nav-item active">
+                           <li class="nav-item">
                             <a class="nav-link" href="institutions.php">
-                              <i class="fas fa-fw fa-tachometer-alt"></i>
+                              <i class="fas fa-gopuram "></i>
                               <span>Institutions</span>
                             </a>
                           </li>
-						  <li class="nav-item active">
+						  <li class="nav-item">
                             <a class="nav-link" href="courses.php">
-                              <i class="fas fa-fw fa-tachometer-alt"></i>
+                              <i class="fas fa-hand-pointer "></i>
                               <span>Courses</span>
                             </a>
                           </li>
-						  <li class="nav-item active">
+						   <li class="nav-item">
                             <a class="nav-link" href="conferences.php">
-                              <i class="fas fa-fw fa-tachometer-alt"></i>
+                              <i class="fas fa-users"></i>
                               <span>Conferences</span>
                             </a>
                           </li>
