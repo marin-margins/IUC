@@ -6,64 +6,27 @@ $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
-//provjerava status od membera i zamjenjuje to u tablici sa odgovarajućim stringom(Y=Member,N=Associate Member)
-function checkMemberStatus($member)
-{
-    if ($member == 'Y') {
-        return "Member";
-    } else {
-        return "Associate Member";
-    }
 
-}
-//radi obrnuto od checkMemberStatus funkcije koja je opisana poviše
-function revertMemberStatus($member)
-{
-    if ($member == 'Member') {
-        return "Y";
-    } else {
-        return "N";
-    }
 
-}
-//Query za punjenje tablice
-$query = 'SELECT institute.id AS instId,currency.name AS currencyName,institute.name AS instName,city.name AS cityName,city.id AS cityId,country.name AS countryName,country.id AS countryId,SUM(paidAmount) AS suma,webAddress,isMember,memberTo FROM institute JOIN city ON institute.cityId=city.id LEFT JOIN member_payment ON institute.id=instituteId JOIN country ON city.countryId=country.id LEFT JOIN currency ON currency.id=member_payment.currencyId WHERE institute.aktivan=1 GROUP BY institute.id';
-$result = $db_instance->query($query);
-$tr_array = array();
-while ($row = $result->fetch_assoc()) {
-    //provjera je li se member povukao iz sustava, ako jest prikazat ce datum izlaska, ako nije prikazat ce prazan string
-    $string = $row["memberTo"];
-    if ($row["memberTo"] == "0000-00-00") {
-        $string = null;
-    }
-    //punjenje tablice s rezultatima
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
-    $tr_array[] = '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
-    <td>' . $row["instName"] . '</td>
-    <td>' . $row["cityName"] . '</td>
-    <td>' . $row["countryName"] . '</td>
-    <td>' . checkMemberStatus($row["isMember"]) . '</td>
-    <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
-    <td>' . $row["webAddress"] . '</td>
-    <td>' . $string . '</td>
-    </tr>';
-}
+$institutions_object = new class_institutions();
+
+$all_institutions = $institutions_object->get_all_institutions();
+
+
+
 //query za listu svih drzava i punjenje option value-a
-$query = 'SELECT name,id FROM country';
-$result = $db_instance->query($query);
-$countries_array = array();
-while ($row = $result->fetch_assoc()) {
+
+$all_countries = class_geo::get_all_countries($db_instance);
+
+
+foreach ($all_countries as $row){
     $countries_array[] = '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
 }
 
 //u slucaju pritiska na Apply Changes ili Create new
-if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
+//provjera koji fieldovi ne smiju biti prazni IME,DRZAVA,GRAD,STATUS
+if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST["insert_button"]) && !empty($_POST["selectCity"]) && !empty($_POST["selectCountry"]) && !empty($_POST["selectStatus"])) {
+
     $updateID = $_POST["update_id"];
     $instName = $_POST['instName'];
     $cityID = $_POST['selectCity'];
@@ -89,10 +52,13 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     }
     header('Location: institutions.php');
 }
+//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
+
 
 html_handler::build_header("List of institutions"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
 html_handler::import_lib("institutions.js");
+
 
 ?>
 
@@ -115,16 +81,25 @@ html_handler::import_lib("institutions.js");
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"><?php $year = date('Y');
-echo "$year fee"?></th>
+                                    echo "$year fee"?></th>
                                 <th scope="col">Web Adress</th>
                                 <th scope="col">Withdrawal</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <?php foreach ($tr_array as $table_row_item) {
-    echo $table_row_item;
-}?>
+                            <?php foreach ($all_institutions as $row){
+                                        echo '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
+                                        <td>' . $row["instName"] . '</td>
+                                        <td>' . $row["cityName"] . '</td>
+                                        <td>' . $row["countryName"] . '</td>
+                                        <td>' . $institutions_object->checkMemberStatus($row["isMember"]) . '</td>
+                                        <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
+                                        <td>' . $row["webAddress"] . '</td>
+                                        <td>' . $row["memberTo"] . '</td>
+                                        </tr>';
+                                    }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -141,7 +116,7 @@ echo "$year fee"?></th>
                 </div>
                 <label>Institution name</label>
                 <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="" required>
+                <input type="text" class="form-control" id="institutionName" name="instName" value="">
                 <label>Country</label>
                 <select class="form-control" id="selectCountry" name="selectCountry" required>
                     <option value="" selected disabled hidden>Select Country</option>
@@ -179,7 +154,7 @@ echo "$year fee"?></th>
                 <input type="text" class="form-control" id="internationalContact" name="internationalContact" value="">
 
                 <div class="form-group">
-                    Member from <input type="date" id="memberFrom" name="memberFrom" required>
+                    Member from <input type="date" id="memberFrom" name="memberFrom">
                 </div>
                 <div class="form-group">
                     Withdrawal <input type="date" id="memberTo" name="memberTo">
