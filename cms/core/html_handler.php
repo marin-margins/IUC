@@ -206,7 +206,7 @@ class html_handler
                           <li class="nav-item">
                             <a class="nav-link" href="governingBodies.php">
                               <i class="fas fa-gopuram "></i>
-                              <span>Institutions</span>
+                              <span>Governing bodies</span>
                             </a>
                           </li>
 						  <li class="nav-item">
