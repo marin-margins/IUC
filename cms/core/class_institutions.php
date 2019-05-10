@@ -1,20 +1,14 @@
 <?php
 
-
-
 class class_institutions
 {
 
     private $db_conn;
     public function __construct()
     {
-
         $db_class = new class_db_setup();
         $this->db_conn = $db_class->get_db();
-
-
     }
-
 
     //set active to false if u want all institutions not only active ones
 
@@ -42,14 +36,12 @@ class class_institutions
         }
         $query.='  GROUP BY institute.id';
 
-
         $result = $this->db_conn->query($query);
         $inst_array = array();
 
         while ($row = $result->fetch_assoc()) {
 
             $inst_array[] = $row;
-
         }
         return $inst_array;
 

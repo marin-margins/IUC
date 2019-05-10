@@ -21,11 +21,11 @@ switch ($action) {
         print $result;
         break;
     case 'getCities':
-        $query = 'SELECT id,name FROM city WHERE countryId="' . $instID . '"';
-        $result = $db_instance->query($query);
+       $all_cities= class_geo::get_city_by_country_id($db_instance,$instID);
         $cities = '';
-        while ($row = $result->fetch_assoc()) {
+        foreach($all_cities as $row) {
             $cities .= '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';}
+
         print $cities;
         break;
 }
