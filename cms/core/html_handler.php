@@ -3,42 +3,32 @@
 class html_handler
 {
 
-    public static function import_lib($library){
+    public static function import_lib($library)
+    {
 
         $userfile_extn_arr = explode(".", strtolower($library));
         $userfile_extn = $userfile_extn_arr[1];
 
+        if ($userfile_extn == "js") {
 
-        if($userfile_extn == "js"){
-
-            if(file_exists ( "./js/".$library )){
-                echo " <script src='js/".$library."'></script>";
-            }
-            else{
+            if (file_exists("./js/" . $library)) {
+                echo " <script src='js/" . $library . "'></script>";
+            } else {
                 echo "Js file doesnt exist!";
 
             }
 
-
-        }
-        elseif($userfile_extn=="css"){
-            if(file_exists ( "./css/".$library )){
-            echo " <link href='css/".$library."' rel='stylesheet'>";
-        }else{
+        } elseif ($userfile_extn == "css") {
+            if (file_exists("./css/" . $library)) {
+                echo " <link href='css/" . $library . "' rel='stylesheet'>";
+            } else {
                 echo "Css file doesnt exist!";
-
-
 
             }
 
-
         }
 
-
     }
-
-
-
 
     public static function build_footer()
     {
@@ -92,14 +82,14 @@ class html_handler
               <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
               <!-- Page level plugin JavaScript-->
-      
+
               <script src="vendor/datatables/jquery.dataTables.js"></script>
               <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
               <!-- Custom scripts for all pages-->
               <script src="js/sb-admin.min.js"></script>
 
-             
+
 
             </body>
 
@@ -129,7 +119,7 @@ class html_handler
 
                       <!-- Custom styles for this template-->
                       <link href="css/sb-admin.css" rel="stylesheet">
-                      
+
                       <script src="vendor/jquery/jquery.js"></script>
 
                     </head>
@@ -209,6 +199,12 @@ class html_handler
                           </li>
                            <li class="nav-item">
                             <a class="nav-link" href="institutions.php">
+                              <i class="fas fa-gopuram "></i>
+                              <span>Institutions</span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="governingBodies.php">
                               <i class="fas fa-gopuram "></i>
                               <span>Institutions</span>
                             </a>
