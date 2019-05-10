@@ -32,11 +32,10 @@ $result = $db_instance->query($query);
 $tr_array = array();
 while ($row = $result->fetch_assoc()) {
     //provjera je li se member povukao iz sustava, ako jest prikazat ce datum izlaska, ako nije prikazat ce prazan string
-    //mozda se moze stavit default vrijednost null na  ako se ne upise withdrawal pri unosu/izmjeni
-    //$string = $row["memberTo"];
-    //if ($row["memberTo"] == "0000-00-00") {
-    //  $string = '';
-    //}
+    $string = $row["memberTo"];
+    if ($row["memberTo"] == "0000-00-00") {
+        $string = null;
+    }
     //punjenje tablice s rezultatima
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
     //ukupnu valutu ce samo dobro izracunati ako ta institucija placa uvijek u istoj valuti, ako ne placa sigurno nece, a nisam siguran koja će valuta biti prikazana, ja mislim prva koju nađe
@@ -52,7 +51,7 @@ while ($row = $result->fetch_assoc()) {
     <td>' . checkMemberStatus($row["isMember"]) . '</td>
     <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
     <td>' . $row["webAddress"] . '</td>
-    <td>' . $row["memberTo"] . '</td>
+    <td>' . $string . '</td>
     </tr>';
 }
 //query za listu svih drzava i punjenje option value-a
@@ -64,9 +63,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 //u slucaju pritiska na Apply Changes ili Create new
-//provjera koji fieldovi ne smiju biti prazni IME,DRZAVA,GRAD,STATUS
-if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST["insert_button"]) && !empty($_POST["selectCity"]) && !empty($_POST["selectCountry"]) && !empty($_POST["selectStatus"])) {
-
+if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $updateID = $_POST["update_id"];
     $instName = $_POST['instName'];
     $cityID = $_POST['selectCity'];
@@ -92,13 +89,10 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     }
     header('Location: institutions.php');
 }
-//stalno mi posta poslije svakog refresha, jer se POST ne prazni, i ne pokazuje novi data nego tek nakon refresha
-
 
 html_handler::build_header("List of institutions"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
 html_handler::import_lib("institutions.js");
-
 
 ?>
 
@@ -121,7 +115,7 @@ html_handler::import_lib("institutions.js");
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"><?php $year = date('Y');
-                                    echo "$year fee"?></th>
+echo "$year fee"?></th>
                                 <th scope="col">Web Adress</th>
                                 <th scope="col">Withdrawal</th>
                             </tr>
@@ -129,8 +123,8 @@ html_handler::import_lib("institutions.js");
 
                         <tbody>
                             <?php foreach ($tr_array as $table_row_item) {
-                                echo $table_row_item;
-                            }?>
+    echo $table_row_item;
+}?>
                         </tbody>
                     </table>
                 </div>
@@ -147,7 +141,7 @@ html_handler::import_lib("institutions.js");
                 </div>
                 <label>Institution name</label>
                 <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="" required>
                 <label>Country</label>
                 <select class="form-control" id="selectCountry" name="selectCountry" required>
                     <option value="" selected disabled hidden>Select Country</option>
@@ -185,7 +179,7 @@ html_handler::import_lib("institutions.js");
                 <input type="text" class="form-control" id="internationalContact" name="internationalContact" value="">
 
                 <div class="form-group">
-                    Member from <input type="date" id="memberFrom" name="memberFrom">
+                    Member from <input type="date" id="memberFrom" name="memberFrom" required>
                 </div>
                 <div class="form-group">
                     Withdrawal <input type="date" id="memberTo" name="memberTo">
