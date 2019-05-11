@@ -7,7 +7,7 @@
 
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/IUC/trunk/FRONTEND/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
 
@@ -17,7 +17,7 @@
     <!-- NAVBAR -->
     <div class="navbar course-navbar">
         <div class="nav-left">
-          <img src="to_include/logo-header.png" style="width: 45px; height: 21px; margin-top: 5px" alt="IUC International University Centre Dubrovnik Logo">
+          <img src="../to_include/logo-header.png" style="width: 45px; height: 21px; margin-top: 5px" alt="IUC International University Centre Dubrovnik Logo">
           <p>Inter-University Centre <span>Dubrovnik</span></p>
         </div>
 
@@ -87,7 +87,7 @@
 
 
     <?php
-    include('to_include/footer.php')
+    include('../to_include/footer.php');
     ?>
 </body>
 </html>
