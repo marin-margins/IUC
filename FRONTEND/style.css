@@ -79,6 +79,18 @@
 
     }
 
+    
+    #donate-btn:hover{
+        background: white;
+        color: var(--light-blue) !important;
+        
+    }
+
+    
+    #donate-btn:hover svg .adb{
+        fill: var(--light-blue);
+    }
+
     #donate-btn svg{
         margin-left: 8px;
     }
@@ -166,6 +178,60 @@
       top: 10px;
     }
 
+    
+    #search:hover + svg .asrt,   #search:hover + svg .csrt {
+        stroke: var(--light-blue) !important;
+      
+    }
+
+    #search:focus + svg .asrt,   #search:focus + svg .csrt, #search:focus {
+        stroke: var(--light-blue) !important;
+        border-color: var(--light-blue);
+    }
+
+    .nav-right:hover svg .as{
+        stroke: var(--light-blue);
+    }
+
+    .btn:hover{
+        background: var(--dark-blue);
+    }
+
+
+     /* HAMBURGER */
+     #hamburger{
+        background: url("to_include/connect-background.jpg");
+        background-position: left;
+        background-size: cover;
+        height: 100vh;
+        width:100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    #hamburger .modal-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( 90deg, rgba(1, 7, 39, 1) 48%, rgba(1, 7, 39, 0.85));
+    }
+
+    #hamburger .modal-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 15;
+    }
+
+    .nav-right a svg:focus .hamburger{
+        display: flex;
+    }
 
     /* HEADER */
     .header{
@@ -461,6 +527,11 @@
 
     .item svg{
         margin-right: 20px;
+    }
+
+      
+    .row-item:hover{
+        color: var(--light-blue);
     }
 
 
@@ -852,7 +923,13 @@
         margin-left: 20px;
     }
 
+    .news-row-item:hover{
+        color: var(--light-blue);
+    }
 
+    .main-new-desc:hover{
+        color: var(--light-blue);
+    }
     /* IUC JOURNAL*/
 
     .journal{
@@ -1085,7 +1162,9 @@
 
     }
 
-
+    .footer-content a:hover svg .af, .footer-content a:hover svg .ai{
+        fill: var(--light-blue);
+    }
     .subscribe{
         width: 100%;
         display: flex;
@@ -1331,7 +1410,9 @@
             display: none;
         }
 
-
+        .news-title .more-news:hover{
+            color: var(--light-blue) !important;
+        }
 
         /* FOOTER */
         .footer{
