@@ -1386,10 +1386,16 @@
         .news-row{
             height: unset;
             margin-top: unset;
+
+        }
+
+        .news-row:first-child{
+            margin-top: 45px !important;
         }
 
         .news-row-item{
            padding: 20px 20px;
+           height: unset;
 
         }
         .news-title .more-news{
