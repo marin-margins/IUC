@@ -172,13 +172,14 @@
         <h1>Upcoming</h1>
 
         <div class="upcoming-co">
-            
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
-             Courses     
-             
-            
+         <div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.acs{fill:#3891cc;}.bcs{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bcs" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="acs" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
+            <p>Courses </p>   
+         </div>   
+         <div>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26"><defs><style>.aco{fill:#202948;}.bco{filter:url(#a);}</style><filter id="a" x="0" y="0" width="26" height="26" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#010727"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g class="bco" transform="matrix(1, 0, 0, 1, 0, 0)"><circle class="aco" cx="4" cy="4" r="4" transform="translate(9 9)"/></g></svg>
-            Conferences
+           <p> Conferences</p>
+        </div>
             
         </div>
         </div>

@@ -564,6 +564,10 @@
     .upcoming-co{
         display: flex;
         flex-direction: row;
+    }
+    .upcoming-co div{
+        display: flex;
+        flex-direction: row;
         align-items: center;
         font-family: var(--montserrat);
         font-size: 13px;
@@ -813,7 +817,7 @@
         display: flex;
         flex-direction: row;
         margin-top:50px;
-        height: 40%;
+       
     }
 
     .main-news img{
@@ -829,6 +833,7 @@
         margin-left: 30px;
         border-bottom: 1px solid #ccc;
         padding-bottom:20px;
+        width:50%;
     }
 
     .news-date{
@@ -890,7 +895,7 @@
     .news-row{
         display: flex;
         flex-direction: row;
-        margin-top: 40px;
+        margin-top: 25px;
         height: 75px;
         justify-content: space-between;
         width: 100%;
@@ -1315,12 +1320,24 @@
             top:0;
         }
 
+        .upcoming{
+            padding: 0px 20px;
+            margin-top:20px;
+        }
 
         .upcoming-co{
             flex-direction: column;
             justify-content: flex-start;
         }
+        .upcoming-co div{
+            display: flex;
+            flex-direction: row;
+        }
 
+        .upcoming-co div svg:nth-child(1){
+            color: var(--dark-blue);
+            
+        }
         .parallax{
             max-height:650px;
         }
@@ -1355,12 +1372,16 @@
         /*NEWS*/
 
         .container-news{
-            margin-bottom: 200px;
+            padding:20px;
         }
 
 
         .main-new-desc{
             flex-direction: column;
+            width:unset;
+            margin-top: 20px;
+            padding: unset !important;
+            margin:unset;
         }
 
         .main-new-desc .desc{
@@ -1368,18 +1389,39 @@
         }
         .main-news{
             flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .main-news img{
+            padding: unset;
+            margin:0px 0px 15px 0px;
+            width:100%;
+        }
+
+        .main-new-desc a{
+            padding-bottom:15px;
         }
 
         .news-title{
             margin: 10px 15px;
             align-items: center;
+            padding: 0px 0px 20px 0px;
+            margin:unset;
 
         }
 
         .news-date{
             display: inline-block;
+            margin-bottom:5px;
         }
 
+        .main-new-desc p{
+            margin-top: 0px;
+        }
+
+        .desc-title{
+            margin-bottom: 5px;
+        }
         .news-date .month{
             display: inline-block;
         }
@@ -1394,8 +1436,10 @@
         }
 
         .news-row-item{
-           padding: 20px 20px;
+           padding: 15px 0px;
            height: unset;
+           flex: unset;
+           width: unset;
 
         }
         .news-title .more-news{
@@ -1407,10 +1451,7 @@
 
         }
 
-        .main-news img{
-            width: 90%;
-            margin: auto;
-        }
+      
 
         .news-row-item img{
             display: none;
