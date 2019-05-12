@@ -17,7 +17,7 @@
     <!-- NAVBAR -->
     <div class="navbar course-navbar">
         <div class="nav-left">
-          <img src="../to_include/logo-header.png" style="width: 45px; height: 21px; margin-top: 5px" alt="IUC International University Centre Dubrovnik Logo">
+          <img src="../to_include/logo-header.png" style="width: 45px; height: 21px; " alt="IUC International University Centre Dubrovnik Logo">
           <p>Inter-University Centre <span>Dubrovnik</span></p>
         </div>
 

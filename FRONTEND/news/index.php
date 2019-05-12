@@ -1,4 +1,4 @@
-<?php var_dump($_SERVER)?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,7 @@
     <!-- NAVBAR -->
     <div class="navbar course-navbar">
         <div class="nav-left">
-          <img src="../to_include/logo-header.png" style="width: 45px; height: 21px; margin-top: 5px" alt="IUC International University Centre Dubrovnik Logo">
+          <img src="../to_include/logo-header.png" style="width: 45px; height: 21px;" alt="IUC International University Centre Dubrovnik Logo">
           <p>Inter-University Centre <span>Dubrovnik</span></p>
         </div>
 
@@ -44,10 +44,100 @@
     <div class="nav-mobile">
           <p>Inter-University Centre Dubrovnik<br><span id="IUC-subtitle">An independent international centre for advanced studies</span></p>
     </div>
-
+    
 
     <!-- HEADER -->
+    <div class="news-header">
+        <div class="news-overlay">
+            
+        </div>
+        <h1>News</h1>
+    </div>
 
+    <!--ALL NEWS -->
+    <div class="news-container">
+        <div class="switch-news">
+            <p>switch view</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><defs><style>.adet{fill:#696b74;}</style></defs><rect class="adet" width="3" height="3"/><rect class="adet" width="3" height="3" transform="translate(0 4)"/><rect class="adet" width="3" height="3" transform="translate(0 8)"/><rect class="adet" width="6" height="1" transform="translate(5 1)"/><rect class="adet" width="6" height="1" transform="translate(5 5)"/><rect class="adet" width="6" height="1" transform="translate(5 9)"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><defs><style>.alist{fill:#696b74;}</style></defs><rect class="alist" width="5" height="5"/><rect class="alist" width="5" height="5" transform="translate(6)"/><rect class="alist" width="5" height="5" transform="translate(0 6)"/><rect class="alist" width="5" height="5" transform="translate(6 6)"/></svg>
+        </div>
+        <div class="news-detailed">
+            <div class="news-date">
+                <h1 class="day">23</h1>
+                <div class="month">01/19</div>
+            </div>
+          
+          
+          <div class="desc">
+                        <div class="desc-title">Sed ut perspiciatis unde omnis iste natus error sit voluptate</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+          </div>
+          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+    </div>
+
+    <div class="news-detailed">
+            <div class="news-date">
+                <h1 class="day">23</h1>
+                <div class="month">01/19</div>
+            </div>
+          
+          
+          <div class="desc">
+                        <div class="desc-title">Duis aute irure dolor in reprehenderit in voluptate velit</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+          </div>
+          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+    </div>
+
+    <div class="news-detailed">
+            <div class="news-date">
+                <h1 class="day">23</h1>
+                <div class="month">01/19</div>
+            </div>
+          
+          
+          <div class="desc">
+                        <div class="desc-title">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+          </div>
+          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+    </div>
+
+    <div class="news-detailed">
+            <div class="news-date">
+                <h1 class="day">23</h1>
+                <div class="month">01/19</div>
+            </div>
+          
+          
+          <div class="desc">
+                        <div class="desc-title">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+          </div>
+          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+    </div>
+
+    <div class="news-detailed">
+            <div class="news-date">
+                <h1 class="day">23</h1>
+                <div class="month">01/19</div>
+            </div>
+          
+          
+          <div class="desc">
+                        <div class="desc-title">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
+          </div>
+          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+    </div>
+
+    <a class="load-news">LOAD MORE</a>
+    </div>
     
     <?php
     include('../to_include/footer.php')

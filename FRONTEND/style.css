@@ -102,7 +102,7 @@ h3, h4, h5 {
 }
 
 .course-navbar {
-  height: 60px;
+  height: 75px;
   position: fixed;
   z-index: 10;
   background-color: #FFF;
@@ -110,7 +110,8 @@ h3, h4, h5 {
   left: 0;
   bottom: 0;
   right: 0;
-  border-bottom: 3px solid var(--light-blue) !important;
+  border-bottom: 4px solid var(--light-blue) !important;
+  
 }
 
 .nav-left{
@@ -118,6 +119,7 @@ h3, h4, h5 {
     flex-direction: row;
     width:60%;
     margin: 14px 40px;
+    align-items: center;
 
 }
 
@@ -176,7 +178,7 @@ h3, h4, h5 {
 }
 
 .course-search-icon {
-  top: 10px;
+  top: 13px;
 }
 
 
@@ -198,7 +200,124 @@ h3, h4, h5 {
     background: var(--dark-blue);
 }
 
+/*NEWS-SUBPAGE*/
+.news-header{
+    width:100%;
+    height: 144px;
+    background: url("/IUC/trunk/FRONTEND/to_include/news-header.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+}
 
+.news-overlay{
+    background-image: linear-gradient(#010727, #010727);
+    opacity:0.6;
+    height: inherit;
+}
+
+.news-header h1{
+    color: white;
+    position: absolute;
+    top: 65px;
+    z-index: 10;
+    margin-left:50px;
+    font-family: var(--playfair);
+    font-size:30px;
+    font-weight: bold;
+}
+
+.news-container{
+    display:flex;
+    flex-direction: column;
+    max-width: 950px;
+    margin:50px auto;
+     
+}
+
+.switch-news{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width:100%;
+    margin-right:100px;
+    font-family: var(--montserrat);
+    font-weight: 500;
+    font-size: 12px;
+
+}
+
+.switch-news svg{
+    margin-left:18px;
+    
+}
+
+.news-detailed{
+    display: flex;
+    flex-direction: row;
+    margin: 30px 0;
+    justify-content: space-between;
+}
+
+.news-detailed img{
+    max-width: 450px;
+    max-height:270px;
+    border-radius: 5px;
+}
+
+.news-detailed .desc{
+    max-width: 400px;
+    display: flex;
+    align-content: space-between;
+    border-bottom: 1px solid #E2E2E2;
+}
+.news-detailed .desc .desc-title{
+    font-family: var(--playfair);
+    font-size:20px;
+    font-weight: 800;
+    line-height: 30px;
+    
+}
+
+.news-detailed .desc p{
+    font-family: var(--montserrat);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top:18px;
+}
+
+.news-detailed .desc a{
+    font-family: var(--playfair);
+    font-size: 13px;
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--dark-blue);
+    padding:18px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.load-news{
+    width: 91%;
+    background: var(--light-blue);
+    color: white;
+    font-family: var(--playfair);
+    font-weight: 800;
+    font-size:13px;
+    height: 60px;
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px  rgba(0,0,0,0.16);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-top:40px;
+    }
+}
  /* HAMBURGER */
  #hamburger{
     background: url("to_include/connect-background.jpg");
