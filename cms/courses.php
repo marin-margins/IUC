@@ -12,6 +12,8 @@ html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAME
 
 // --------------- REST OF THE PHP CODE  ------------------
 //dohvat za u tablicu, provjerit jeli ovo moze ovako
+//refresh bezveze, ako treba pisat funkciju, napisa cu
+//filter rucno ubacen
 $query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(gover_person.title),SUM(preson.academicStatus),eventt.title 
 FROM eventt
 JOIN person ON person.id = eventt.id
@@ -31,7 +33,7 @@ echo'<div class="card-body">
 			  <option value="2017">2016/2017</option>
 			</select>
 			<br>
-			<button type="button" class="btn btn-primary">Reload list</button>
+			<a href="courses.php"><button type="button" class="btn btn-primary">Reload list</button></a>
 			</div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
