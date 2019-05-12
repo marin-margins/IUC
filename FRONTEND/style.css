@@ -1270,9 +1270,9 @@
             height: 80vh;
         }
 
-    .header-icons{
-        display: none;
-    }
+        .header-icons{
+            display: none;
+        }
 
         .header .content h1{
             font-size: 30px;
@@ -1367,12 +1367,11 @@
         }
 
 
-
-
         /*NEWS*/
 
         .container-news{
-            padding:20px;
+            padding-left:20px !important;
+            margin:unset;
         }
 
 
@@ -1533,7 +1532,6 @@
 
         #IUC-subtitle{
         font-size: 12px;
-
         }
 
     }
