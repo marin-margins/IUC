@@ -7,7 +7,7 @@
     
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="style2.css?ts=<?=time()?>"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
     
     
