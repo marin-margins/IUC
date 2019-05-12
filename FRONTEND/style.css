@@ -885,7 +885,7 @@
         font-weight: 900;
         text-decoration: none;
         color: var(--dark-blue);
-        margin-top: 35px;
+        padding-top: 30px;
         display: flex;
          justify-content: space-between;
     }
