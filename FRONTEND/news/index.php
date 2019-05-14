@@ -55,7 +55,7 @@
     <div class="news-container">
         <div class="switch-news">
             <p>switch view</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><defs><style>.adet{fill:#696b74;}</style></defs><rect class="adet" width="3" height="3"/><rect class="adet" width="3" height="3" transform="translate(0 4)"/><rect class="adet" width="3" height="3" transform="translate(0 8)"/><rect class="adet" width="6" height="1" transform="translate(5 1)"/><rect class="adet" width="6" height="1" transform="translate(5 5)"/><rect class="adet" width="6" height="1" transform="translate(5 9)"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><defs><style>.adet{fill:#696b74;}</style></defs><rect class="adet active"" width="3" height="3"/><rect class="adet" width="3" height="3" transform="translate(0 4)"/><rect class="adet" width="3" height="3" transform="translate(0 8)"/><rect class="adet" width="6" height="1" transform="translate(5 1)"/><rect class="adet" width="6" height="1" transform="translate(5 5)"/><rect class="adet" width="6" height="1" transform="translate(5 9)"/></svg>
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><defs><style>.alist{fill:#696b74;}</style></defs><rect class="alist" width="5" height="5"/><rect class="alist" width="5" height="5" transform="translate(6)"/><rect class="alist" width="5" height="5" transform="translate(0 6)"/><rect class="alist" width="5" height="5" transform="translate(6 6)"/></svg>
         </div>
         <div class="news-detailed">

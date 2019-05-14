@@ -258,8 +258,13 @@ h3, h4, h5 {
     
 }
 
+.switch-news svg .adet{
+    fill: var(--light-blue);    
+}
+
+
 .switch-news  svg:hover .adet, .switch-news svg:hover .alist{
-    fill: var(--light-blue);
+    fill: rgba(0,0,0,0.16);
 }
 .news-detailed{
     display: flex;
@@ -311,7 +316,7 @@ h3, h4, h5 {
 }
 
 .load-news{
-    width: 91%;
+    width: 890px;
     background: var(--light-blue);
     color: white;
     font-family: var(--playfair);
@@ -1337,6 +1342,10 @@ padding: 1.5rem 0rem;
     font-weight: 900;
     font-size: 20px;
 
+}
+
+#subscribe-btn:hover {
+    background: var(--light-blue);
 }
 
 #copyright{
