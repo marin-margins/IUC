@@ -258,6 +258,9 @@ h3, h4, h5 {
     
 }
 
+.switch-news  svg:hover .adet, .switch-news svg:hover .alist{
+    fill: var(--light-blue);
+}
 .news-detailed{
     display: flex;
     flex-direction: row;
@@ -285,6 +288,9 @@ h3, h4, h5 {
     
 }
 
+.news-detailed:hover{
+    color: var(--light-blue);
+}
 .news-detailed .desc p{
     font-family: var(--montserrat);
     font-size: 14px;
@@ -321,6 +327,9 @@ h3, h4, h5 {
     align-self: flex-end;
     margin-top:40px;
     }
+
+.load-news:hover{
+    background: var(--dark-blue);
 }
  /* HAMBURGER */
  #hamburger{
