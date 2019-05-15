@@ -315,6 +315,11 @@ h3, h4, h5 {
     justify-content: space-between;
 }
 
+.news-container .news-row{
+    margin-top:20px;
+    display: none;
+}
+
 .load-news{
     width: 890px;
     background: var(--light-blue);
@@ -1536,6 +1541,7 @@ padding: 1.5rem 0rem;
         .load-news{
             padding: 20px;
             align-self: center;
+            max-width: 320px;
         }
         /*NEWS*/
 

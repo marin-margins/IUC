@@ -127,21 +127,78 @@
     </div>
 
     <div class="news-detailed">
-    <div class="news-flex-wrap">
+        <div class="news-flex-wrap">
             <div class="news-date">
                 <h1 class="day">23</h1>
                 <div class="month">01/19</div>
             </div>
-          
-          
+                    
           <div class="desc">
                         <div class="desc-title">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <a href="">READ MORE <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anx{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="anx" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg> </a>
           </div>
-          </div>
-          <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
+         </div>
+        <img src="/IUC/trunk/FRONTEND/to_include/home-header-placeholder.jpg" alt="">
     </div>
+
+
+    
+    <div class="news-row">
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="/IUC/trunk/FRONTEND/to_include/governing_bodies/WiegerBakker.jpg" alt="">
+                    <div class="title">
+                      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.
+                    </div>
+                </div>
+
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="/IUC/trunk/FRONTEND/to_include/governing_bodies/Hloušek.jpg" alt="">
+                    <div class="title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+
+                    </div>
+                </div>
+            
+
+            </div>
+            
+            <div class="news-row">
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="/IUC/trunk/FRONTEND/to_include/governing_bodies/Drenkhahn.jpg" alt="">
+                    <div class="title">
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam.
+                    </div>
+                </div>
+
+                <div class="news-row-item">
+                    <div class="news-date">
+                        <h1 class="day">16</h1>
+                        <div class="month">01/19</div>
+                    </div>
+                    <img src="/IUC/trunk/FRONTEND/to_include/governing_bodies/Snjezana.jpg" alt="">
+                    <div class="title">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                </div>
+
+            </div> 
+        </div>
+    
+    
+    
 
     <a class="load-news">LOAD MORE</a>
     </div>
