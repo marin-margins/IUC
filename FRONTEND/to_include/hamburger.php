@@ -13,7 +13,7 @@
                 <div class="nav-right">
                     <input type="search" placeholder="search" name="" id="search">
                     <svg class="search-icon course-search-icon" xmlns="http://www.w3.org/2000/svg" width="15.207" height="15.207" viewBox="0 0 15.207 15.207"><defs><style>.asrt,.csrt{fill:none;}.asrt{stroke:#8b8b8b;stroke-width:2px;}.bsrt{stroke:none;}</style></defs><g class="asrt"><circle class="bsrt" cx="6.5" cy="6.5" r="6.5"/><circle class="csrt" cx="6.5" cy="6.5" r="5.5"/></g><line class="asrt" x2="4" y2="4" transform="translate(10.5 10.5)"/></svg>
-                    <div class="xer">
+                    <div class="xer" onclick="closeHamb()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12.728" height="12.73" viewBox="0 0 12.728 12.73"><defs><style>.aclose{fill:none;stroke:#fff;stroke-width:2px;}</style></defs><g transform="translate(-1874.637 -44.635)"><line class="aclose" x2="16" transform="translate(1875.344 45.344) rotate(45)"/><line class="aclose" x2="16" transform="translate(1875.344 56.656) rotate(-45)"/></g></svg>
                     </div>
                 </div>
@@ -60,26 +60,18 @@
     </div>
      
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-  
-
-
-
-
+</div>
 </div>
 
+<script>
+
+    let hamb =  document.getElementById("hamburger");
+    function openHamb(){       
+        hamb.style.cssText ="display:flex;";     
+    };
+
+    function closeHamb(){
+        hamb.style.display ="none";
+        
+    }
+</script>

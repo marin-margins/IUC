@@ -35,12 +35,10 @@
             
             <input type="search" placeholder="search" name="" id="search">
             <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="15.207" height="15.207" viewBox="0 0 15.207 15.207"><defs><style>.asrt,.csrt{fill:none;}.asrt{stroke:#8b8b8b;stroke-width:2px;}.bsrt{stroke:none;}</style></defs><g class="asrt"><circle class="bsrt" cx="6.5" cy="6.5" r="6.5"/><circle class="csrt" cx="6.5" cy="6.5" r="5.5"/></g><line class="asrt" x2="4" y2="4" transform="translate(10.5 10.5)"/></svg>
-            <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18"><defs><style>.as{fill:none;stroke:#010727;stroke-width:2px;}</style></defs><g transform="translate(0 1)"><line class="as" x2="16"/><line class="as" x2="16" transform="translate(0 8)"/><line class="as" x2="16" transform="translate(0 16)"/></g></svg></a>
+            <a onclick="openHamb()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18"><defs><style>.as{fill:none;stroke:#010727;stroke-width:2px;}</style></defs><g transform="translate(0 1)"><line class="as" x2="16"/><line class="as" x2="16" transform="translate(0 8)"/><line class="as" x2="16" transform="translate(0 16)"/></g></svg></a>
         </div>
 
-        <?php
-            include('to_include/hamburger.php');
-        ?>
+       
         
     </div>
 
@@ -77,6 +75,9 @@
 
     </div>
 
+    <?php
+        include("to_include/hamburger.php");
+    ?>
     <div class="collapsible-box">
         <div class="collapsible ">
             <div class="title">EXPLORE OUR COURSES & CONFERENCES <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.ane{fill:none;stroke:#010727;stroke-width:3px;}</style></defs><path class="ane" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg></div>
