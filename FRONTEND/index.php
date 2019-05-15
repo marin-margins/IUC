@@ -38,6 +38,9 @@
             <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18"><defs><style>.as{fill:none;stroke:#010727;stroke-width:2px;}</style></defs><g transform="translate(0 1)"><line class="as" x2="16"/><line class="as" x2="16" transform="translate(0 8)"/><line class="as" x2="16" transform="translate(0 16)"/></g></svg></a>
         </div>
 
+        <?php
+            include('to_include/hamburger.php');
+        ?>
         
     </div>
 
