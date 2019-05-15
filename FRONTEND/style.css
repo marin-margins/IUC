@@ -376,6 +376,11 @@ h3, h4, h5 {
     flex-direction: column;
 }
 
+
+.xer:hover svg .aclose{
+    stroke: var(--light-blue);
+}
+
 .hamburger-navbar {
     height: 75px;
     position: fixed;
@@ -417,11 +422,8 @@ h3, h4, h5 {
 
 .content-list{
     display: flex;
-    flex-direction: column;
-   
-    overflow-y: auto;
-    
-   
+    flex-direction: column;   
+    overflow-y: auto;   
 }
 .active-content{
     color: var(--light-blue) !important;
