@@ -72,8 +72,6 @@ html_handler::import_lib("institutions.js");
                                 <th scope="col">City</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
-                                <th scope="col"><?php $year = date('Y');
-echo "$year fee"?></th>
                                 <th scope="col">Web Adress</th>
                                 <th scope="col">Withdrawal</th>
                             </tr>
@@ -81,6 +79,7 @@ echo "$year fee"?></th>
 
                         <tbody>
                             <?php foreach ($all_institutions as $row) {
+
     $string = $row["memberTo"];
     if ($row["memberTo"] == "0000-00-00") {
         $string = null;
@@ -90,7 +89,6 @@ echo "$year fee"?></th>
                                         <td>' . $row["cityName"] . '</td>
                                         <td>' . $row["countryName"] . '</td>
                                         <td>' . $institutions_object->checkMemberStatus($row["isMember"]) . '</td>
-                                        <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
                                         <td>' . $row["webAddress"] . '</td>
                                         <td>' . $string . '</td>
                                         </tr>';

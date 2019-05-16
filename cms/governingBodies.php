@@ -5,9 +5,19 @@ require_once './configuration.php'; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOL
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-
-//Query za punjenje tablice
-$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,institute.address AS instAddress,name  FROM person JOIN govern_person ON id=personId JOIN institute ON instituteId=institute.id WHERE person.aktivan=1';
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//ostalo delete slike i insert slike
+//Query za punjenje tablice ///instituteName dodat kad bozo doda
+$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,address FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
 $result = $db_instance->query($query);
 $tr_array = array();
 if (count($result) <= 0) {
@@ -25,18 +35,10 @@ if (count($result) <= 0) {
     <td>' . $row["title"] . '</td>
     <td>' . $row["academicStatus"] . " " . $row["firstname"] . " " . $row["lastname"] . '</td>
     <td>' . $row["name"] . '</td>
-    <td>' . $row["instAddress"] . '</td>
+    <td>' . $row["address"] . '</td>
     </tr>';
     }
 }
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
-//nije do kraja dok ne skontamo kako cemo rjesit problem s institucijom, jedino kako moze je preko dropboxa da se mogu samo vec postojani oznacit, al treba njih pitat
 
 //u slucaju pritiska na Apply Changes ili Create new
 if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
@@ -50,8 +52,6 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $instName = $_POST["instName"];
     $address = $_POST["address"];
     $status = $_POST["selectStatus"];
-    $instName2 = $_POST["instName2"];
-    $address2 = $_POST["address2"];
     $telephone = $_POST["telephone"];
     $fax = $_POST["fax"];
     $email = $_POST["email"];
@@ -63,19 +63,19 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $_POST = array();
     if (!empty($updateID)) {
         //query za update oznacenog covjeka i za institut
-        $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress' WHERE id='$updateID'";
+        $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress',address='$address',instituteName='$instName' WHERE id='$updateID'";
         $result = $db_instance->query($query);
         $query = "UPDATE govern_person SET title='$personTitle',isActive='$status',memberFrom='$memberFrom',memberTo='$memberTo',other='$other' WHERE id='$updateID'";
         $result = $db_instance->query($query);
-        $query = "SELECT instituteId FROM person WHERE id='$updateID'";
-        $result = $db_instance->query($query);
-        $row = $result->fetch_assoc();
-        $instID = $row["instituteId"];
-        $query = "UPDATE institute SET name='$instName',address='$address' WHERE id='$instID'";
-        $result = $db_instance->query($query);
     } else {
         //u slucaju da se pritisnuo create new onda je updateID prazan pa ulazi ovdje i odvija se insert
-        $query = "INSERT INTO person (academicStatus,firstname,lastname,phone,fax,email,) VALUES ('$instName','$cityID','$address','$webAddress','$status','$president','$iucRepresentative','$financeContact','$internationalContact','$memberFrom','$memberTo','$other')";
+        $query = "INSERT INTO person (academicStatus,firstname,lastname,phone,fax,email,address,instituteName,url) VALUES ('$academicStatus','$firstName','$lastName','$telephone','$fax','$email','$address','$instName','$webAddress')";
+        //treba dobit ID od zadnjeg inserta
+        if ($db_instance->query($query) == true) {
+            $personID = $db_instance->lastInsertId();
+            var_dump($personID);
+        }
+        $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,isActive,other) VALUES ('$personID','$personTitle','$memberFrom','$memberTo,'$selectStatus','$other')";
         $result = $db_instance->query($query);
     }
     header('Location: governingBodies.php');
@@ -107,7 +107,6 @@ html_handler::import_lib("governingBodies.js");
                                 <th scope="col">Address</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <?php foreach ($tr_array as $table_row_item) {
     echo $table_row_item;
@@ -140,12 +139,6 @@ html_handler::import_lib("governingBodies.js");
 
                 <label>Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="">
-
-                <label>Institution 2</label>
-                <input type="text" class="form-control" id="instName2" name="instName2" value="">
-
-                <label>Address 2</label>
-                <input type="text" class="form-control" id="address2" name="address2" value="">
 
                 <label>Telephone</label>
                 <input type="text" class="form-control" id="telephone" name="telephone" value="">
