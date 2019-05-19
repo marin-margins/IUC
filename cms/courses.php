@@ -14,12 +14,11 @@ html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAME
 //dohvat za u tablicu, provjerit jeli ovo moze ovako
 //refresh bezveze, ako treba pisat funkciju, napisa cu
 //filter rucno ubacen
-$query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(gover_person.title),SUM(preson.academicStatus),eventt.title 
+$query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(person.academicStatus) AS sumDirector,SUM(person.academicStatus) AS sumLecturer,eventt.title 
 FROM eventt
 JOIN person ON person.id = eventt.id
-JOIN gover_person ON gover_person.personId = person.id
-WHERE gover_person.title = director
-AND person.academicStatus = lecturer ';
+WHERE sumDirector = director
+AND sumLecturer = lecturer ';
 $result = $db_instance->query($query);
 echo'<div class="card-body">
             <div class="table-responsive">
