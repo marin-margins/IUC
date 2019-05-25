@@ -221,6 +221,13 @@ class html_handler
                               <span>Conferences</span>
                             </a>
                           </li>
+                          </li>
+						   <li class="nav-item">
+                            <a class="nav-link" href="persons.php">
+                              <i class="fas fa-users"></i>
+                              <span>Persons</span>
+                            </a>
+                          </li>
 
                           <li class="nav-item">
                             <a class="nav-link" href="charts.html">
