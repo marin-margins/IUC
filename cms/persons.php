@@ -31,7 +31,7 @@ $all_countries = class_geo::get_all_countries($db_instance);
 foreach ($all_countries as $row) {
     $countries_array[] = '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
 }
-$query = 'SELECT person.firstname as FirstName,person.lastname as LastName,country.name as CountryName,institute.name as InstituteName 
+$query = 'SELECT person.id as persid,country.id as countryId ,institute.id as instId,person.firstname as FirstName,person.lastname as LastName,country.name as CountryName,institute.name as InstituteName 
 FROM person 
 JOIN institute ON person.instituteId=institute.id
 JOIN country ON person.countryId=country.id';
@@ -72,6 +72,7 @@ if(!empty($_POST['FrName']) && !empty($_POST['LaName']) && !empty($_POST["select
     header('Location: persons.php');
 }
 
+html_handler::import_lib("persons.js");
 ?>
 
 <!--- HTML code here--->
@@ -133,7 +134,7 @@ if(!empty($_POST['FrName']) && !empty($_POST['LaName']) && !empty($_POST["select
                                     </tr>
                                     </tfoot>
                                     <tbody><?php foreach ($Persons as $row){
-                                    echo '<tr class="personRow">
+                                    echo '<tr class="personRow" data-persId="' . $row['persid'] . ' "data-instID="' . $row['instId'] . '" data-countryid="' . $row['countryId'] . '">
                                             <td>'.$row["FirstName"].'</td>
                                             <td>'.$row["LastName"].'</td>
                                             <td>'.$row["CountryName"].'</td>
