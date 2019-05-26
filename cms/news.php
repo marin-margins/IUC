@@ -8,12 +8,12 @@ $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 
 // ---------------PHP CODE ------------------
-$query = 'SELECT title,date,summary FROM news';
+$query = 'SELECT	id,title,date,summary FROM news';
 $result = $db_instance->query($query);
 $tr_array = array();
 while ($row = $result->fetch_assoc()) {
     //punjenje tablice s rezultatima
-    $tr_array[] = '<tr class="clickable-row " role="row">
+    $tr_array[] = '<tr class="newsRow" role="row">
     <td>' . $row["date"] . '</td>
     <td>' . $row["title"].'</td>
     <td>' . $row["summary"] . '</td>
