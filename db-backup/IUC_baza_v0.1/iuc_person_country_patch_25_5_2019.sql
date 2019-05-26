@@ -380,7 +380,7 @@ CREATE TABLE `person` (
   `url` varchar(70) DEFAULT NULL,
   `academicStatus` varchar(30) NOT NULL,
   `department` varchar(100) NOT NULL,
-  `countryId` int(2),
+  `countryId` int(10) unsigned,
   `aktivan` int(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_person_institute` (`instituteId`),
