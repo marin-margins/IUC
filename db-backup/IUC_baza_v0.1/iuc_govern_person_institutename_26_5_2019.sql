@@ -46,7 +46,7 @@ CREATE TABLE `continent` (
 DROP TABLE IF EXISTS `country`;
 
 CREATE TABLE `country` (
-  `id` int(10)  NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(70) NOT NULL,
   `continentId` int(10) unsigned NOT NULL,
   `regionId` int(10) unsigned NOT NULL,
@@ -229,8 +229,8 @@ CREATE TABLE `govern_person` (
   `memberFrom` date NOT NULL,
   `memberTo` date DEFAULT NULL,
   `isActive` enum('Y','N') NOT NULL DEFAULT 'Y',
+  `instituteName` varchar(512),
   `other` varchar(2000) DEFAULT NULL,
-  `instituteName` varchar(256),
   PRIMARY KEY (`personId`),
   CONSTRAINT `fk_govern_person_person` FOREIGN KEY (`personId`) REFERENCES `person` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -243,7 +243,7 @@ DROP TABLE IF EXISTS `img`;
 
 CREATE TABLE `img` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `filename` varchar(1024) NOT NULL,
+  `filename` varchar(64) NOT NULL,
   `size` mediumint(9) NOT NULL,
   `sequence` int(3) unsigned DEFAULT '0',
   `dateAdded` date DEFAULT NULL,
@@ -381,15 +381,15 @@ CREATE TABLE `person` (
   `url` varchar(70) DEFAULT NULL,
   `academicStatus` varchar(30) NOT NULL,
   `department` varchar(100) NOT NULL,
-  `countryId` int(10),
+  `countryId` int(10) unsigned,
   `imgId` int(11),
   `aktivan` int(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_person_institute` (`instituteId`),
-  KEY `fk_person_country` (`countryId`),
-  KEY `fk_person_image` (`imgId`),
   CONSTRAINT `fk_person_institute` FOREIGN KEY (`instituteId`) REFERENCES `institute` (`id`),
+  KEY `fk_person_country` (`countryId`),
   CONSTRAINT `fk_person_country` FOREIGN KEY (`countryId`) REFERENCES `country`(`id`),
+  KEY `fk_person_image` (`imgId`),
   CONSTRAINT `fk_person_image` FOREIGN KEY (`imgId`) REFERENCES `img`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
