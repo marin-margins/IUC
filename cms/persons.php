@@ -10,7 +10,8 @@ $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE 
 html_handler::build_header("Persons"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR<?php
 
 // --------------- REST OF THE PHP CODE  ------------------
-
+$kliknuto=0;
+$kliknuto=$_GET["stranica"];
 //$all_institutions = class_institutions::get_all_institutions(true);
 $query = 'SELECT institute.id,
                 institute.name
@@ -34,15 +35,16 @@ foreach ($all_countries as $row) {
 $query = 'SELECT person.id as persid,country.id as countryId ,institute.id as instId,person.firstname as FirstName,person.lastname as LastName,country.name as CountryName,institute.name as InstituteName 
 FROM person 
 JOIN institute ON person.instituteId=institute.id
-JOIN country ON person.countryId=country.id';
+JOIN country ON person.countryId=country.id
+ORDER BY person.id
+LIMIT ' .($kliknuto * 2).',2';
 $result = $db_instance->query($query);
 $Persons[] = array();
 while ($row = $result->fetch_assoc()) {
     $Persons[] = $row;
 }
-
-if(!empty($_POST['FrName']) && !empty($_POST['LaName']) && !empty($_POST["selectCountry"]) && !empty($_POST["selectInstituion"]) && isset($_POST["update_button"]) || isset($_POST["insert_button"])){
-
+//if(!empty($_POST['FrName']) && isset($_POST["update_button"]) && !empty($_POST['LaName']) && !empty($_POST["selectCountry"]) && !empty($_POST["selectInstituion"])){// || isset($_POST["insert_button"])){
+if(isset ($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $updateID = $_POST["update_id"];
     $FrName = $_POST['FrName'];
     $LaName = $_POST['LaName'];
@@ -53,24 +55,30 @@ if(!empty($_POST['FrName']) && !empty($_POST['LaName']) && !empty($_POST["select
     $Email = $_POST["Email"];
     $Webpage = $_POST["Webpage"];
     $InstitutionId = $_POST["selectInstitution"];
-    $CountryId =$_POST["selectCountry"];
+    $CountryId = $_POST["selectCountry"];
     $Department = $_POST["Department"];
     $AStatus = $_POST["AStatus"];
-   // $DisplayInst = $_POST["DisplayInst"]; moram pitat sot je
+    // $DisplayInst = $_POST["DisplayInst"]; moram pitat sot je
     $_POST = array();
     if (!empty($updateID)) {
         //query za update tog Persona
-
-        $result = $db_instance->query($query);
-    } else {
-        //crate new person
-        $query = "INSERT INTO person (lastname,firstname,instituteId,address,phone,mobile,fax,email,url,academicStatus,department,countryid,aktivan) 
-        VALUES ('$LaName','$FrName','$InstitutionId','$Addres','$Phone','$Mobile','$Fax','$Email','$Webpage','$AStatus','$Department','$CountryId',1)";
+        $query = "UPDATE person SET lastname='$LaName', firstname='$FrName', address='$Addres', 
+phone='$Phone', mobile='$Mobile', fax='$Fax', email='$Email', url='$Webpage', academicStatus='$AStatus', department='$Department', countryId='$CountryId' 
+WHERE id='$updateID'";
         //var_dump($query);
         $result = $db_instance->query($query);
+       // header('Location: persons?stranica='.$kliknuto.'.php');
+    } else {
+        //crate new person
+        $query = "INSERT INTO person (lastname,firstname,instituteId,address,phone,mobile,fax,email,url,academicStatus,department,countryid,aktivan)
+               VALUES ('$LaName','$FrName','$InstitutionId','$Addres','$Phone','$Mobile','$Fax','$Email','$Webpage','$AStatus','$Department','$CountryId',1)";
+       // var_dump($query);
+        $result = $db_instance->query($query);
+     //   header('Location: persons?stranica='.$kliknuto.'.php');
     }
     header('Location: persons.php');
 }
+
 
 html_handler::import_lib("persons.js");
 ?>
@@ -154,25 +162,31 @@ html_handler::import_lib("persons.js");
                             <div class="col-sm-12 col-md-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
-                                               class="page-link">Previous</a></li>
-                                        <li class="paginate_button page-item active"><a href="#"
-                                                                                        aria-controls="dataTable" data-dt-idx="1" tabindex="0"
-                                                                                        class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                                                  data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                                                  data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                                                  data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                                                  data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
-                                                                                  data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
-                                                                                                          aria-controls="dataTable" data-dt-idx="7" tabindex="0"
-                                                                                                          class="page-link">Next</a></li>
+                                            <?php
+                                            $kliknuto=$_GET["stranica"];
+                                            $prije = $kliknuto-1;
+                                            if($prije< 0){
+                                                $prije =0;
+                                            }
+                                            echo "<li class='paginate_button page-item previous' id='dataTable_previous'><a href='persons.php?stranica=$prije'
+                                                                                                          aria-controls='dataTable' data-dt-idx='7' tabindex='0'
+                                                                                                          class='page-link'>Previous</a></li>";
+                                            $sql1 ="SELECT COUNT(*)as total from person";
+                                            $result1 = $db_instance->query($sql1);
+                                            $row = $result1->fetch_assoc();
+                                            $broj=$row['total']/2;
+
+                                            for($j=0;$j<$broj;$j++) {
+                                                $v = $j + 1;
+                                                echo "<li class='paginate_button page-item active'><a href='persons.php?stranica=$j' aria-controls='dataTable' data-dt-idx='1' tabindex='0' class='page-link'>$v</a></li>";
+                                            }
+                                            $dalje =$kliknuto+1;
+                                            if($dalje=$v){
+                                                $dalje = $v-1;
+                                            }
+                                            echo "<li class='paginate_button page-item next' id='dataTable_next'><a href='persons.php?stranica=$dalje'
+                                                                                                          aria-controls='dataTable' data-dt-idx='7' tabindex='0'
+                                                                                                          class='page-link'>Next</a></li>";?>
                                     </ul>
                                 </div>
                             </div>
@@ -186,7 +200,7 @@ html_handler::import_lib("persons.js");
     </div>
 
     <div class="col-md-3 col-md-offset-1">
-        <form method="POST" action="persons.php" id="forma">
+       <?php echo "<form method='POST'  id='forma'>"; ?>
             <div class="form-group">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
@@ -194,7 +208,7 @@ html_handler::import_lib("persons.js");
                     Persons details
                 </div>
                 <label>First name</label>
-                <input type="hidden" value="PersonID" name="update_id">
+                <input type="hidden" id ="PersonID" value="" name="update_id">
                 <input type="text" class="form-control" id="FirstName" name="FrName" value="">
 
                 <label>Last name</label>
@@ -246,6 +260,7 @@ html_handler::import_lib("persons.js");
                 <input type="submit" id="update" name="update_button" disabled class="btn btn-warning"
                        value="Apply Changes">
                 <input type="submit" id="insert" name="insert_button" class="btn btn-success" value="Create New">
+                <input type="hidden" id="reset" class="btn btn-success" value="Reset">
 
         </form>
     </div>

@@ -26,9 +26,32 @@ $(document).ready(function () {
                 $("#AcaStatus").val(podaci.academicStatus);
                 $("#Department").val(podaci.department);
 
-
+                $("#update").removeAttr("disabled");
+                $("#insert").attr("disabled",true);
+                $("#reset").attr("type","show");
 
             });
+    });
+
+    $('#reset').on('click', function () {
+        $("#LastName").val("");
+        $("#FirstName").val("");
+        $("#selectCountry").val("").change();
+        $("#selectInstituion").val("").change();
+        $("#Address").val("");
+        $("#Phone").val("");
+        $("#Mobile").val("");
+        $("#Fax").val("");
+        $("#Email").val("");
+        $("#WebPage").val("");
+        $("#AcaStatus").val("");
+        $("#Department").val("");
+
+        $('#update').attr("disabled", true);
+        $('#reset').attr("type", "hidden");
+        $('#insert').removeAttr('disabled');
+
+        $("#PersonID").val("");
     });
 
 })
