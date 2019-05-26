@@ -227,107 +227,24 @@ $(document).ready(function() {
 		</form>
 		</div>
 		<div class="col-md-9 col-md-offset-0">
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fas fa-table"></i>
-                List of institutions
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">City</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">Status</th>
-                                <th scope="col"><?php $year = date('Y');
-echo "$year fee"?></th>
-                                <th scope="col">Web Adress</th>
-                                <th scope="col">Withdrawal</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php foreach ($all_institutions as $row) {
-    $string = $row["memberTo"];
-    if ($row["memberTo"] == "0000-00-00") {
-        $string = null;
-    }
-    echo '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
-                                        <td>' . $row["instName"] . '</td>
-                                        <td>' . $row["cityName"] . '</td>
-                                        <td>' . $row["countryName"] . '</td>
-                                        <td>' . $institutions_object->checkMemberStatus($row["isMember"]) . '</td>
-                                        <td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
-                                        <td>' . $row["webAddress"] . '</td>
-                                        <td>' . $string . '</td>
-                                        </tr>';
-}
-?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
-    </div>
-</div>
-<div class="row" id="div_work_schedule" style="display: none;>
+			<form action="/action_page.php">
+				<div class="form-group">
+					<label for="comment">Course description:</label>
+					<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+<div class="row" id="div_work_schedule" style="display: none;">
 	<div class="col-md-9 col-md-offset-0">
-			<div class="card mb-3">
-				<div class="card-header">
-					<i class="fas fa-table"></i>
-					List of institutions
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-							<thead>
-								<tr>
-									<th scope="col">Name</th>
-									<th scope="col">City</th>
-									<th scope="col">Country</th>
-									<th scope="col">Status</th>
-									<th scope="col"><?php $year = date('Y');
-	echo "$year fee"?></th>
-									<th scope="col">Web Adress</th>
-									<th scope="col">Withdrawal</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<?php /*foreach ($all_institutions as $row) {
-		$string = $row["memberTo"];
-		if ($row["memberTo"] == "0000-00-00") {
-			$string = null;
-		}
-		echo '<tr class="institutionRow" data-instID="' . $row['instId'] . '" data-cityid="' . $row['cityId'] . '" data-countryid="' . $row['countryId'] . '">
-											<td>' . $row["instName"] . '</td>
-											<td>' . $row["cityName"] . '</td>
-											<td>' . $row["countryName"] . '</td>
-											<td>' . $institutions_object->checkMemberStatus($row["isMember"]) . '</td>
-											<td>' . $row["suma"] . " " . $row["currencyName"] . '</td>
-											<td>' . $row["webAddress"] . '</td>
-											<td>' . $string . '</td>
-											</tr>';
-	}
-	*/?>
-							<tr>
-								<td>Random1</td>
-								<td>Random2</td>
-								<td>Random3</td>
-								<td>Random4</td>
-								<td>Random5</td>
-								<td>Random6</td>
-								<td>Random7</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+		<form action="/action_page.php">
+			<div class="form-group">
+				<label for="comment">Work Schedule:</label>
+				<textarea class="form-control" rows="9" id="comment" name="text"></textarea>
 			</div>
-			<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-		</div>   
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>	
 	</div>
 </div>
 <div class="row" id="div_people" style="display:none;">
