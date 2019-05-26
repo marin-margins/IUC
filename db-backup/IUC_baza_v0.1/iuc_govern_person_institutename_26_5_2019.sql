@@ -230,6 +230,7 @@ CREATE TABLE `govern_person` (
   `memberTo` date DEFAULT NULL,
   `isActive` enum('Y','N') NOT NULL DEFAULT 'Y',
   `instituteName` varchar(512),
+  `intstituteAddress` varchar(1024),
   `other` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`personId`),
   CONSTRAINT `fk_govern_person_person` FOREIGN KEY (`personId`) REFERENCES `person` (`id`)
