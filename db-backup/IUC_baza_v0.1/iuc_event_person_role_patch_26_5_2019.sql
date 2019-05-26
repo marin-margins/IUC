@@ -633,7 +633,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `person_event_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8 ;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `person_event_role` (
   `personId` int(11) DEFAULT NULL,
   `eventId` int(11) DEFAULT NULL,
@@ -644,7 +644,7 @@ CREATE TABLE `person_event_role` (
   CONSTRAINT `fk_event` FOREIGN KEY (`eventId`) REFERENCES `eventt` (`id`),
   CONSTRAINT `fk_person` FOREIGN KEY (`personId`) REFERENCES `person` (`id`),
   CONSTRAINT `fk_role` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -691,7 +691,7 @@ CREATE TABLE `role` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
