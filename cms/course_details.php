@@ -56,7 +56,102 @@ html_handler::import_lib(".js");
 
 <!--- HTML code here--->
 
-
+<script>
+$(document).ready(function() {
+    $(function() {
+		$("li#basic_info").click(function() {  		
+            if($("#div_work_schedule").is(":visible")){
+                $("#div_work_schedule").hide();
+                $('#div_basic_info').show();
+            }
+            if($("#div_people").is(":visible")){
+                $("#div_people").hide();
+                $('#div_basic_info').show();
+            }
+            if($("#div_files").is(":visible")){
+                $("#div_files").hide();
+                $('#div_basic_info').show();
+            }
+            if($("#div_course_fee").is(":visible")){
+                $("#div_course_fee").hide();
+                $('#div_basic_info').show();
+            }
+		});
+		$("li#work_schedule").click(function() {
+			if($("#div_basic_info").is(":visible")){
+				$("#div_basic_info").hide();
+				$('#div_work_schedule').show();
+			}
+			if($("#div_people").is(":visible")){
+				$("#div_people").hide();
+				$('#div_work_schedule').show();
+			}
+            if($("#div_files").is(":visible")){
+                $("#div_files").hide();
+                $('#div_work_schedule').show();
+            }
+            if($("#div_course_fee").is(":visible")){
+                $("#div_course_fee").hide();
+                $('#div_work_schedule').show();
+            }
+		});
+		$("li#people").click(function() {
+			if($("#div_basic_info").is(":visible")){
+				$("#div_basic_info").hide();
+				$('#div_people').show();
+			}
+			if($("#div_work_schedule").is(":visible")){
+				$("#div_work_schedule").hide();
+				$('#div_people').show();
+			}
+            if($("#div_files").is(":visible")){
+                $("#div_files").hide();
+                $('#div_people').show();
+            }
+            if($("#div_course_fee").is(":visible")){
+                $("#div_course_fee").hide();
+                $('#div_people').show();
+            }
+		});
+        $("li#files").click(function() {
+            if($("#div_basic_info").is(":visible")){
+                $("#div_basic_info").hide();
+                $('#div_files').show();
+            }
+            if($("#div_work_schedule").is(":visible")){
+                $("#div_work_schedule").hide();
+                $('#div_files').show();
+            }
+            if($("#div_people").is(":visible")){
+                $("#div_people").hide();
+                $('#div_files').show();
+            }
+            if($("#div_course_fee").is(":visible")){
+                $("#div_course_fee").hide();
+                $('#div_files').show();
+            }
+        });
+        $("li#course_fee").click(function() {
+            if($("#div_basic_info").is(":visible")){
+                $("#div_basic_info").hide();
+                $('#div_course_fee').show();
+            }
+            if($("#div_work_schedule").is(":visible")){
+                $("#div_work_schedule").hide();
+                $('#div_course_fee').show();
+            }
+            if($("#div_people").is(":visible")){
+                $("#div_people").hide();
+                $('#div_course_fee').show();
+            }
+            if($("#div_files").is(":visible")){
+                $("#div_files").hide();
+                $('#div_people').show();
+            }
+        });
+	});
+});
+</script>
 <div class ="row my-3">
 	<div class="col-md-8">
 	<div class="card-header" style="width:200px">
