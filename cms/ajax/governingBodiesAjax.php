@@ -6,7 +6,7 @@ $personID = $_POST['post_person_id'];
 $action = $_POST['action'];
 switch ($action) {
     case 'getData':
-        $query = 'SELECT title,firstname,lastname,academicStatus,institute.address AS instAddress,name,phone,fax,email,url,govern_person.memberFrom AS memberFrom,govern_person.memberTo AS memberTo,isActive,other FROM person JOIN govern_person ON id=personId JOIN institute ON instituteId=institute.id WHERE person.id=' . $personID;
+        $query = 'SELECT title,firstname,lastname,academicStatus,instituteAddress,instituteName,phone,fax,email,url,memberFrom,memberTo,isActive,other FROM person JOIN govern_person ON id=personId WHERE id=' . $personID;
         $result = $db_instance->query($query);
         //samo je jedan redak
         if ($row = $result->fetch_assoc()) {
@@ -20,25 +20,9 @@ switch ($action) {
         $result = $db_instance->query($query);
         print $result;
         break;
-
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    //ako odlucimo box na kraju ode ce bit
-    case 'getCities':
-        $query = 'SELECT id,name FROM city WHERE countryId="' . $instID . '"';
+    case 'deletePic':
+        //$query = 'UPDATE institute SET aktivan=0 WHERE id="' . $personID . '"';
         $result = $db_instance->query($query);
-        $cities = '';
-        while ($row = $result->fetch_assoc()) {
-            $cities .= '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';}
-        print $cities;
+        print $result;
         break;
 }
