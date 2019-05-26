@@ -46,7 +46,7 @@ CREATE TABLE `continent` (
 DROP TABLE IF EXISTS `country`;
 
 CREATE TABLE `country` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10)  NOT NULL AUTO_INCREMENT,
   `name` varchar(70) NOT NULL,
   `continentId` int(10) unsigned NOT NULL,
   `regionId` int(10) unsigned NOT NULL,
@@ -381,7 +381,7 @@ CREATE TABLE `person` (
   `url` varchar(70) DEFAULT NULL,
   `academicStatus` varchar(30) NOT NULL,
   `department` varchar(100) NOT NULL,
-  `countryId` int(2),
+  `countryId` int(10),
   `imgId` int(11),
   `aktivan` int(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`),
