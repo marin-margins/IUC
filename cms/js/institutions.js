@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
     //globalna varijabla za oznaceni redak
     var selectedInst;
     //resetiranje cijele forme na pocetnu
-    $('#reset').on('click', function() {
+    $('#reset').on('click', function () {
         $("#institutionName").val("");
         $("#selectCountry").val("").change();
         $("#selectCity").val("").change();
@@ -24,7 +24,7 @@ $(document).ready(function() {
         $("#formInstitutionID").val("");
     });
     //ajax za dinamične select boxove, grad select box ovisi o tom koja ce se drzava izabrati, inace ce bit prazan
-    $('#selectCountry').change(function() {
+    $('#selectCountry').change(function () {
         var country_id = $(this).val();
         $.ajax({
             url: "./ajax/institutionsAjax.php",
@@ -35,14 +35,14 @@ $(document).ready(function() {
             },
             dataType: "text",
 
-            success: function(data) {
+            success: function (data) {
                 console.log(data);
                 $('#selectCity').html(data);
             }
         });
     });
     //ajax za dohvacanje vise informacija o retku nakon klika na bilo gdje u tom retku
-    $('.institutionRow').on('click', function() {
+    $('.institutionRow').on('click', function () {
         var cityId = $(this).data("cityid");
         var countryId = $(this).data("countryid");
         var instID = $(this).data("instid");
@@ -54,7 +54,7 @@ $(document).ready(function() {
                 post_inst_id: instID,
                 action: "getData"
             },
-            function(data, status) {
+            function (data, status) {
                 var podaci = JSON.parse(data);
                 $("#institutionName").val(podaci.name);
                 $("#selectCountry").val(countryId).change();
@@ -81,15 +81,15 @@ $(document).ready(function() {
             });
     });
     //ajax za mijenjanje atributa active u 0, tj sakrivanje(lazno brisanje)
-    $('#delete').on('click', function() {
+    $('#delete').on('click', function () {
         var instID = selectedInst;
         var confirmation = confirm("Are you sure you want to delete?");
         if (confirmation) {
             $.post("./ajax/institutionsAjax.php", {
-                    post_inst_id: instID,
-                    action: "delete"
-                },
-                function(data, status) {
+                post_inst_id: instID,
+                action: "delete"
+            },
+                function (data, status) {
                     alert("Institution deleted");
                     $("#institutionName").val("");
                     $("#selectCountry").val("").change();

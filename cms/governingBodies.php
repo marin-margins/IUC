@@ -5,18 +5,18 @@ require_once './configuration.php'; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOL
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//ostalo delete slike i insert slike
-//Query za punjenje tablice ///instituteName dodat kad bozo doda
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+//ostao insert slike, tin se treba dogovorit s bozom
+
+//Query za punjenje tablice
 $query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,instituteAddress,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
 $result = $db_instance->query($query);
 $tr_array = array();
@@ -39,14 +39,11 @@ if ($result == false) {
     </tr>';
     }
 }
-//upload fileova
-if (!empty($_FILES)) {
-    die();
-    $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
-
-}
 //u slucaju pritiska na Apply Changes ili Create new
 if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
+    //if (!empty($_FILES)) {
+    //  $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
+    //}
     $updateID = $_POST["update_id"];
     $personTitle = $_POST['personTitle'];
     $academicStatus = $_POST['academicStatus'];
@@ -80,7 +77,6 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
             $personID = $db_instance->insert_id;
         }
         $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,other,isActive,instituteName,instituteAddress) VALUES ('$personID','$personTitle','$memberFrom','$memberTo','$other','$selectStatus','$instName','$address');";
-        var_dump($query, $personID);
         $result = $db_instance->query($query);
     }
     header('Location: governingBodies.php');
@@ -93,7 +89,6 @@ html_handler::import_lib("governingBodies.js");
 ?>
 
 <!--- HTML code here--->
-
 <div class="row">
     <div class="col-md-9 col-md-offset-0">
         <div class="card mb-3">
@@ -103,27 +98,97 @@ html_handler::import_lib("governingBodies.js");
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Institution</th>
-                                <th scope="col">Address</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($tr_array as $table_row_item) {
-    echo $table_row_item;
-}?>
-                        </tbody>
-                    </table>
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_length" id="dataTable_length"><label>Show <select
+                                            name="dataTable_length" aria-controls="dataTable"
+                                            class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> entries</label></div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search"
+                                            class="form-control form-control-sm" placeholder=""
+                                            aria-controls="dataTable"></label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                    cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                        colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 203px;">
+                                        Title</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                        aria-label="Position: activate to sort column ascending" style="width: 311px;">
+                                        Full Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="width: 149px;">
+                                        Institution</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" style="width: 73px;">Address
+                                    </th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Title</th>
+                                            <th rowspan="1" colspan="1">Full Name</th>
+                                            <th rowspan="1" colspan="1">Institution</th>
+                                            <th rowspan="1" colspan="1">Address</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php foreach ($tr_array as $table_row_item) {echo $table_row_item;}?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
+                                    Showing 1 to 10 of 57 entries</div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
+                                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                                class="page-link">Previous</a></li>
+                                        <li class="paginate_button page-item active"><a href="#"
+                                                aria-controls="dataTable" data-dt-idx="1" tabindex="0"
+                                                class="page-link">1</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                                data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                                data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                                data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                                data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                                data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                        <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
+                                                aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                                class="page-link">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </table>
         </div>
     </div>
     <div class="col-md-3 col-md-offset-1">
-        <form method="POST" action="governingBodies.php" id="forma">
+        <form method="post" enctype="multipart/form-data" action="governingBodies.php" id="forma">
             <div class="form-group">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
@@ -184,12 +249,8 @@ html_handler::import_lib("governingBodies.js");
                 <input type="hidden" id="reset" class="btn btn-success" value="Reset">
                 <!---File upload form--->
                 <div class="col-md-3">
-                    <form method="post" enctype="multipart/form-data">
-                        <br />
-                        <input name="files[]" class="uploadForm" style="display:none" type="file" multiple /><br />
-                        <input type="submit" style="display:none" class="btn-primary btn uploadForm"
-                            value="Upload Files" />
-                    </form>
+                    <br />
+                    <input name="files" class="uploadForm" style="display:none" type="file" /><br />
                 </div>
                 <?php echo "<h2>" . $file_upload_return_message . "</h2>"; ?>
         </form>

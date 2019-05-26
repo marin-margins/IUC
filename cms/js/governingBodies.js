@@ -111,6 +111,7 @@ $(document).ready(function () {
                 action: "deletePic"
             },
                 function (data, status) {
+                    alert("Picture deleted");
                 });
         }
     });

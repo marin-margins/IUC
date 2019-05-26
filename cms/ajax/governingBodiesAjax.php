@@ -21,7 +21,12 @@ switch ($action) {
         print $result;
         break;
     case 'deletePic':
-        //$query = 'UPDATE institute SET aktivan=0 WHERE id="' . $personID . '"';
+        //pronalazak ID-a slike od osobe preko selecta
+        $query = 'SELECT imgId FROM person WHERE id="' . $personID . '"';
+        $result = $db_instance->query($query);
+        $row = $result->fetch_assoc();
+        //lazno brisanje slike
+        $query = 'UPDATE img SET aktivan=0 WHERE id="' . $row["imgId"] . '"';
         $result = $db_instance->query($query);
         print $result;
         break;
