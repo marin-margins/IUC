@@ -386,10 +386,10 @@ CREATE TABLE `person` (
   `aktivan` int(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_person_institute` (`instituteId`),
-  CONSTRAINT `fk_person_institute` FOREIGN KEY (`instituteId`) REFERENCES `institute` (`id`),
   KEY `fk_person_country` (`countryId`),
-  CONSTRAINT `fk_person_country` FOREIGN KEY (`countryId`) REFERENCES `country`(`id`),
   KEY `fk_person_image` (`imgId`),
+  CONSTRAINT `fk_person_institute` FOREIGN KEY (`instituteId`) REFERENCES `institute` (`id`),
+  CONSTRAINT `fk_person_country` FOREIGN KEY (`countryId`) REFERENCES `country`(`id`),
   CONSTRAINT `fk_person_image` FOREIGN KEY (`imgId`) REFERENCES `img`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
