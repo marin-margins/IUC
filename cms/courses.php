@@ -17,8 +17,8 @@ html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAME
 $query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(person.academicStatus) AS sumDirector,SUM(person.academicStatus) AS sumLecturer,eventt.title 
 FROM eventt
 JOIN person ON person.id = eventt.id
-WHERE sumDirector = director
-AND sumLecturer = lecturer ';
+WHERE sumDirector = 'director'
+AND sumLecturer = 'lecturer' ';
 $result = $db_instance->query($query);
 echo'<div class="card-body">
             <div class="table-responsive">
@@ -74,7 +74,7 @@ echo'<div class="card-body">
 			</div>
 			<button type="button" class="btn btn-primary">Edit details</button>
 			<button type="button" class="btn btn-danger">Delete selected</button>
-			<button type="button" class="btn btn-success">Create new</button>
+			<a href="course_details.php"><button type="button" class="btn btn-success">Create new</button></a>
 			<button type="button" class="btn btn-info">View page</button>
 		</div>';
 

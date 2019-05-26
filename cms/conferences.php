@@ -17,8 +17,8 @@ html_handler::build_header("Conferences"); //BUILD THE HEADER WITH PAGE TITLE PA
 $query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(person.academicStatus) AS sumOrganzier,SUM(person.academicStatus) AS sumLecturer,eventt.title 
 FROM eventt
 JOIN person ON person.id = eventt.id
-WHERE sumOrganzier = organizer
-AND sumLecturer = lecturer ';
+WHERE sumOrganzier = 'organizer'
+AND sumLecturer = 'lecturer' ';
 $result = $db_instance->query($query);
 echo'<div class="card-body">
             <div class="table-responsive">
