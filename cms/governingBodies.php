@@ -17,10 +17,10 @@ $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE 
 //ostalo delete slike i insert slike
 //ostalo delete slike i insert slike
 //Query za punjenje tablice ///instituteName dodat kad bozo doda
-$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,address FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
+$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,instituteAddress,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
 $result = $db_instance->query($query);
 $tr_array = array();
-if (count($result) <= 0) {
+if ($result == false) {
     //ako nema rezultata tablica ce biti prazna
     $tr_array[] = '<tr class="personRow">
     <td></td>
@@ -34,12 +34,17 @@ if (count($result) <= 0) {
         $tr_array[] = '<tr class="personRow" data-personid="' . $row['personId'] . '">
     <td>' . $row["title"] . '</td>
     <td>' . $row["academicStatus"] . " " . $row["firstname"] . " " . $row["lastname"] . '</td>
-    <td>' . $row["name"] . '</td>
-    <td>' . $row["address"] . '</td>
+    <td>' . $row["instituteName"] . '</td>
+    <td>' . $row["instituteAddress"] . '</td>
     </tr>';
     }
 }
+//upload fileova
+if (!empty($_FILES)) {
+    die();
+    $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
 
+}
 //u slucaju pritiska na Apply Changes ili Create new
 if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $updateID = $_POST["update_id"];
@@ -63,19 +68,19 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $_POST = array();
     if (!empty($updateID)) {
         //query za update oznacenog covjeka i za institut
-        $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress',address='$address',instituteName='$instName' WHERE id='$updateID'";
+        $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress' WHERE id='$updateID'";
         $result = $db_instance->query($query);
-        $query = "UPDATE govern_person SET title='$personTitle',isActive='$status',memberFrom='$memberFrom',memberTo='$memberTo',other='$other' WHERE id='$updateID'";
+        $query = "UPDATE govern_person SET title='$personTitle',isActive='$status',memberFrom='$memberFrom',memberTo='$memberTo',other='$other',instituteAddress='$address',instituteName='$instName'  WHERE personId='$updateID'";
         $result = $db_instance->query($query);
     } else {
         //u slucaju da se pritisnuo create new onda je updateID prazan pa ulazi ovdje i odvija se insert
-        $query = "INSERT INTO person (academicStatus,firstname,lastname,phone,fax,email,address,instituteName,url) VALUES ('$academicStatus','$firstName','$lastName','$telephone','$fax','$email','$address','$instName','$webAddress')";
+        $query = "INSERT INTO person (academicStatus,firstname,lastname,phone,fax,email,url) VALUES ('$academicStatus','$firstName','$lastName','$telephone','$fax','$email','$webAddress')";
         //treba dobit ID od zadnjeg inserta
         if ($db_instance->query($query) == true) {
-            $personID = $db_instance->lastInsertId();
-            var_dump($personID);
+            $personID = $db_instance->insert_id;
         }
-        $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,isActive,other) VALUES ('$personID','$personTitle','$memberFrom','$memberTo,'$selectStatus','$other')";
+        $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,other,isActive,instituteName,instituteAddress) VALUES ('$personID','$personTitle','$memberFrom','$memberTo','$other','$selectStatus','$instName','$address');";
+        var_dump($query, $personID);
         $result = $db_instance->query($query);
     }
     header('Location: governingBodies.php');
@@ -175,9 +180,18 @@ html_handler::import_lib("governingBodies.js");
                 <input type="submit" id="update" name="update_button" disabled class="btn btn-warning"
                     value="Apply Changes">
                 <input type="submit" id="insert" name="insert_button" class="btn btn-success" value="Create New">
-                <input type="hidden" id="uploadPic" class="btn btn-info" value="Upload picture">
                 <input type="hidden" id="deletePic" class="btn btn-danger" value="Delete existing picture">
                 <input type="hidden" id="reset" class="btn btn-success" value="Reset">
+                <!---File upload form--->
+                <div class="col-md-3">
+                    <form method="post" enctype="multipart/form-data">
+                        <br />
+                        <input name="files[]" class="uploadForm" style="display:none" type="file" multiple /><br />
+                        <input type="submit" style="display:none" class="btn-primary btn uploadForm"
+                            value="Upload Files" />
+                    </form>
+                </div>
+                <?php echo "<h2>" . $file_upload_return_message . "</h2>"; ?>
         </form>
     </div>
 </div>

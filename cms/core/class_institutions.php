@@ -34,12 +34,14 @@ class class_institutions
 
         $result = $this->db_conn->query($query);
         $inst_array = array();
+        if ($result == false) {
+            return $inst_array;
+        } else {
+            while ($row = $result->fetch_assoc()) {
 
-        while ($row = $result->fetch_assoc()) {
-
-            $inst_array[] = $row;
-        }
-        return $inst_array;
+                $inst_array[] = $row;
+            }
+            return $inst_array;}
 
     }
 
