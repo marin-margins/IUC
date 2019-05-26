@@ -24,9 +24,11 @@ function get_person_details($PersonID){
                     FROM person
                     WHERE person.id="'.$PersonID.'"';
                     $result = $db_instance->query($query);
-    while($row = $result->fetch_assoc()){
-        $res_info[] = $row;
+    if($row = $result->fetch_assoc()){
+        return json_encode($row);
     }
-    return json_encode($res_info);
+    else{
+        return 0;
+    }
 }
 ?>

@@ -13,7 +13,6 @@ $(document).ready(function () {
             },
             function (data) {
                 var podaci = JSON.parse(data);
-               // console.log(podaci)
                 $("#LastName").val(podaci.lastname);
                 $("#FirstName").val(podaci.firstname);
                 $("#selectCountry").val(countryId).change();
