@@ -36,7 +36,7 @@ class html_handler
                   <!-- /.container-fluid -->
 
                   <!-- Sticky Footer -->
-                  
+
 
                 </div>
                 <!-- /.content-wrapper -->
@@ -194,7 +194,7 @@ class html_handler
                            <li class="nav-item">
                             <a class="nav-link" href="institutions.php">
                               <i class="fas fa-gopuram "></i>
-                              <span>Institutions</span>
+                              <span>Member institutions</span>
                             </a>
                           </li>
                           <li class="nav-item">
