@@ -32,17 +32,6 @@ $all_countries = class_geo::get_all_countries($db_instance);
 foreach ($all_countries as $row) {
     $countries_array[] = '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
 }
-$query = 'SELECT person.id as persid,country.id as countryId ,institute.id as instId,person.firstname as FirstName,person.lastname as LastName,country.name as CountryName,institute.name as InstituteName 
-FROM person 
-JOIN institute ON person.instituteId=institute.id
-JOIN country ON person.countryId=country.id
-ORDER BY person.id
-LIMIT ' .($kliknuto * 2).',2';
-$result = $db_instance->query($query);
-$Persons[] = array();
-while ($row = $result->fetch_assoc()) {
-    $Persons[] = $row;
-}
 //if(!empty($_POST['FrName']) && isset($_POST["update_button"]) && !empty($_POST['LaName']) && !empty($_POST["selectCountry"]) && !empty($_POST["selectInstituion"])){// || isset($_POST["insert_button"])){
 if(isset ($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $updateID = $_POST["update_id"];
@@ -78,8 +67,17 @@ WHERE id='$updateID'";
     }
     header('Location: persons.php');
 }
-
-
+$query = 'SELECT person.id as persid,country.id as countryId ,institute.id as instId,person.firstname as FirstName,person.lastname as LastName,country.name as CountryName,institute.name as InstituteName 
+FROM person 
+JOIN institute ON person.instituteId=institute.id
+JOIN country ON person.countryId=country.id
+ORDER BY person.id
+LIMIT ' .($kliknuto * 2).',2';
+$result = $db_instance->query($query);
+$Persons[] = array();
+while ($row = $result->fetch_assoc()) {
+    $Persons[] = $row;
+}
 html_handler::import_lib("persons.js");
 ?>
 
@@ -98,12 +96,14 @@ html_handler::import_lib("persons.js");
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_length" id="dataTable_length"><label>Show <select
-                                                name="dataTable_length" aria-controls="dataTable"
+                                                name="dataTable_length" aria-controls="dataTable" id="dataTable_length"
                                                 class="custom-select custom-select-sm form-control form-control-sm">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
+                                            <?php
+                                            echo "<option id='prvi' >10</option>";
+                                            echo "<option id='drugi'>25</option>";
+                                            echo "<option id='treci'>50</option>";
+                                            echo "<option id='cetvrti'>100</option>";
+                                            ?>
                                         </select> entries</label></div>
                             </div>
                             <div class="col-sm-12 col-md-6">

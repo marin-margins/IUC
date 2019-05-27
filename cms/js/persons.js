@@ -53,5 +53,9 @@ $(document).ready(function () {
 
         $("#PersonID").val("");
     });
+    $('#dataTable_length').on('click', function () {
+        var numb1 =document.getElementById("prvi").value;
+        console.log(numb1)
+    });
 
 })
