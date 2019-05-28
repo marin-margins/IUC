@@ -12,6 +12,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 ?>
 
 <h2>Statistics</h2> <br>
+Select a report from list:
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
   <tr>
