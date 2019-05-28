@@ -34,7 +34,9 @@ html_handler::import_lib("news.js");
 ?>
 
 <!--- HTML code here--->
+
 <div class="row" id="TABLE">
+
     <div class="col-md-12 col-md-offset-0">
         <div class="card mb-3">
             <div class="card-header">
@@ -58,28 +60,31 @@ html_handler::import_lib("news.js");
 }?>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
-    </div>
-	</div>
-	<div class="float-right">
-				
-                <button id="delete" class="btn btn-secondary">View Page</button>
-				    <input type="submit" id="insert" name="insert_button" class="btn btn-success" value="Create New">
-				      <input type="submit" id="edit" name="update_button"  class="btn btn-warning"
-                    value="Edit Details">
-            
-           
-                <button id="delete" class="btn btn-danger">Delete</button>
-              
-           
-      
-    </div>
+
+        <div  id="bla" class="float-right">
+
+            <button id="delete1" class="btn btn-secondary">View Page</button>
+            <input type="submit" id="insert" name="insert_button" class="btn btn-success" value="Create New">
+            <input type="submit" id="edit" name="update_button"  class="btn btn-warning"
+                   value="Edit Details">
 
 
- <div  id="FORM1"  class="col-md-3 col-md-offset-1">
-        <form method="POST" action="governingBodies.php" id="forma">
+            <button id="delete" class="btn btn-danger">Delete</button>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+ <div  id="FORM1"  class="col-md-12 col-md-offset-1">
+        <form method="POST" action="news.php" id="forma">
             <div class="form-group">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
@@ -97,17 +102,21 @@ html_handler::import_lib("news.js");
                 <input type="text" class="form-control" id="summary" name="fullName" value="">
 
                 <label>Body</label>
+
                 <input type="text" class="form-control" id="body" name="instName" value="">
+                <br>
+                <br>
+                <button hidden id="delete1" class="btn btn-secondary">View Page</button>
+                <input hidden type="submit" id="insert1" name="insert_button" class="btn btn-success" value="Create New">
+                <input  type="submit" id="edit1" name="update_button"  class="btn btn-warning"
+                       value="Edit Details">
 
+
+                <button hidden id="delete" class="btn btn-danger">Delete</button>
                 </div>
+        </form>
+ </div>
 
-</div>
-<!--- Html code ends--->
-<?php
-
-html_handler::build_footer(); // BUILD THE FOOTER
-
-?>
 
 
 

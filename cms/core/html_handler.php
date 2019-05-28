@@ -235,6 +235,13 @@ class html_handler
                               <i class="fas fa-fw fa-chart-area"></i>
                               <span>example</span></a>
                           </li>
+                          
+                           <li class="nav-item">
+                            <a class="nav-link" href="news.php">
+                              <i class="fas fa-newspaper"></i>
+                              <span>News</span>
+                            </a>
+                          </li>
 
                         </ul>
 
