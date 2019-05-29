@@ -8,56 +8,60 @@ $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE 
 
 html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
-
-//dodatno
-$id = $_GET["id"];
-if($id == "1"){
-  $start_year = 2017; //testno
-  $end_year =2019;
 ?>
 
 <h2 style="display:inline;">REPORT: STATISTICS TOTAL</h2>
-<button type="button" name="create" class="btn btn-primary" id="create_report" onclick="createReport()">Create report</button>
 <button type="button" name="export" class="btn btn-danger"  onclick="Export2Doc('exportContent','word-content');">Export report</button>
+<button type="button" name="create" class="btn btn-primary" id="create_report" onclick="createReport()">Create report</button>
 <br> <br>
 
 <div class="form-group">
   <label>Academic Cycle From:</label>
-  <select class="selectpicker" id="year" name="">
-    <option value="2019">2018/2019</option>
-    <option value="2018">2017/2018</option>
-    <option value="2017">2016/2017</option>
+  <select class="selectpicker" id="start_year" name="">
+    <option value="2018" selected>2018/2019</option>
+    <option value="2017">2017/2018</option>
+    <option value="2016">2016/2017</option>
   </select>
   <label>To:</label>
-  <select class="selectpicker" id="" name="">
-    <option value="2019">2018/2019</option>
-    <option value="2018">2017/2018</option>
-    <option value="2017">2016/2017</option>
+  <select class="selectpicker" id="end_year" name="">
+    <option value="2018" selected>2018/2019</option>
+    <option value="2017">2017/2018</option>
+    <option value="2016">2016/2017</option>
   </select>
 </div>
 
 <script>
-function createReport() {
-  //nesto...
-}
+  $( "#create_report" ).click(function() {
+    var e = document.getElementById("start_year");
+    var start_year = e.options[e.selectedIndex].value;
+    var e = document.getElementById("end_year");
+    var end_year = e.options[e.selectedIndex].value;
+    window.location.href = "./statistics_total.php?id=1&start_year="+start_year+"&end_year="+end_year+"&table=1";
+    return false;
+  });
 </script>
 
 <div id="exportContent">
-  <table class="table table-bordered" style ="border: 1px solid black;" id="dataTable" width="100%" cellspacing="0">
-    <tr style ="border: 1px solid black;">
-      <th style ="border: 1px solid black;">Year</th>
-      <th style ="border: 1px solid black;">Courses</th>
-      <th style ="border: 1px solid black;">Conferences</th>
-      <th style ="border: 1px solid black;">Participants</th>
+  <table class="table table-bordered" style ="border: 1px solid gray;" id="dataTable" width="100%" cellspacing="0">
+    <tr style ="border: 1px solid gray;">
+      <th style ="border: 1px solid gray;">Year</th>
+      <th style ="border: 1px solid gray;">Courses</th>
+      <th style ="border: 1px solid gray;">Conferences</th>
+      <th style ="border: 1px solid gray;">Participants</th>
     </tr>
     <?php
+    $table = $_GET["table"];
+    //ako smo pritisli na gumb create stvori se u urlu table u i tek onda stvaramo tablicu skroz
+    if($table == 1){
+      $start_year = $_GET["start_year"]; //testno
+      $end_year =  $_GET["end_year"];
       $year = $start_year;
       $num_people;
       while($year <= $end_year){
         echo '<tr>';
         //Year
         $pom = $year+1;
-        echo '<td style ="border: 1px solid black;">'.$year.'/'.$pom.'</td>';
+        echo '<td style ="border: 1px solid gray;">'.$year.'/'.$pom.'</td>';
 
         //FOR COURSES
         $query = 'SELECT id
@@ -68,7 +72,7 @@ function createReport() {
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
         }else{
-        echo '<td style ="border: 1px solid black;">'. $result->num_rows .'</td>';}
+        echo '<td style ="border: 1px solid gray;">'. $result->num_rows .'</td>';}
 
         //FOR CONFERENCES
         $query = 'SELECT id
@@ -79,7 +83,7 @@ function createReport() {
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
         }else{
-        echo '<td style ="border: 1px solid black;">'. $result->num_rows .'</td>';}
+        echo '<td style ="border: 1px solid gray;">'. $result->num_rows .'</td>';}
 
         //FOR PEOPLE - krivo
         $query = 'SELECT sum(numUnregParticipants) AS value_sum
@@ -90,7 +94,7 @@ function createReport() {
           trigger_error('Invalid query: ' . $db_instance->error);
         }else{
           while($row = $result->fetch_assoc()) {
-            echo '<td style ="border: 1px solid black;">'. $row["value_sum"] .'</td>';
+            echo '<td style ="border: 1px solid gray;">'. $row["value_sum"] .'</td>';
           }
         }
 
@@ -103,62 +107,15 @@ function createReport() {
 
 <?php
 }
-else if($id == "2"){
 ?>
-
-<h2 style="display:inline;">REPORT: Academic Programme Statistics</h2>
-<button type="button" name="create" class="btn btn-primary">Create report</button>
-<button type="button" name="export" class="btn btn-danger">Export report</button>
-<br><br>
-
-Period From:
-<input type="date" id="date1"/>
-To:
-<input type="date" id="date2"/>
-<br><br>
-<h2>Show table:</h2>
-<a class="h3" style="text-decoration:underline;margin-right:10px;color:gray" id="courses" onclick="">Courses</a>
-<a class="h3" style="text-decoration:underline;color:gray" id="conferences" onclick="">Conferences</a>
-<br> <br>
-
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-  <tr>
-    <th>Course</th>
-    <th>from</th>
-    <th>to</th>
-    <th>Croatia</th>
-    <th>EU</th>
-    <th>non EU</th>
-    <th>region</th>
-    <th>usa/canada</th>
-    <th>other</th>
-    <th>total</th>
-  </tr>
-  <tr>
-   <td>a</td>
-   <td>b</td>
-   <td>c</td>
-   <td>d</td>
-   <td>a</td>
-   <td>b</td>
-   <td>c</td>
-   <td>d</td>
-   <td>a</td>
-   <td>b</td>
-  </tr>
-</table>
-
-<?php
-}
-?>
-
 
 
 <script type="text/javascript">
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     var postHtml = "</body></html>";
-    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+    var logo = "<img src='./files/test_file_upload_dir/iuc_file_5ce95b17e2082.jpg'></img>"
+    var html = preHtml+logo+document.getElementById(element).innerHTML+postHtml;
 
     var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'
