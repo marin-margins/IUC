@@ -90,7 +90,7 @@ class class_file_upload
         if (!empty($errors)) {
             return $errors;
         } else {
-            return $success;
+            return $target_file;
         }
 
     }

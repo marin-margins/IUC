@@ -55,6 +55,7 @@ $(document).ready(function () {
                 $("#memberFrom").val(podaci.memberFrom);
                 $("#memberTo").val(podaci.memberTo);
                 $("#other").val(podaci.other);
+                $("#image").attr("src", podaci.filename);
                 //namjestanje buttona
                 $('#delete').removeAttr('disabled');
                 $('#update').removeAttr('disabled');

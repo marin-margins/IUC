@@ -1,10 +1,10 @@
 INSERT INTO `continent` (`id`, `name`, `aktivan`) VALUES (NULL, 'Kontinent 1', '1'), (NULL, 'Kontinent 2', '0');
 INSERT INTO `region` (`id`, `name`, `aktivan`) VALUES (NULL, 'regija 1', '1'), (NULL, 'regija 2', '0');
 INSERT INTO country(id,name,continentId,regionId,aktivan) VALUES(1,'drzava1',1,1,1),(2,'drzava2',1,1,1);
-INSERT INTO `city` (`id`, `name`, `countryId`, `aktivan`) VALUES (NULL, 'grad 1', '1', '1'), (NULL, 'grad 2', '2', '0'), (NULL, 'grad3', '1', '1'), (NULL, 'grad4', '1', '1'), (NULL, 'graddrzave22', '2', '1'), (NULL, 'graddrzave23', '2', '1');
-INSERT INTO `institute` (`name`, `cityId`, `webAddress`, `isMember`, `address`, `president`, `iucRepresentative`, `financeContact`, `internationalContact`, `memberFrom`, `memberTo`, `comment`, `aktivan`) VALUES ('dsdd','7', '','Y','', '', '', '', '', '0000-00-00', '0000-00-00', '', '1');
+INSERT INTO `city` (`name`, `countryId`, `aktivan`) VALUES ('grad 1', '1', '1'), ('grad 2', '2', '0'), ('grad3', '1', '1'), ('grad4', '1', '1'), ('graddrzave22', '2', '1'), ('graddrzave23', '2', '1');
+INSERT INTO `institute` (`name`, `cityId`, `webAddress`, `isMember`, `address`, `president`, `iucRepresentative`, `financeContact`, `internationalContact`, `memberFrom`, `memberTo`, `comment`, `aktivan`) VALUES ('dsdd','1', '','Y','', '', '', '', '', '0000-00-00', '0000-00-00', '', '1');
 INSERT INTO `person` (`id`, `lastname`, `firstname`, `instituteId`, `address`, `phone`, `mobile`, `fax`, `email`, `url`, `academicStatus`, `department`, `aktivan`) VALUES (NULL, 'gospar', 'gospodin', '1', 'GOSPAROVA ADRESA', '9923213', '23123123', '213213213132', 'njegovmail@majmun.com', 'wwww.url.com', 'PISK', 'njegovdepartment', '1'), (NULL, 'gospar2', 'gospodin2', '1', 'GOSPAROVA ADRESA2', '9923213', '23123123', '213213213132', 'njegovmail2@majmun.com', 'wwww.url2.com', 'BAKKER', 'njegovdepartment2', '1'), (NULL, 'gospar3', 'gospodin3', '1', 'GOSPAROVA ADRESA2', '9923213', '23123123', '213213213132', 'njegovmail2@majmun.com', 'wwww.url2.com', 'TITULA', 'njegovdepartment2', '0');
-INSERT INTO `govern_person` (`personId`, `title`, `memberFrom`, `memberTo`, `isActive`, `other`) VALUES (10,'Director General', '2019-05-09', '2019-05-24', 'Y', 'ostalo');
+INSERT INTO `govern_person` (`personId`, `title`, `memberFrom`, `memberTo`, `isActive`, `other`) VALUES (4,'Director General', '2019-05-09', '2019-05-24', 'Y', 'ostalo');
 
 
 

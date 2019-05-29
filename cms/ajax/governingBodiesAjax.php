@@ -6,7 +6,7 @@ $personID = $_POST['post_person_id'];
 $action = $_POST['action'];
 switch ($action) {
     case 'getData':
-        $query = 'SELECT title,firstname,lastname,academicStatus,instituteAddress,instituteName,phone,fax,email,url,memberFrom,memberTo,isActive,other FROM person JOIN govern_person ON id=personId WHERE id=' . $personID;
+        $query = 'SELECT filename,title,firstname,lastname,academicStatus,instituteAddress,instituteName,phone,fax,email,url,memberFrom,memberTo,isActive,other FROM person JOIN govern_person ON person.id=personId JOIN img ON img.id=imgId WHERE person.id=' . $personID;
         $result = $db_instance->query($query);
         //samo je jedan redak
         if ($row = $result->fetch_assoc()) {

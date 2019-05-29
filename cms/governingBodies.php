@@ -62,8 +62,6 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
         //ako postoji file u formi odvija se sljedece, i za update i za insert novog persona ista je stvar sto se tice slika
         //ubaci se slika, namjesti se ID slike za osobu
         $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
-        $filename = $_FILES["files"]["name"];
-        $filename = "/files/governingBodies/" . $filename;
         $size = $_FILES["files"]["size"];
         //brisanje trenutne slike ako postoji, ako ne postoji samo se dalje nastavlja
         $query = "SELECT img.id FROM img JOIN person ON imgId=img.id WHERE person.id='$updateID'";
@@ -75,7 +73,7 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
             $result = $db_instance->query($query);
         }
         //ubacivanje slike u bazu i dohvacanje njenog ID-a nakon što se ubaci
-        $query = "INSERT INTO img (filename,size) VALUES ('$filename','$size')";
+        $query = "INSERT INTO img (filename,size) VALUES ('$file_upload_return_message','$size')";
         if ($db_instance->query($query) == true) {
             $imgID = $db_instance->insert_id;
         }
@@ -199,6 +197,10 @@ html_handler::import_lib("governingBodies.js");
                 <div class="form-group">
                     <label>Other</label>
                     <textarea class="form-control" id="other" name="other" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Picture</label>
+                    <img id="image" name="image" /></td>
                 </div>
                 <button id="delete" disabled class="btn btn-danger">Delete</button>
                 <input type="submit" id="update" name="update_button" disabled class="btn btn-warning"
