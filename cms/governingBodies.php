@@ -5,16 +5,15 @@ require_once './configuration.php'; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOL
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
-//ostao insert slike, tin se treba dogovorit s bozom
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
+//ostalo prikazivanje slike ispod forme
 
 //Query za punjenje tablice
 $query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,instituteAddress,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
@@ -41,9 +40,6 @@ if ($result == false) {
 }
 //u slucaju pritiska na Apply Changes ili Create new
 if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
-    //if (!empty($_FILES)) {
-    //  $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
-    //}
     $updateID = $_POST["update_id"];
     $personTitle = $_POST['personTitle'];
     $academicStatus = $_POST['academicStatus'];
@@ -62,7 +58,33 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
     $selectStatus = $_POST["selectStatus"];
     $memberTo = $_POST["memberTo"];
     $other = $_POST["other"];
+    if (isset($_FILES) && !empty($_FILES) && $_FILES["files"]["error"] != 4) {
+        //ako postoji file u formi odvija se sljedece, i za update i za insert novog persona ista je stvar sto se tice slika
+        //ubaci se slika, namjesti se ID slike za osobu
+        $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
+        $filename = $_FILES["files"]["name"];
+        $filename = "/files/governingBodies/" . $filename;
+        $size = $_FILES["files"]["size"];
+        //brisanje trenutne slike ako postoji, ako ne postoji samo se dalje nastavlja
+        $query = "SELECT img.id FROM img JOIN person ON imgId=img.id WHERE person.id='$updateID'";
+        $result = $db_instance->query($query);
+        if ($result != false) {
+            $row = $result->fetch_assoc();
+            $id = $row["id"];
+            $query = "UPDATE img SET aktivan=0 WHERE id=$id";
+            $result = $db_instance->query($query);
+        }
+        //ubacivanje slike u bazu i dohvacanje njenog ID-a nakon što se ubaci
+        $query = "INSERT INTO img (filename,size) VALUES ('$filename','$size')";
+        if ($db_instance->query($query) == true) {
+            $imgID = $db_instance->insert_id;
+        }
+        //mijenjanje ID-a slike za osobu u novi ID
+        $query = "UPDATE person SET imgId='$imgID' WHERE id='$updateID'";
+        $result = $db_instance->query($query);
+    }
     $_POST = array();
+    $_FILES = array();
     if (!empty($updateID)) {
         //query za update oznacenog covjeka i za institut
         $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress' WHERE id='$updateID'";
@@ -139,7 +161,7 @@ html_handler::import_lib("governingBodies.js");
                 <input type="text" class="form-control" id="academicStatus" name="academicStatus" value="">
 
                 <label>Full name</label>
-                <input type="text" class="form-control" id="fullName" name="fullName" value="">
+                <input type="text" class="form-control" id="fullName" name="fullName" value="" required>
 
                 <label>Institution</label>
                 <input type="text" class="form-control" id="instName" name="instName" value="">
@@ -160,17 +182,17 @@ html_handler::import_lib("governingBodies.js");
                 <input type="text" class="form-control" id="webAddress" name="webAddress" value="">
 
                 <div class="form-group">
-                    Member from<input type="date" id="memberFrom" name="memberFrom">
+                    Member from<input type="date" id="memberFrom" name="memberFrom" required>
                 </div>
 
                 <label>Status</label>
-                <select class="form-control" id="selectStatus" name="selectStatus">
+                <select class="form-control" id="selectStatus" name="selectStatus" required>
                     <option value="" selected disabled hidden>Select Status</option>
                     <option value="Y">Active</option>
                     <option value="N">Former</option>
                 </select>
 
-                <div class="form-group">
+                <div class="form-group" required>
                     Resigned from<input type="date" id="memberTo" name="memberTo">
                 </div>
 

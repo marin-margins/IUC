@@ -21,9 +21,9 @@ switch ($action) {
         print $result;
         break;
     case 'getCities':
-       $all_cities= class_geo::get_city_by_country_id($db_instance,$instID);
+        $all_cities = class_geo::get_city_by_country_id($db_instance, $instID);
         $cities = '';
-        foreach($all_cities as $row) {
+        foreach ($all_cities as $row) {
             $cities .= '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';}
 
         print $cities;
