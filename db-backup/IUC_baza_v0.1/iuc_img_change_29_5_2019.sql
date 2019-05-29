@@ -419,6 +419,7 @@ DROP TABLE IF EXISTS `img_gallery`;
 CREATE TABLE `img_gallery` (
   `imgId` int(11) NOT NULL,
   `galleryId` int(11) NOT NULL,
+  `sequence` int(4) DEFAULT 0,
   KEY `fk_img_gallery_img` (`imgId`),
   KEY `fk_img_gallery_gallery` (`galleryId`),
   CONSTRAINT `fk_img_gallery_gallery` FOREIGN KEY (`galleryId`) REFERENCES `gallery` (`id`),
