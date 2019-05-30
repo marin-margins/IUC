@@ -85,6 +85,19 @@
         </div>
     </div>
 
+    <!-- COURSE CONTENT -->
+
+    <div>
+      <h3>Course directors:</h3>
+      <span></span>
+      <h4>Lucija Sokanović</h4>
+      <h4>Davor Derenčinović</h4>
+      <h4>Aleksandar Maršalevski</h4>
+      <h4>Richard Farkas</h4>
+      <h4>Michael Kilchling</h4>
+      <h4>Besa Arifi</h4>
+    </div>
+
 
     <?php
     include('../to_include/footer.php');
