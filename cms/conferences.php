@@ -14,13 +14,20 @@ html_handler::build_header("Conferences"); //BUILD THE HEADER WITH PAGE TITLE PA
 //dohvat za u tablicu, provjerit jeli ovo moze ovako
 //refresh bezveze, ako treba pisat funkciju, napisa cu
 //filter rucno ubacen
-$query = 'SELECT eventt.eventnum,eventt.start_date,eventt.end_date,eventt.mystatus,SUM(person.academicStatus) AS sumOrganzier,SUM(person.academicStatus) AS sumLecturer,eventt.title 
-FROM eventt
-JOIN person ON person.id = eventt.id
-WHERE sumOrganzier = 'organizer'
-AND sumLecturer = 'lecturer' ';
+$query = 'SELECT eventt.eventnum as eventNum,eventt.start_date AS eventStart,eventt.end_date AS eventEnd,eventt.mystatus AS eventStatus,COUNT(CASE WHEN role.title = "organizer" THEN 1 ELSE NULL END) AS sumOrganizer,COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS sumLecturer,eventt.title AS eventTitle FROM eventt 
+JOIN person_event_role ON eventt.id = person_event_role.eventId 
+JOIN role ON role.id=person_event_role.roleId 
+WHERE eventt.id = 2
+GROUP BY eventt.id';
 $result = $db_instance->query($query);
-echo'<div class="card-body">
+$conf_array = array();
+while ($row = $result->fetch_assoc()) {
+    $conf_array[] = $row;
+}
+?>
+
+<!--- HTML code here--->
+<div class="card-body">
             <div class="table-responsive">
 			<h1>Conferences</h1>
 			<br>
@@ -58,29 +65,27 @@ echo'<div class="card-body">
                   </tr>
                 </tfoot>
                 <tbody>
-				';
-				/*while ($row = $result->fetch_assoc()){
-                  '<tr>
-                    <td>' . $row["eventt.eventnum"] . '</td>
-                    <td>' . $row["eventt.start_date"] . '</td>
-                    <td>' . $row["eventt.end_date"] . '</td>
-                    <td>' . $row["eventt.mystatus"] . '</td>
-                    <td>' . $row["SUM(gover_person.title)"] . '</td>
-                    <td>' . $row["SUM(preson.academicStatus)"] . '</td>
-					<td>' . $row["eventt.title"] . '</td>
-				</tr>
-				';}*/			  
-			echo'</table>
+				<?php
+            foreach ($conf_array as $row){
+                echo '<tr>
+                 <td>' . $row["eventNum"] . '</td>
+                <td>' . $row["eventStart"] . '</td>
+                <td>' . $row["eventEnd"] . '</td>
+                <td>' . $row["eventStatus"] . '</td>
+                <td>' . $row["sumOrganizer"] . '</td>
+                <td>' . $row["sumLecturer"] . '</td>
+                <td>' . $row["eventTitle"] . '</td>
+                                     </tr>';}
+            ?>
+				</tbody>
+				
+				'</table>
 			</div>
 			<button type="button" class="btn btn-primary">Edit details</button>
 			<button type="button" class="btn btn-danger">Delete selected</button>
 			<button type="button" class="btn btn-success">Create new</button>
 			<button type="button" class="btn btn-info">View page</button>
-		</div>';
-
-?>
-
-<!--- HTML code here--->
+		</div>
 
 				  
 				  
