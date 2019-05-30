@@ -17,11 +17,12 @@ switch ($action) {
         }
         break;
     case 'editNews':
+		$newsID = $_POST['post_news_id'];
         $newstitle=$_POST['post_news_title'];
         $newsdate=$_POST['post_news_date'];
         $newssummary=$_POST['post_news_summary'];
         $newsbody=$_POST['post_news_body'];
-        $query = 'UPDATE news SET title="'. $newstitle . '",date="'. $newsdate. '",summary="'.$newssummary.'",body="'.$newsbody.'" WHERE id=' . $personID ;
+        $query = 'UPDATE `news` SET `title`="'.$newstitle.'",`summary`="'.$newssummary.'",`body`="'.$newsbody.'",`date`="'.$newsdate.'" WHERE id='.$newsID;
         $result = $db_instance->query($query);
         print $result;
         break;
@@ -32,6 +33,15 @@ switch ($action) {
         break;
     case 'deletePic':
         //$query = 'UPDATE institute SET aktivan=0 WHERE id="' . $personID . '"';
+        $result = $db_instance->query($query);
+        print $result;
+        break;
+	    case 'insertNews':
+		$newstitle=$_POST['post_news_title'];
+        $newsdate=$_POST['post_news_date'];
+        $newssummary=$_POST['post_news_summary'];
+        $newsbody=$_POST['post_news_body'];
+         $query = 'INSERT INTO `news`( `title`, `summary`, `body`, `date`) VALUES ("'.$newstitle.'","'.$newssummary.'","'.$newsbody.'","'.$newsdate.'")';
         $result = $db_instance->query($query);
         print $result;
         break;

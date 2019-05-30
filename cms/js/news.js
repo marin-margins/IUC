@@ -3,6 +3,9 @@ $(document).ready(function() {
 	$('#FORM1').hide();
 	$('#bla').show();
     $('#edit1').hide();
+	$('#insert1').hide();
+	$('#edit').prop('disabled', true);
+	$('#delete').prop('disabled', true);
     $('.newsRow').on('click', function () {
 		$(this).css('background', 'red');
         var newsID = $(this).data("newsid");
@@ -25,16 +28,23 @@ $(document).ready(function() {
 
                 //namjestanje buttona
 
-
-                $('#insert').prop('disabled', true);
+				$('#delete').prop('disabled', false);
+                $('#edit').prop('disabled', false);
+				 $('#edit5').prop('disabled', true);
+				
                 $('.uploadForm').show();
             });
     });
+		$('#edit5').on('click', function () {
+    document.getElementById("bla").style.display = "none";
+	$('#TABLE,#FORM1').toggle(200);
+        $('#insert1').show();
+
+} );
 	$('#edit').on('click', function () {
     document.getElementById("bla").style.display = "none";
 	$('#TABLE,#FORM1').toggle(200);
         $('#edit1').show();
-
 
 } );
     $('#delete').on('click', function () {
@@ -65,13 +75,32 @@ $(document).ready(function() {
                 post_news_date:newsDate,
                 post_news_summary:newsSummary,
                 post_news_body:newsBody,
-                action: "editNews ",
+                action: "editNews",
                 function(data){
                    // location.reload();
                 }
             }) };
 
     } );
+    $('#insert1').on('click', function () {
+    var    newsTitle=$("#newsTitle").val();
+    var     newsDate=$("#date").val();
+    var     newsSummary=$("#summary").val();
+    var    newsBody= $("#body").val();
+        var confirmation = confirm("Are you sure you want to Create New?");
+        if (confirmation) {
+            $.post("./ajax/newsAjax.php", {
+      
+                post_news_title:newsTitle,
+                post_news_date:newsDate,
+                post_news_summary:newsSummary,
+                post_news_body:newsBody,
+                action: "insertNews",
+                function(data){
+                   // location.reload();
+                }
+            }) };
 
+    } );
 
   } );

@@ -68,11 +68,8 @@ html_handler::import_lib("news.js");
         <div  id="bla" class="float-right">
 
             <button id="delete1" class="btn btn-secondary">View Page</button>
-            <input type="submit" id="insert" name="insert_button" class="btn btn-success" value="Create New">
-            <input type="submit" id="edit" name="update_button"  class="btn btn-warning"
-                   value="Edit Details">
-
-
+			<button id="edit5" class="btn btn-success">Create new</button>
+			<button id="edit" class="btn btn-warning">Edit Details</button>               
             <button id="delete" class="btn btn-danger">Delete</button>
 
 
@@ -107,7 +104,7 @@ html_handler::import_lib("news.js");
                 <br>
                 <br>
                 <button hidden id="delete1" class="btn btn-secondary">View Page</button>
-                <input hidden type="submit" id="insert1" name="insert_button" class="btn btn-success" value="Create New">
+                <input  type="submit" id="insert1" name="insert_button" class="btn btn-success" value="Create New">
                 <input  type="submit" id="edit1" name="update_button"  class="btn btn-warning"
                        value="Edit Details">
 
