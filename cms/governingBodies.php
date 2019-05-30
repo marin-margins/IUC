@@ -5,16 +5,7 @@ require_once './configuration.php'; //ALWAYS REQUIRE CONFIGURATION . CLASS AUTOL
 $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-//ostalo prikazivanje slike ispod forme
-
+$file_upload_return_message = '';
 //Query za punjenje tablice
 $query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,instituteAddress,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
 $result = $db_instance->query($query);

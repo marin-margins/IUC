@@ -63,6 +63,10 @@ $(document).ready(function () {
                 $('#insert').attr("disabled", true);
                 $('#reset').attr("type", "show");
                 $('#deletePic').attr("type", "show");
+                if ($('#image').attr("src") != undefined)
+                    $('#deletePic').removeAttr("disabled");
+                else
+                    $('#deletePic').attr("disabled", true);
             });
     });
     //BRISANJE COVJEKA
@@ -113,6 +117,8 @@ $(document).ready(function () {
             },
                 function (data, status) {
                     alert("Picture deleted");
+                    $('#deletePic').attr("disabled", true);
+                    $('#image').attr("src", "");
                 });
         }
     });
