@@ -42,7 +42,7 @@ html_handler::import_lib("institutions_persons.js");
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                List of institutions
+                List of institutions with participants
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -80,7 +80,6 @@ html_handler::import_lib("institutions_persons.js");
                 </div>
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            <input type="text" class="form-control" id="LastName" name="LaName" value="">
         </div>
     </div>
 </div>
@@ -101,7 +100,7 @@ html_handler::import_lib("institutions_persons.js");
                         <div class="card mb-3">
                             <div class="card-header">
                                 <i class="fas fa-table"></i>
-                                List of institutions
+                                List of Participants
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
