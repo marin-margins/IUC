@@ -8,15 +8,15 @@ class class_geo
 
         $query = 'SELECT name,id FROM country';
         $result = $db_conn->query($query);
-        $contries = array();
+        $countries = array();
         if ($result == false) {
             return $countries;
         } else {
             while ($row = $result->fetch_assoc()) {
 
-                $contries[] = $row;
+                $countries[] = $row;
             }
-            return $contries;}
+            return $countries;}
     }
 
     public static function get_city_by_country_id($db_conn, $country_id)
