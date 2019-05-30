@@ -17,7 +17,7 @@ html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAME
 $query = 'SELECT eventt.eventnum as eventNum,eventt.start_date AS eventStart,eventt.end_date AS eventEnd,eventt.mystatus AS eventStatus,COUNT(CASE WHEN role.title = "director" THEN 1 ELSE NULL END) AS sumDirector,COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS sumLecturer,eventt.title AS eventTitle FROM eventt 
 JOIN person_event_role ON eventt.id = person_event_role.eventId 
 JOIN role ON role.id=person_event_role.roleId 
-WHERE eventt.id = 1
+WHERE eventt.typeid = 1
 GROUP BY eventt.id';
 $result = $db_instance->query($query);
 $conf_array = array();
