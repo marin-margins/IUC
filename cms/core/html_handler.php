@@ -222,6 +222,12 @@ class html_handler
                               <span>Persons</span>
                             </a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="institutions_persons.php">
+                              <i class="fas fa-users"></i>
+                              <span>Institutions/Persons</span>
+                            </a>
+                          </li>
 
                 <li class="nav-item">
                              <a class="nav-link" href="statistics.php">
