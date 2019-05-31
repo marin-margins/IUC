@@ -19,7 +19,7 @@ Select a report from list:
     <th>Title</th>
   </tr>
 
-  <tr onclick="window.location ='statistics_total.php?table=0'">
+  <tr onclick="window.location ='statistics_total.php'">
    <td id="1">Statistics Total</td>
   </tr>
   <tr onclick="window.location ='academicprogrammestatistics.php'">

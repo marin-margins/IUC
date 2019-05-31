@@ -11,35 +11,26 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 ?>
 
 <h2 style="display:inline;">REPORT: STATISTICS TOTAL</h2>
-<button type="button" name="export" class="btn btn-danger"  onclick="Export2Doc('exportContent','word-content');">Export report</button>
-<button type="button" name="create" class="btn btn-primary" id="create_report" onclick="createReport()">Create report</button>
+<button type="button" name="export" class="btn btn-danger"  onclick="Export2Doc('exportContent','statistics_total');">Export report</button>
 <br> <br>
 
 <div class="form-group">
-  <label>Academic Cycle From:</label>
-  <select class="selectpicker" id="start_year" name="">
-    <option value="2018" selected>2018/2019</option>
-    <option value="2017">2017/2018</option>
-    <option value="2016">2016/2017</option>
-  </select>
-  <label>To:</label>
-  <select class="selectpicker" id="end_year" name="">
-    <option value="2018" selected>2018/2019</option>
-    <option value="2017">2017/2018</option>
-    <option value="2016">2016/2017</option>
-  </select>
+  <form action="statistics_total.php" method="post">
+    <label>Academic Cycle From:</label>
+    <select class="selectpicker" id="start_year" name="date1">
+      <option value="2018">2018/2019</option>
+      <option value="2017" selected>2017/2018</option>
+      <option value="2016">2016/2017</option>
+    </select>
+    <label>To:</label>
+    <select class="selectpicker" id="end_year" name="date2">
+      <option value="2018" selected>2018/2019</option>
+      <option value="2017">2017/2018</option>
+      <option value="2016">2016/2017</option>
+    </select>
+    <input type="submit" name="createReport" value="Create report" class="btn btn-primary">
+  </form>
 </div>
-
-<script>
-  $( "#create_report" ).click(function() {
-    var e = document.getElementById("start_year");
-    var start_year = e.options[e.selectedIndex].value;
-    var e = document.getElementById("end_year");
-    var end_year = e.options[e.selectedIndex].value;
-    window.location.href = "./statistics_total.php?id=1&start_year="+start_year+"&end_year="+end_year+"&table=1";
-    return false;
-  });
-</script>
 
 <div id="exportContent">
   <table class="table table-bordered" style ="border: 1px solid gray;" id="dataTable" width="100%" cellspacing="0">
@@ -50,11 +41,9 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
       <th style ="border: 1px solid gray;">Participants</th>
     </tr>
     <?php
-    $table = $_GET["table"];
-    //ako smo pritisli na gumb create stvori se u urlu table u i tek onda stvaramo tablicu skroz
-    if($table == 1){
-      $start_year = $_GET["start_year"]; //testno
-      $end_year =  $_GET["end_year"];
+    if(isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])){
+      $start_year = $_POST["date1"];
+      $end_year =  $_POST["date2"];
       $year = $start_year;
       $num_people;
       while($year <= $end_year){
