@@ -83,7 +83,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
                       JOIN country ON country.id = person.countryId
                       JOIN continent ON continent.id = country.continentId
                       WHERE eventt.typeId = 1
-                      AND start_date >= '.$date1.' AND end_date <= '.$date2.'';
+                      AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
             $result = $db_instance->query($query);
             if (!$result) {
               trigger_error('Invalid query: ' . $db_instance->error);
@@ -129,7 +129,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
                       JOIN country ON country.id = person.countryId
                       JOIN continent ON continent.id = country.continentId
                       WHERE eventt.typeId = 2
-                      AND start_date >= '.$date1.' AND end_date <= '.$date2.'';
+                      AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
             $result = $db_instance->query($query);
             if (!$result) {
               trigger_error('Invalid query: ' . $db_instance->error);

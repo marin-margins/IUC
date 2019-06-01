@@ -56,7 +56,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
         $query = 'SELECT id
                   FROM eventt
                   WHERE typeId = 1
-                  AND DATE_FORMAT(start_date, "%Y") >= '.$year.' AND DATE_FORMAT(end_date, "%Y") <= '.$year.'';
+                  AND DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
@@ -67,7 +67,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
         $query = 'SELECT id
                   FROM eventt
                   WHERE typeId = 2
-                  AND DATE_FORMAT(start_date, "%Y") >= '.$year.' AND DATE_FORMAT(end_date, "%Y") <= '.$year.'';
+                  AND DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
@@ -77,7 +77,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
         //FOR PEOPLE - krivo
         $query = 'SELECT sum(numUnregParticipants) AS value_sum
                   FROM eventt
-                  WHERE DATE_FORMAT(start_date, "%Y") >= '.$year.' AND DATE_FORMAT(end_date, "%Y") <= '.$year.'';
+                  WHERE DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
