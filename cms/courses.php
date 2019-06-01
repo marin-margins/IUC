@@ -11,8 +11,6 @@ html_handler::build_header("Courses"); //BUILD THE HEADER WITH PAGE TITLE PARAME
 
 
 // --------------- REST OF THE PHP CODE  ------------------
-//dohvat za u tablicu, provjerit jeli ovo moze ovako
-//refresh bezveze, ako treba pisat funkciju, napisa cu
 //filter rucno ubacen
 $query = 'SELECT eventt.id as eventid, eventt.eventnum as eventNum,eventt.start_date AS eventStart,eventt.end_date AS eventEnd,eventt.mystatus AS eventStatus,COUNT(CASE WHEN role.title = "director" THEN 1 ELSE NULL END) AS sumDirector,COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS sumLecturer,eventt.title AS eventTitle FROM eventt 
 JOIN person_event_role ON eventt.id = person_event_role.eventId 
@@ -30,7 +28,7 @@ html_handler::import_lib("courses.js")
 <!--- HTML code here--->
 <div class="card-body">
             <div class="table-responsive">
-			<h1>Conferences</h1>
+			<h1>Courses</h1>
 			<br>
 			<div class="form-group">
 			<h4>Academic year:</h4>
@@ -68,7 +66,6 @@ html_handler::import_lib("courses.js")
                 <tbody id="mydata">
 				<?php
             foreach ($conf_array as $row){
-				//tu je valjda ovo ok, nez jeli ode ide za linkat nede ili ne
                 echo '<tr class="coursesRow" data-event="' . $row['eventid'] . '">
                  <td>' . $row["eventNum"] . '</td>
                 <td>' . $row["eventStart"] . '</td>
@@ -78,8 +75,6 @@ html_handler::import_lib("courses.js")
                 <td>' . $row["sumLecturer"] . '</td>
                 <td>' . $row["eventTitle"] . '</td>
                                      </tr>';
-				//$idPredaja = $row['idPredaja'];
-				//echo'<a href="course_details?idPredaja=$idPredaja"><button type="button" class="btn btn-primary">Edit details</button>';
 				}
             ?>
 				</tbody>
