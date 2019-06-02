@@ -53,10 +53,9 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
     $date2 = $_POST["date2"];
     $radio = $_POST["radio"];
 ?>
-      <tr>
        <?php
        if($radio == "institutions"){
-         $query = 'SELECT eventt.title as name,
+         $query = 'SELECT institute.name as name,
                          COUNT(CASE WHEN eventt.typeId = 1 THEN 1 ELSE NULL END) AS courses,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "organizer" THEN 1 ELSE NULL END) AS organizer,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "lecturer" THEN 1 ELSE NULL END) AS lecturer,
@@ -70,10 +69,11 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
                    JOIN role ON role.id = person_event_role.roleId
                    JOIN person ON person.id = person_event_role.personId
                    JOIN eventType ON eventType.id = eventt.typeId
-                   WHERE start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
+                   JOIN institute ON institute.id = person.instituteId
+                   WHERE start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"  GROUP BY institute.name';
        }
        elseif ($radio == "members") {
-         $query = 'SELECT eventt.title as name,
+         $query = 'SELECT institute.name as name,
                          COUNT(CASE WHEN eventt.typeId = 1 THEN 1 ELSE NULL END) AS courses,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "organizer" THEN 1 ELSE NULL END) AS organizer,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "lecturer" THEN 1 ELSE NULL END) AS lecturer,
@@ -87,11 +87,12 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
                    JOIN role ON role.id = person_event_role.roleId
                    JOIN person ON person.id = person_event_role.personId
                    JOIN eventType ON eventType.id = eventt.typeId
-                   WHERE eventt.aktivan = 1
-                   AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
+                   JOIN institute ON institute.id = person.instituteId
+                   WHERE institute.isMember = "Y"
+                   AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'" GROUP BY institute.name';
        }
        elseif ($radio == "nonMembers") {
-         $query = 'SELECT eventt.title as name,
+         $query = 'SELECT institute.name as name,
                          COUNT(CASE WHEN eventt.typeId = 1 THEN 1 ELSE NULL END) AS courses,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "organizer" THEN 1 ELSE NULL END) AS organizer,
                          COUNT(CASE WHEN eventt.typeId = 1 AND role.title = "lecturer" THEN 1 ELSE NULL END) AS lecturer,
@@ -105,14 +106,16 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
                    JOIN role ON role.id = person_event_role.roleId
                    JOIN person ON person.id = person_event_role.personId
                    JOIN eventType ON eventType.id = eventt.typeId
-                   WHERE eventt.aktivan = 0
-                   AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
+                   JOIN institute ON institute.id = person.instituteId
+                   WHERE institute.isMember = "N"
+                   AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"  GROUP BY institute.name';
        }
          $result = $db_instance->query($query);
          if (!$result) {
            trigger_error('Invalid query: ' . $db_instance->error);
          }else{
            while($row = $result->fetch_assoc()) {
+             echo '<tr>';
              echo '<td style ="border: 1px solid gray;">'. $row["name"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["courses"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["organizer"] .'</td>';
@@ -122,10 +125,10 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
              echo '<td style ="border: 1px solid gray;">'. $row["organizer2"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["lecturer2"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["participant2"] .'</td>';
+             echo '</tr>';
            }
          }
        ?>
-      </tr>
     </table>
   </div>
 <?php

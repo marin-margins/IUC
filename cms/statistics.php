@@ -39,6 +39,9 @@ Select a report from list:
   <tr onclick="window.location ='participantsFromSpecificInstitution.php'">
    <td id="4">Participants from specific institution</td>
   </tr>
+  <tr onclick="window.location ='participantsFromSpecificCountry.php'">
+   <td id="5">Participants from specific country</td>
+  </tr>
 
 
 </table>

@@ -66,7 +66,6 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
         <th style ="border: 1px solid gray;">other</th>
         <th style ="border: 1px solid gray;">total</th>
       </tr>
-      <tr>
         <?php
         if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
             $date1 = $_POST["date1"];
@@ -83,12 +82,13 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
                       JOIN country ON country.id = person.countryId
                       JOIN continent ON continent.id = country.continentId
                       WHERE eventt.typeId = 1
-                      AND start_date >= "'.$date1.'" AND end_date <= "'.$date2.'"';
+                      AND eventt.start_date >= "'.$date1.'" AND eventt.end_date <= "'.$date2.'" Group by title';
             $result = $db_instance->query($query);
             if (!$result) {
               trigger_error('Invalid query: ' . $db_instance->error);
             }else{
               while($row = $result->fetch_assoc()) {
+                echo '<tr>';
                 echo '<td style ="border: 1px solid gray;">'. $row["title"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["start_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["end_date"] .'</td>';
@@ -96,11 +96,11 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
                 echo '<td style ="border: 1px solid gray;">'. $row["USA"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["other"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["total"] .'</td>';
+                echo '</tr>';
               }
             }
         }
         ?>
-      </tr>
     </table>
   </div>
   <div id="conferences_table" style="display: none;">
@@ -114,7 +114,6 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
         <th style ="border: 1px solid gray;">other</th>
         <th style ="border: 1px solid gray;">total</th>
       </tr>
-      <tr>
         <?php
         if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
             $query = 'SELECT eventt.title as title, eventt.start_date as start_date, eventt.end_date as end_date,
@@ -135,6 +134,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
               trigger_error('Invalid query: ' . $db_instance->error);
             }else{
               while($row = $result->fetch_assoc()) {
+                echo '<tr>';
                 echo '<td style ="border: 1px solid gray;">'. $row["title"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["start_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["end_date"] .'</td>';
@@ -142,11 +142,11 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
                 echo '<td style ="border: 1px solid gray;">'. $row["USA"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["other"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["total"] .'</td>';
+                echo '</tr>';
               }
             }
         }
         ?>
-      </tr>
     </table>
   </div>
 </div>
