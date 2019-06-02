@@ -11,10 +11,8 @@ html_handler::build_header("Conferences"); //BUILD THE HEADER WITH PAGE TITLE PA
 
 
 // --------------- REST OF THE PHP CODE  ------------------
-//dohvat za u tablicu, provjerit jeli ovo moze ovako
-//refresh bezveze, ako treba pisat funkciju, napisa cu
 //filter rucno ubacen
-$query = 'SELECT eventt.eventnum as eventNum,eventt.start_date AS eventStart,eventt.end_date AS eventEnd,eventt.mystatus AS eventStatus,COUNT(CASE WHEN role.title = "organizer" THEN 1 ELSE NULL END) AS sumOrganizer,COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS sumLecturer,eventt.title AS eventTitle FROM eventt 
+$query = 'SELECT eventt.id as eventid, eventt.eventnum as eventNum,eventt.start_date AS eventStart,eventt.end_date AS eventEnd,eventt.mystatus AS eventStatus,COUNT(CASE WHEN role.title = "organizer" THEN 1 ELSE NULL END) AS sumOrganizer,COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS sumLecturer,eventt.title AS eventTitle FROM eventt 
 JOIN person_event_role ON eventt.id = person_event_role.eventId 
 JOIN role ON role.id=person_event_role.roleId 
 WHERE eventt.typeid = 2
@@ -24,6 +22,7 @@ $conf_array = array();
 while ($row = $result->fetch_assoc()) {
     $conf_array[] = $row;
 }
+html_handler::import_lib("conferences.js")
 ?>
 
 <!--- HTML code here--->
@@ -64,10 +63,10 @@ while ($row = $result->fetch_assoc()) {
 					<th>Title</th>
                   </tr>
                 </tfoot>
-                <tbody>
+                <tbody id="mydata">
 				<?php
             foreach ($conf_array as $row){
-                echo '<tr>
+                echo '<tr class="conferencesRow" data-event="' . $row['eventid'] . '">
                  <td>' . $row["eventNum"] . '</td>
                 <td>' . $row["eventStart"] . '</td>
                 <td>' . $row["eventEnd"] . '</td>
@@ -81,7 +80,7 @@ while ($row = $result->fetch_assoc()) {
 				
 				'</table>
 			</div>
-			<button type="button" class="btn btn-primary">Edit details</button>
+			<button id="edit" type="button" class="btn btn-primary">Edit details</button>
 			<button type="button" class="btn btn-danger">Delete selected</button>
 			<button type="button" class="btn btn-success">Create new</button>
 			<button type="button" class="btn btn-info">View page</button>

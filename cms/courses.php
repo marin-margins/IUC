@@ -47,7 +47,7 @@ html_handler::import_lib("courses.js")
                     <th>From</th>
                     <th>To</th>
                     <th>Status</th>
-                    <th>Organizers</th>
+                    <th>Directors</th>
                     <th>Lecturers</th>
 					<th>Title</th>
                   </tr>
@@ -58,7 +58,7 @@ html_handler::import_lib("courses.js")
                     <th>From</th>
                     <th>To</th>
                     <th>Status</th>
-                    <th>Organizers</th>
+                    <th>Directors</th>
                     <th>Lecturers</th>
 					<th>Title</th>
                   </tr>
@@ -79,9 +79,8 @@ html_handler::import_lib("courses.js")
             ?>
 				</tbody>
 				
-				'</table>
+				</table>
 			</div>
-			<!--<a href="course_details?idPredaja=$idPredaja"><button type="button" class="btn btn-primary">Edit details</button>;-->
 			<button id="edit" type="button" class="btn btn-primary" disabled>Edit details</button>
 			<button type="button" class="btn btn-danger">Delete selected</button>
 			<button type="button" class="btn btn-success">Create new</button>
