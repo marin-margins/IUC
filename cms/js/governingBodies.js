@@ -18,10 +18,10 @@ $(document).ready(function () {
         $("#memberTo").val("");
         $("#other").val("");
         $("#selectStatus").val("").change("");
+        $("#image").removeAttr("src");
         //namjestanje buttona
         $('#delete').attr("disabled", true);
         $('#update').attr("disabled", true);
-        $('.uploadForm').hide();
         $('#deletePic').attr("type", "hidden");
         $('#insert').removeAttr('disabled');
         $('#reset').attr("type", "hidden");
@@ -46,7 +46,7 @@ $(document).ready(function () {
                 var fullname = podaci.firstname + " " + podaci.lastname;
                 $("#fullName").val(fullname);
                 $("#instName").val(podaci.instituteName);
-                $("#address").val(podaci.instituteAddress);
+                $("#address").val(podaci.address);
                 $("#selectStatus").val(podaci.isActive).change();
                 $("#telephone").val(podaci.phone);
                 $("#fax").val(podaci.fax);
@@ -55,11 +55,10 @@ $(document).ready(function () {
                 $("#memberFrom").val(podaci.memberFrom);
                 $("#memberTo").val(podaci.memberTo);
                 $("#other").val(podaci.other);
-                $("#image").attr("src", podaci.filename);
+                $("#image").attr("src", podaci.path);
                 //namjestanje buttona
                 $('#delete').removeAttr('disabled');
                 $('#update').removeAttr('disabled');
-                $('.uploadForm').show();
                 $('#insert').attr("disabled", true);
                 $('#reset').attr("type", "show");
                 $('#deletePic').attr("type", "show");
@@ -98,7 +97,6 @@ $(document).ready(function () {
                     //namjestanje buttona
                     $('#delete').attr("disabled", true);
                     $('#update').attr("disabled", true);
-                    $('.uploadForm').hide();
                     $('#deletePic').attr("type", "hide");
                     //sakrivena formaID se stavlja na prazno
                     $("#formPersonID").val("");

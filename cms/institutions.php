@@ -25,7 +25,7 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
     $updateID = $_POST["update_id"];
     $instName = $_POST['instName'];
     $cityID = $_POST['selectCity'];
-    $status = revertMemberStatus($_POST['selectStatus']);
+    $status = $institutions_object->revertMemberStatus($_POST['selectStatus']);
     $address = $_POST["address"];
     $webAddress = $_POST["webAddress"];
     $president = $_POST["president"];

@@ -7,7 +7,7 @@ $page_setup = new class_page_setup(); // CREATE THE CLASS PAGE SETUP
 $db_instance = $page_setup->get_db_instance(); //GET DB INSTANCE SO YOU CAN USE DB FUNCTIONS
 $file_upload_return_message = '';
 //Query za punjenje tablice
-$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,instituteAddress,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
+$query = 'SELECT person.id AS personId,title,firstname,lastname,academicStatus,address,instituteName FROM person JOIN govern_person ON id=personId WHERE aktivan=1';
 $result = $db_instance->query($query);
 $tr_array = array();
 if ($result == false) {
@@ -25,7 +25,7 @@ if ($result == false) {
     <td>' . $row["title"] . '</td>
     <td>' . $row["academicStatus"] . " " . $row["firstname"] . " " . $row["lastname"] . '</td>
     <td>' . $row["instituteName"] . '</td>
-    <td>' . $row["instituteAddress"] . '</td>
+    <td>' . $row["address"] . '</td>
     </tr>';
     }
 }
@@ -53,7 +53,6 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
         //ako postoji file u formi odvija se sljedece, i za update i za insert novog persona ista je stvar sto se tice slika
         //ubaci se slika, namjesti se ID slike za osobu
         $file_upload_return_message = class_file_upload::upload_file($_FILES["files"], "governingBodies");
-        $size = $_FILES["files"]["size"];
         //brisanje trenutne slike ako postoji, ako ne postoji samo se dalje nastavlja
         $query = "SELECT img.id FROM img JOIN person ON imgId=img.id WHERE person.id='$updateID'";
         $result = $db_instance->query($query);
@@ -64,7 +63,13 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
             $result = $db_instance->query($query);
         }
         //ubacivanje slike u bazu i dohvacanje njenog ID-a nakon što se ubaci
-        $query = "INSERT INTO img (filename,size) VALUES ('$file_upload_return_message','$size')";
+        //trebam dodat date
+        //trebam dodat date
+        //trebam dodat date
+        //trebam dodat date
+        //trebam dodat date
+        //trebam dodat date
+        $query = "INSERT INTO img (path) VALUES ('$file_upload_return_message')";
         if ($db_instance->query($query) == true) {
             $imgID = $db_instance->insert_id;
         }
@@ -78,7 +83,7 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
         //query za update oznacenog covjeka i za institut
         $query = "UPDATE person SET academicStatus='$academicStatus',firstname='$firstName',lastname='$lastName',phone='$telephone',fax='$fax',email='$email',url='$webAddress' WHERE id='$updateID'";
         $result = $db_instance->query($query);
-        $query = "UPDATE govern_person SET title='$personTitle',isActive='$status',memberFrom='$memberFrom',memberTo='$memberTo',other='$other',instituteAddress='$address',instituteName='$instName'  WHERE personId='$updateID'";
+        $query = "UPDATE govern_person SET title='$personTitle',isActive='$status',memberFrom='$memberFrom',memberTo='$memberTo',other='$other',address='$address',instituteName='$instName'  WHERE personId='$updateID'";
         $result = $db_instance->query($query);
     } else {
         //u slucaju da se pritisnuo create new onda je updateID prazan pa ulazi ovdje i odvija se insert
@@ -87,7 +92,7 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
         if ($db_instance->query($query) == true) {
             $personID = $db_instance->insert_id;
         }
-        $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,other,isActive,instituteName,instituteAddress) VALUES ('$personID','$personTitle','$memberFrom','$memberTo','$other','$selectStatus','$instName','$address');";
+        $query = "INSERT INTO govern_person(personId,title,memberFrom,memberTo,other,isActive,instituteName,address) VALUES ('$personID','$personTitle','$memberFrom','$memberTo','$other','$selectStatus','$instName','$address');";
         $result = $db_instance->query($query);
     }
     header('Location: governingBodies.php');
@@ -201,7 +206,7 @@ html_handler::import_lib("governingBodies.js");
                 <!---File upload form--->
                 <div class="col-md-3">
                     <br />
-                    <input name="files" class="uploadForm" style="display:none" type="file" /><br />
+                    <input name="files" class="uploadForm" type="file" /><br />
                 </div>
                 <?php echo "<h2>" . $file_upload_return_message . "</h2>"; ?>
         </form>
