@@ -18,7 +18,7 @@ $(document).ready(function () {
         $("#memberTo").val("");
         $("#other").val("");
         $("#selectStatus").val("").change("");
-        $("#image").removeAttr("src");
+        $("#imgDiv").remove();
         //namjestanje buttona
         $('#delete').attr("disabled", true);
         $('#update').attr("disabled", true);
@@ -55,17 +55,19 @@ $(document).ready(function () {
                 $("#memberFrom").val(podaci.memberFrom);
                 $("#memberTo").val(podaci.memberTo);
                 $("#other").val(podaci.other);
-                $("#image").attr("src", podaci.path);
+                //ako slika postoji dodaje se img u div i omogucuje se brisanje slike, ako ne slika nije dodana u div i ne moze se izbrisat
+                if (podaci.path != undefined) {
+                    $('#imgDiv').prepend('<img id="image" name="image" src=' + podaci.path + ' height="300" width="300" />');
+                    $('#deletePic').removeAttr("disabled");
+                }
+                else
+                    $('#deletePic').attr("disabled", true);
                 //namjestanje buttona
                 $('#delete').removeAttr('disabled');
                 $('#update').removeAttr('disabled');
                 $('#insert').attr("disabled", true);
                 $('#reset').attr("type", "show");
                 $('#deletePic').attr("type", "show");
-                if ($('#image').attr("src") != undefined)
-                    $('#deletePic').removeAttr("disabled");
-                else
-                    $('#deletePic').attr("disabled", true);
             });
     });
     //BRISANJE COVJEKA
@@ -116,7 +118,7 @@ $(document).ready(function () {
                 function (data, status) {
                     alert("Picture deleted");
                     $('#deletePic').attr("disabled", true);
-                    $('#image').attr("src", "");
+                    $('#imgDiv').remove();
                 });
         }
     });

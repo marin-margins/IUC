@@ -194,8 +194,7 @@ html_handler::import_lib("governingBodies.js");
                     <label>Other</label>
                     <textarea class="form-control" id="other" name="other" rows="3"></textarea>
                 </div>
-                <div class="form-group">
-                    <img id="image" name="image" height="300" width="300" /></td>
+                <div class="form-group" id="imgDiv">
                 </div>
                 <button id="delete" disabled class="btn btn-danger">Delete</button>
                 <input type="submit" id="update" name="update_button" disabled class="btn btn-warning"
