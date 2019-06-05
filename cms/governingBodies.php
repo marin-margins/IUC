@@ -63,13 +63,8 @@ if (isset($_POST["update_button"]) || isset($_POST["insert_button"])) {
             $result = $db_instance->query($query);
         }
         //ubacivanje slike u bazu i dohvacanje njenog ID-a nakon što se ubaci
-        //trebam dodat date
-        //trebam dodat date
-        //trebam dodat date
-        //trebam dodat date
-        //trebam dodat date
-        //trebam dodat date
-        $query = "INSERT INTO img (path) VALUES ('$file_upload_return_message')";
+        $date = class_debug::get_time();
+        $query = "INSERT INTO img (path,dateAdded) VALUES ('$file_upload_return_message','$date')";
         if ($db_instance->query($query) == true) {
             $imgID = $db_instance->insert_id;
         }
