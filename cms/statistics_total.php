@@ -33,7 +33,18 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 </div>
 
 <div id="exportContent">
-  <table class="table table-bordered" style ="border: 1px solid gray;" id="dataTable" width="100%" cellspacing="0">
+  <?php
+  if(isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])){
+    $start_year = $_POST["date1"];
+    $end_year =  $_POST["date2"];
+    $pom1 = $start_year + 1;
+    $pom2 = $end_year + 1;
+  ?>
+    <div id="naslov" style="display:none;">
+        <h3>REPORT: Statistics total</h3>
+    </div>
+  <p>Academic year: <?php echo $start_year;?>/<?php echo $pom1;?> - <?php echo $end_year;?>/<?php echo $pom2;?> </p>
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
     <tr style ="border: 1px solid gray;">
       <th style ="border: 1px solid gray;">Year</th>
       <th style ="border: 1px solid gray;">Courses</th>
@@ -41,22 +52,22 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
       <th style ="border: 1px solid gray;">Participants</th>
     </tr>
     <?php
-    if(isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])){
-      $start_year = $_POST["date1"];
-      $end_year =  $_POST["date2"];
       $year = $start_year;
       $num_people;
       while($year <= $end_year){
         echo '<tr>';
         //Year
-        $pom = $year+1;
-        echo '<td style ="border: 1px solid gray;">'.$year.'/'.$pom.'</td>';
+        $pomocno1 = $year;
+        $pomocno2 = $year+1;
+        echo '<td style ="border: 1px solid gray;">'.$year.'/'.$pomocno2.'</td>';
+        $dat1 = $pomocno1."-10-01";
+        $dat2 = $pomocno2."-10-01";
 
         //FOR COURSES
         $query = 'SELECT id
                   FROM eventt
                   WHERE typeId = 1
-                  AND DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
+                  AND start_date >= "'.$dat1.'" AND end_date <= "'.$dat2.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
@@ -67,7 +78,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
         $query = 'SELECT id
                   FROM eventt
                   WHERE typeId = 2
-                  AND DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
+                  AND start_date >= "'.$dat1.'" AND end_date <= "'.$dat2.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
@@ -77,7 +88,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
         //FOR PEOPLE - krivo
         $query = 'SELECT sum(numUnregParticipants) AS value_sum
                   FROM eventt
-                  WHERE DATE_FORMAT(start_date, "%Y") >= "'.$year.'" AND DATE_FORMAT(end_date, "%Y") <= "'.$year.'"';
+                  WHERE start_date >= "'.$dat1.'" AND end_date <= "'.$dat2.'"';
         $result = $db_instance->query($query);
         if (!$result) {
           trigger_error('Invalid query: ' . $db_instance->error);
@@ -103,8 +114,8 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     var postHtml = "</body></html>";
-    var logo = "<img src='./files/test_file_upload_dir/iuc_file_5ce95b17e2082.jpg'></img>"
-    var html = preHtml+logo+document.getElementById(element).innerHTML+postHtml;
+    var naslov = document.getElementById('naslov').innerHTML;
+    var html = preHtml+naslov+document.getElementById(element).innerHTML+postHtml;
 
     var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'

@@ -55,8 +55,21 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
 ?>
 
 <div id="exportContent">
+  <?php
+    if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
+      $date1 = $_POST["date1"];
+      $date2 = $_POST["date2"];
+      ?>
+      <div id="naslov" style="display:none;">
+          <h3>REPORT: Academic Programme Statistics</h3>
+          <?php
+          $pom1 = date("d-M-Y", strtotime($date1));;
+          $pom2 = date("d-M-Y", strtotime($date2));;
+          echo "<p>Date: ".$pom1."/ ".$pom2."</p>";
+  ?>
+      </div>
   <div id="course_table" style="visibility:visible;margin-bottom:20px">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
       <tr>
         <th style ="border: 1px solid gray;">Course</th>
         <th style ="border: 1px solid gray;">from</th>
@@ -66,10 +79,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
         <th style ="border: 1px solid gray;">other</th>
         <th style ="border: 1px solid gray;">total</th>
       </tr>
-        <?php
-        if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
-            $date1 = $_POST["date1"];
-            $date2 = $_POST["date2"];
+      <?php
             $query = 'SELECT eventt.title as title, eventt.start_date as start_date, eventt.end_date as end_date,
                             COUNT(CASE WHEN country.name = "Croatia" THEN 1 ELSE NULL END) AS croatia,
                             COUNT(CASE WHEN country.name = "USA" THEN 1 ELSE NULL END) AS USA,
@@ -89,7 +99,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
             }else{
               while($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td style ="border: 1px solid gray;">'. $row["title"] .'</td>';
+                echo '<td width="30%" style ="border: 1px solid gray;">'. $row["title"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["start_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["end_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["croatia"] .'</td>';
@@ -104,7 +114,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
     </table>
   </div>
   <div id="conferences_table" style="display: none;">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
       <tr>
         <th style ="border: 1px solid gray;">Conference</th>
         <th style ="border: 1px solid gray;">from</th>
@@ -135,7 +145,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
             }else{
               while($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td style ="border: 1px solid gray;">'. $row["title"] .'</td>';
+                echo '<td width="30%" style ="border: 1px solid gray;">'. $row["title"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["start_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["end_date"] .'</td>';
                 echo '<td style ="border: 1px solid gray;">'. $row["croatia"] .'</td>';
@@ -155,8 +165,9 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
 <script type="text/javascript">
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var naslov = document.getElementById('naslov').innerHTML;
     var postHtml = "</body></html>";
-    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+    var html = preHtml+naslov+document.getElementById(element).innerHTML+postHtml;
 
     var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'

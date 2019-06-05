@@ -35,7 +35,21 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 
 </div>
 <div id="exportContent">
-<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  <?php
+    if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])  && isset($_POST["radio"]) && !empty($_POST["radio"])) {
+      $date1 = $_POST["date1"];
+      $date2 = $_POST["date2"];
+      $radio = $_POST["radio"];
+  ?>
+  <div id="naslov" style="display:none;">
+      <h3>REPORT: Course and conference count per institutions</h3>
+      <?php
+      $pom1 = date("d-M-Y", strtotime($date1));;
+      $pom2 = date("d-M-Y", strtotime($date2));;
+      echo "<p>Date: ".$pom1."/ ".$pom2."</p>";
+?>
+  </div>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
   <tr>
     <th style ="border: 1px solid gray;">Name</th>
     <th style ="border: 1px solid gray;">Courses</th>
@@ -47,12 +61,6 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
     <th style ="border: 1px solid gray;">with lecturers</th>
     <th style ="border: 1px solid gray;">with participants</th>
   </tr>
-<?php
-  if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])  && isset($_POST["radio"]) && !empty($_POST["radio"])) {
-    $date1 = $_POST["date1"];
-    $date2 = $_POST["date2"];
-    $radio = $_POST["radio"];
-?>
        <?php
        if($radio == "institutions"){
          $query = 'SELECT institute.name as name,
@@ -116,7 +124,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
          }else{
            while($row = $result->fetch_assoc()) {
              echo '<tr>';
-             echo '<td style ="border: 1px solid gray;">'. $row["name"] .'</td>';
+             echo '<td width="20%" style ="border: 1px solid gray;">'. $row["name"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["courses"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["organizer"] .'</td>';
              echo '<td style ="border: 1px solid gray;">'. $row["lecturer"] .'</td>';
@@ -139,7 +147,8 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     var postHtml = "</body></html>";
-    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+    var naslov = document.getElementById('naslov').innerHTML;
+    var html = preHtml+naslov+document.getElementById(element).innerHTML+postHtml;
 
     var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'

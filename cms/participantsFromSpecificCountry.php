@@ -28,8 +28,21 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
 </form>
 
 <div id="exportContent">
+<?php
+if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
+    $date1 = $_POST["date1"];
+    $date2 = $_POST["date2"];
+?>
+<div id="naslov" style="display:none;">
+    <h3>REPORT: Participants from specific country</h3>
+    <?php
+    $pom1 = date("d-M-Y", strtotime($date1));;
+    $pom2 = date("d-M-Y", strtotime($date2));;
+    echo "<p>Date: ".$pom1."/ ".$pom2."</p>";
+?>
+</div>
   <div id="organizers_table" style="visibility:visible;margin-bottom:20px">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
       <tr>
         <th style ="border: 1px solid gray;">Country</th>
         <th style ="border: 1px solid gray;">Participants</th>
@@ -38,9 +51,6 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
         <th style ="border: 1px solid gray;">Total</th>
       </tr>
 <?php
-  if (isset($_POST["date1"]) && !empty($_POST["date1"]) && isset($_POST["date2"]) && !empty($_POST["date2"])) {
-      $date1 = $_POST["date1"];
-      $date2 = $_POST["date2"];
       $query = 'SELECT country.name as country,
                   COUNT(CASE WHEN role.title = "participant" THEN 1 ELSE NULL END) AS participants,
                   COUNT(CASE WHEN role.title = "lecturer" THEN 1 ELSE NULL END) AS lecturers,
@@ -75,8 +85,9 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
 <script type="text/javascript">
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var naslov = document.getElementById('naslov').innerHTML;
     var postHtml = "</body></html>";
-    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+    var html = preHtml+naslov+document.getElementById(element).innerHTML+postHtml;
 
     var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'
