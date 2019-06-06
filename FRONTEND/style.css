@@ -1537,7 +1537,7 @@ padding: 1.5rem 0rem;
 	width: 133px;
 	height: 60px;
 	position: absolute;
-	top: 30%;
+	top: 20%;
 	left: 91%;
 	font-family: var(--playfair);
 	font-weight: bold;
@@ -1706,6 +1706,19 @@ padding: 1.5rem 0rem;
 }
 
 
+
+	@media (max-width: 1400px){
+		/*organize*/
+		.tabs {
+			width: 71%;
+			margin-left: 14%;
+			margin-right: 15%;
+		}
+		
+		.apply-btn {
+			left: 88%;
+		}
+	}
 
 
     @media (max-width: 1240px){

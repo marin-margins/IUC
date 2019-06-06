@@ -13,7 +13,7 @@
 	    <!-- NAVBAR -->
     <div class="org-navbar">
         <div class="nav-left">
-        <img src="to_include/logo-header.png" alt="IUC International University Centre Dubrovnik Logo" class="org-logo">
+        <img src="../to_include/logo-header.png" alt="IUC International University Centre Dubrovnik Logo" class="org-logo">
         <span id="divider"></span>
 		<p>Inter-University Centre<span> Dubrovnik</span></p>
         </div>
@@ -56,7 +56,7 @@
 					<hr>
 				</li>
 				<li class="tablink">
-					<svg class="img-guidelines" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><defs><style>.img-guidelines{fill:none;stroke:#bebebe;stroke-width:2px;}</style></defs><g transform="translate(-465 -290)"><line y2="25" transform="translate(471.5 290)"/><line y2="25" transform="translate(477.5 290)"/><line class="a" y2="25" transform="translate(483.5 290)"/><line y2="25" transform="translate(490 295.5) rotate(90)"/><line class="a" y2="25" transform="translate(490 302.5) rotate(90)"/><line y2="25" transform="translate(490 309.5) rotate(90)"/></g></svg>
+					<svg class="img-guidelines" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><defs><style>.img-guidelines{fill:none;stroke:#bebebe;stroke-width:2px;}</style></defs><g transform="translate(-465 -290)"><line y2="25" transform="translate(471.5 290)"/><line y2="25" transform="translate(477.5 290)"/><line y2="25" transform="translate(483.5 290)"/><line y2="25" transform="translate(490 295.5) rotate(90)"/><line y2="25" transform="translate(490 302.5) rotate(90)"/><line y2="25" transform="translate(490 309.5) rotate(90)"/></g></svg>
 					<a href="#" onclick="MyFunction(event,'tab2');return false;">GUIDELINES</a>
 					<hr>
 				</li>
@@ -85,7 +85,7 @@
 	</div>
     
     
-    <script>document.getElementById("defaultOpen").click();</script>
+    <script>$(document).ready(function(){document.getElementById("defaultOpen").click()})</script>
     
     <script>
 		function MyFunction(evnt, tabNum) {
@@ -103,6 +103,11 @@
 		  }
 
 		  document.getElementById(tabNum).style.display = "block";
+		  if (tabNum = 'tab2') {
+			  $(".apply-btn").css("top", "50%");
+		  } else if (tabNum = 'tab1') {
+			  $(".apply-btn").css("top", "20%");
+		  }
 		  evnt.currentTarget.parentElement.className += " active";
 		  boje();
 		}
@@ -124,12 +129,12 @@
     
 
     <?php
-        include("to_include/hamburger.php");
+        include("../to_include/hamburger.php");
     ?>
 
 
     <?php
-    include('to_include/footer.php')
+    include('../to_include/footer.php')
     ?>
 </body>
 </html>
