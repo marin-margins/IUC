@@ -1920,9 +1920,10 @@ padding: 1.5rem 0rem;
 
 .apply-container{
 
-    width: 1920px;
+    width: 100%;
     background: white;
-    height: 2085px;
+    height:1970px;
+   
 }
 
 .apply-container h3{
@@ -1996,12 +1997,33 @@ font-size:14px;
 
 
 
+
+
+
+
+
 .nxt{
+    font-family: var(--playfair);
+    font-weight: 900;
+    font-size: 13px;
+    margin: 30px 0;
+    display: block;
+    text-align: center;
+    width: 180px;
+
     color: white;
     background: #3891CC;
     border-radius: 3px;
     text-decoration: none;
     padding: 20px 35px;
+
+
+
+}
+
+
+.nxt:hover{
+    background: var(--dark-blue);
 }
 
 
@@ -2034,6 +2056,8 @@ font-size:14px;
 }
 
 
+
+
 /*FORM*/
 
 input[text]:required,
@@ -2054,6 +2078,9 @@ form div {
 	margin-top:91px;
 
 }
+
+
+
 label {
         display: block;
 	color:#42444B;
@@ -2073,9 +2100,11 @@ input{
         background:#FFFFFF;
         height:75px;
 	width:975px;
-	border-color:#BEBEBE;
-	border-size:1px;
+	
+	border: 1px solid #BEBEBE;
 	border-radius: 3px;
+	padding: 0 28px;
+	
 
 }
 input{
@@ -2086,7 +2115,7 @@ input{
 
 }
 
-input[type=text]::placeholder {
+input[type=text]::placeholder, input[type=email]::placeholder{
 
   color: #42444B;
   font-size:14px;
@@ -2100,6 +2129,7 @@ input[type=text]::placeholder {
 input[type=text]:focus, input[type=password]:focus {
 
   background-color: #ddd;
+  border-color:#3891CC;
   outline: none;
 }
 

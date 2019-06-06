@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/IUC/trunk/FRONTEND/style.css?ts=<?=time()?>"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
-    
+    <script>$('#name').setCursorPosition(3);</script>
     
 </head>
 <body>
@@ -56,6 +56,9 @@
 		  
      
     </div>
+	
+	
+	
 	  <div class="apply-container">
 	  
 			<span class="circle1"><p>1</p></span>
@@ -67,12 +70,14 @@
 			
 			
 			
-			<form>
+<form>
   
   <div>
     <label for="name">Last Name</label>
-    <input type="text" name="name" id="name" required />
+    <input type="text" placeholder="write" name="name" id="name" required />
+  
   </div>
+
   
   <div>
     <label for="fname">First and other names</label>
@@ -115,17 +120,13 @@
 </form>
 			
 			
+	
 			
 			
 			
 			
 			
-			
-			
-			
-			
-			
-			<a href="" class="btn" style="position:absolute; left:195px; top:1935px">NEXT</a>
+			<a href="" class="nxt" style="position: absolute; margin-left:195px; margin-top:90px;">NEXT</a>
 			
    
 </div>
