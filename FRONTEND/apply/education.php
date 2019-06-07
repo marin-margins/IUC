@@ -58,90 +58,93 @@
     </div>
 	
 	
-	  <div class="apply">
+	<div class="education-container">
 	  <div class="apply-container">
 	  
-			<span class="circle1" style="background-color:#3891CC;"><p>1</p></span>
+			<span class="circle1"><p>1</p></span>
 			
-			<span class="circle2"><p>2</p></span>
+			<span class="circle2" style="background-color:#3891CC"><p>2</p></span>
 		    <span class="circle3"><p>3</p></span>
-			<h3 style="position: absolute; left: 195px; margin-top:26px">General info</h3>
+			<h3 style="position: absolute; left: 195px; margin-top:26px">Education</h3>
 			
 			
 			
 			
 <form>
   
-  <div class="form-group">
-    <label for="name">Last Name</label>
-    <input type="text" placeholder="write" name="name" id="name" required />
+  <div>
+    <label for="degrees">Degrees/qualifications</label>
+    <input type="text" placeholder="write" name="degrees" id="degrees" required />
 	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
   
   </div>
 
   
   <div>
-    <label for="fname">First and other names</label>
-    <input type="text" placeholder="write" name="fname"id="first" required />
+    <label for="occupation">Present occupation</label>
+    <input type="text" placeholder="write" name="occupation" id="occupation" required />
 	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
   </div>
   
    <div>
-    <label for="title">Title</label>
-    <input type="text"  placeholder="write" name="title" id="title" />
+    <label for="institution">Institution</label>
+    <input type="text"  placeholder="write" name="institution" id="institution" />
   </div>
   
    <div>
-    <label for="adress">Postal adress</label>
-    <input type="text"  placeholder="write" name="adress" id="adress" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
+    <label for="recommended">Recommended by</label>
+    <input type="text"  placeholder="write" name="recommended" id="recommended" required />
   </div>
   
-   <div>
-    <label for="city">City</label>
-    <input type="text"  placeholder="write" name="city" id="city" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-
-     <div>
-    <label for="state">State</label>
-    <input type="text"  placeholder="write" name="state" id="state" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-
-    <div>
-    <label for="phone">Phone</label>
-    <input type="text"  placeholder="write" name="phone" id="phone"
-	/>
-  </div>
-
+  
   <div>
     <label for="email">e-mail</label>
     <input type="email"  placeholder="write" name="email" id="email" required />
+	
+			
   </div>
-
+  
+  
 
 
 </form>
 			
-			
+   <input type="radio" name="muhRadio"  value=""/><text>Send me application copy on my mail</text>
+
 	
+			<a href="../apply/application_sent.php" class="nxt" style="position: absolute; left:195px; margin-top:195px;">NEXT</a>
 			
 			
 			
-			
-			
-			<a href="../apply/education.php" class="nxt" style="position: absolute; margin-left:195px; margin-top:90px;">NEXT</a>
 			
    
 </div>
-   
-  
-   
-   
-   
-   
    </div>
+  <script>
+   $(document).ready(function() {
+  $("label").on("click", function(e) {
+    e.preventDefault();
+    var $radio = $("#" + $(this).attr("for")),
+      name = $radio.attr("name"),
+      hasRadio = $radio.attr("type") == "radio";
+    if (!hasRadio) return;
+    if ($radio.data("is-checked") == true) {
+      $radio.prop("checked", false).change();
+      $radio.data("is-checked", false);
+    } else {
+      $radio.data("is-checked", true);
+      $radio.prop("checked", true).change();
+    }
+    $('input[type="radio"][name="' + name + '"]')
+      .not("#" + $(this).attr("for"))
+      .data("is-checked", false);
+  });
+});
+
+   </script>
+   
+   
+   
    
    
    

@@ -58,92 +58,44 @@
     </div>
 	
 	
-	  <div class="apply">
-	  <div class="apply-container">
+	
+	  <div class="sent-container">
+	   <div class="apply-container">
 	  
-			<span class="circle1" style="background-color:#3891CC;"><p>1</p></span>
+			<span class="circle1"><p>1</p></span>
 			
 			<span class="circle2"><p>2</p></span>
-		    <span class="circle3"><p>3</p></span>
-			<h3 style="position: absolute; left: 195px; margin-top:26px">General info</h3>
+		    <span class="circle3" style="background-color:#3891CC"><p>3</p></span>
+			<h3 style="position: absolute; left: 195px; margin-top:26px">Application sent</h3>
+		
+		
+	
+			<p style="position:relative; height:119px; width:397px; left:195px; margin-top:94px; size:14px; line-height:25px; height:119px; width:397px; font-family:Montserrat; color: #010727; font-weight:normal">
+			      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+       			  sed do eiusmod tempor incididunt ut labore et dolore
+ 				  magna aliqua. Ut enim ad minim veniam, quis nostrud
+				  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				  
+		    <img src="../to_include/sent.png" style="width: 289.86px; height: 184.86px; position:absolute; left:790px; top:300px" alt="">
 			
+
 			
+
+
+		<div class="sent-row"></div>
 			
-			
-<form>
-  
-  <div class="form-group">
-    <label for="name">Last Name</label>
-    <input type="text" placeholder="write" name="name" id="name" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  
-  </div>
-
-  
-  <div>
-    <label for="fname">First and other names</label>
-    <input type="text" placeholder="write" name="fname"id="first" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-  
-   <div>
-    <label for="title">Title</label>
-    <input type="text"  placeholder="write" name="title" id="title" />
-  </div>
-  
-   <div>
-    <label for="adress">Postal adress</label>
-    <input type="text"  placeholder="write" name="adress" id="adress" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-  
-   <div>
-    <label for="city">City</label>
-    <input type="text"  placeholder="write" name="city" id="city" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-
-     <div>
-    <label for="state">State</label>
-    <input type="text"  placeholder="write" name="state" id="state" required />
-	<text style=" position:absolute; margin-top:103px; left: 195px; color:#BEBEBE; size:14px; font-family:Montserrat"><i>required field</i></text>
-  </div>
-
-    <div>
-    <label for="phone">Phone</label>
-    <input type="text"  placeholder="write" name="phone" id="phone"
-	/>
-  </div>
-
-  <div>
-    <label for="email">e-mail</label>
-    <input type="email"  placeholder="write" name="email" id="email" required />
-  </div>
-
-
-
-</form>
-			
+			<a href="" class="sent" style=" left:195px; top:446px;">BACK TO HOMEPAGE</a>
 			
 	
 			
-			
-			
-			
-			
-			<a href="../apply/education.php" class="nxt" style="position: absolute; margin-left:195px; margin-top:90px;">NEXT</a>
-			
    
-</div>
-   
-  
-   
-   
-   
-   
+
    </div>
+
    
    
+   
+      </div>
    
    
    
