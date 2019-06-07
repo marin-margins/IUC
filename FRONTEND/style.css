@@ -2442,8 +2442,6 @@ padding: 1.5rem 0rem;
 
 
 
-
-
 .apply-container .circle1{
   height: 35px;
   width: 35px;
@@ -2490,9 +2488,6 @@ font-size:14px;
 }
 
 
-
-
-
 .nxt{
     font-family: var(--playfair);
     font-weight: 900;
@@ -2509,12 +2504,7 @@ font-size:14px;
     padding: 20px 35px;
   
 
-
-
 }
-
-
-
 
 
 
@@ -2616,6 +2606,101 @@ input[type=text],input[type=email]{
 
 
 }
+
+
+input::placeholder{
+
+  color: #42444B;
+  font-size:14px;
+  font-style:italic;
+
+
+
+}
+
+input:focus{
+  
+  background-color:#E2E2E2;
+  border-color:#3891CC;
+  outline: none;
+
+	
+
+
+}
+
+
+input[type=radio] {
+  border: 2px solid black;
+  width:15px;
+  height:15px;
+  -webkit-appearance: none;
+   position:absolute;
+   left:195px; 
+  margin-top:90px;
+}
+
+input[type=radio]:checked {
+
+  background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)white no-repeat center center;
+  
+  background-size:7px 7px;
+}
+
+input[type=radio]:focus {
+
+  outline-color: black;
+
+}
+
+
+
+
+/*SENT*/
+
+
+
+.sent-row {
+	position:absolute;
+	 z-index: -1;
+         height:31px;
+	background:white;
+       
+    
+}
+
+
+
+.sent{
+    font-family: var(--playfair);
+    font-weight: 900;
+    font-size: 13px;
+    margin: 30px 0;
+    display: block;
+    text-align: center;
+    width: 270px;
+    position:absolute;
+    left:195px;
+    top:331px;
+
+    color: white;
+    background: #3891CC;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 20px 35px;
+  
+
+}
+
+.sent:hover{
+    background: var(--dark-blue);
+}
+
+
+
+
+
+
 
 /* COURSE DIRECTORS */
 
