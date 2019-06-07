@@ -59,7 +59,7 @@
 	
 	
 	<div class="education-container">
-	  <div class="apply-container">
+	  <div class="apply-container" style="height:1395px">
 	  
 			<span class="circle1"><p>1</p></span>
 			

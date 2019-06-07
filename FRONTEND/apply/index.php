@@ -58,8 +58,8 @@
     </div>
 	
 	
-	  <div class="apply">
-	  <div class="apply-container">
+	  
+	  <div class="apply-container" style="height:1890px">
 	  
 			<span class="circle1" style="background-color:#3891CC;"><p>1</p></span>
 			
@@ -141,7 +141,7 @@
    
    
    
-   </div>
+   
    
    
    

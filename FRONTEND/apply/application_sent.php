@@ -60,7 +60,7 @@
 	
 	
 	  <div class="sent-container">
-	   <div class="apply-container">
+	   <div class="apply-container" style="height:465px">
 	  
 			<span class="circle1"><p>1</p></span>
 			
