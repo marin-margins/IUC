@@ -1375,7 +1375,16 @@ padding: 1.5rem 0rem;
 }
 
 
-<<<<<<< .mine
+/*ORGANIZE*/
+
+.org-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	border-bottom: 5px solid #3891cc;
+	height: 80px;
+}
+
 .org-header{
     width:100%;
     height: 145px;
@@ -1538,173 +1547,12 @@ padding: 1.5rem 0rem;
 	margin-bottom: 20px;
 }
 
-
-||||||| .r173
-.org-header{
-    width:100%;
-    height: 145px;
-    background: url(to_include/organize-header.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
-}
-
-.org-overlay{
-    background-image: linear-gradient(#010727, #010727);
-    opacity:0.74;
-    height: inherit;
-}
-
-.org-header h1{
-    color: white;
-    position: absolute;
-    top: 53px;
-    z-index: 10;
-    margin-left:50px;
-    font-family: var(--playfair);
-    font-size:30px;
-    font-weight: 900;
-}
-
-.org-logo {
-	height: 21px;
-	width: 45px;
-}
-
-.tabs-area {
-	position: relative;
-	width: 100%;
-}
-
-.tabs {
-	overflow: hidden;
-	background-color: inherit;
-	width: 50%;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-top: 65px;
-}
-
-.tabs hr{
-	margin-top: 25px;
-	border-top: 1px solid #bebebe;
-	margin-bottom: 0;
-}
-
-.active hr{
-	border-top: 5px solid var(--light-blue);
-	margin-top: 23px;
-	margin-bottom: 0;
-	animation: fadeEffect 1s;
+.sicon {
+	top: 15px;
 }
 
 
-.tablink {
-	background-color: inherit;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	width: 50%;
-	padding: 0px;
-	text-align: center;
-	list-style-type: none;
-}
 
-
-.tablink a {
-	text-decoration: none;
-	font-family: var(--playfair);
-	font-size: 20px;
-	font-weight: 900;
-	color: #bebebe;
-	display: block;
-	width: 100%;
-	height: 100%;
-}
-
-.tablink a:hover {
-	color: black;
-}
-
-.active a {
-	color: black;
-}
-
-.img-idea {
-	margin-bottom: 23px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.img-guidelines {
-	margin-bottom: 23px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.img-guidelines:hover {
-	stroke: var(--light-blue);
-}
-
-.tab-content h2 {
-	text-align: left;
-	margin-bottom: 25px;
-	font-family: var(--playfair);
-	font-size: 19px;
-	font-weight: 900;
-	margin-top: 150px;
-}
-
-.tab-content h3 {
-	color: black;
-	font-family: var(--montserrat);
-	font-size: 14px;
-	line-height: 30px;
-}
-
-.tab-content p {
-	font-family: var(--montserrat);
-	font-size: 14px;
-	line-height: 30px;
-	margin-bottom: 54px;
-}
-
-.tab-content hr {
-	width: 10%;
-	border-bottom: 1px solid var(--light-blue);
-	margin-bottom: 46px;
-}
-
-.tab-content {
-	display: block;
-	animation: fadeEffect 1s;
-}
-
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.apply-btn {
-	border-radius: 30px;
-	width: 133px;
-	height: 60px;
-	position: absolute;
-	top: 20%;
-	left: 91%;
-	font-family: var(--playfair);
-	font-weight: bold;
-	font-size: 14px;
-	margin-bottom: 20px;
-}
-
-
-=======
->>>>>>> .r174
 /* DONATE */
 .donate-section{
     width: 100%;
@@ -1866,20 +1714,6 @@ padding: 1.5rem 0rem;
 
 
 
-<<<<<<< .mine
-	@media (max-width: 1400px){
-		/*organize*/
-		.tabs {
-			width: 71%;
-			margin-left: 14%;
-			margin-right: 15%;
-		}
-
-		.apply-btn {
-			left: 88%;
-		}
-	}
-||||||| .r173
 	@media (max-width: 1400px){
 		/*organize*/
 		.tabs {
@@ -1892,8 +1726,6 @@ padding: 1.5rem 0rem;
 			left: 88%;
 		}
 	}
-=======
->>>>>>> .r174
 
     @media (max-width: 1240px){
         /* FOOTER */
@@ -1901,7 +1733,7 @@ padding: 1.5rem 0rem;
             margin: 68px 25px;
             min-width: 150px;
         }
-<<<<<<< .mine
+
 
 		/*organize*/
 		.apply-btn {
@@ -1914,22 +1746,8 @@ padding: 1.5rem 0rem;
 			margin-left: 7%;
 			margin-right: 8%;
 		}
-||||||| .r173
+
 		
-		/*organize*/
-		.apply-btn {
-			position: static;
-			margin-left: 7%;
-		}
-		
-		.tabs {
-			width: 85%;
-			margin-left: 7%;
-			margin-right: 8%;
-		}
-=======
->>>>>>> .r174
-    }
 
     @media (max-width: 900px){
         /* FOOTER */
@@ -1960,22 +1778,13 @@ padding: 1.5rem 0rem;
             max-width: 400px;
             margin: 0px 64px 30px 64px;
         }
-<<<<<<< .mine
+
 
 		/*organize*/
 		.org-navbar p {
 			display: none;
 		}
-||||||| .r173
-		
-		/*organize*/
-		.org-navbar p {
-			display: none;
-		}
-=======
->>>>>>> .r174
 
-    }
 
 
     @media (max-width: 700px){
@@ -2277,15 +2086,19 @@ padding: 1.5rem 0rem;
         #IUC-subtitle{
         font-size: 12px;
         }
-<<<<<<< .mine
+
 
 		/*ORGANIZE*/
 
 		.tabs {
 			width: 91%;
 			margin-left: 4%;
-			margin-top: 30px;
+			margin-top: 20px;
 
+		}
+		
+		.tabs-area {
+			margin-bottom: 50px;
 		}
 
 		.apply-btn {
@@ -2313,46 +2126,6 @@ padding: 1.5rem 0rem;
 		.org-navbar {
 			border-bottom: 0;
 		}
-||||||| .r173
-		
-		/*ORGANIZE*/
-		
-		.tabs {
-			width: 91%;
-			margin-left: 4%;
-			margin-top: 30px;
-			
-		}
-		
-		.apply-btn {
-			position: static;
-			margin-left: 4%;
-			margin-bottom: 20px;
-		}
-		
-		.tab-content hr {
-			width: 25%;
-		}
-		
-		.img-idea {
-			margin-bottom: 14px;
-		}
-		
-		.img-guidelines {
-			margin-bottom: 41px;
-		}
-		
-		.org-header h1 {
-			top: 30px;
-		}
-		
-		.org-navbar {
-			border-bottom: 0;
-		}
-=======
->>>>>>> .r174
-
-    }
 
 
  /*APPLY*/
