@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/IUC/trunk/FRONTEND/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
-
 </head>
 <body>
 
@@ -87,17 +86,79 @@
 
     <!-- COURSE CONTENT -->
 
-    <div>
+    <div class="course-directors">
       <h3>Course directors:</h3>
       <span></span>
-      <h4>Lucija Sokanović</h4>
-      <h4>Davor Derenčinović</h4>
-      <h4>Aleksandar Maršalevski</h4>
-      <h4>Richard Farkas</h4>
-      <h4>Michael Kilchling</h4>
-      <h4>Besa Arifi</h4>
+      <div class="directors-list">
+        <p><b>Lucija Sokanović</b>, University of Split, Croatia</p>
+        <p><b>Davor Derenčinović</b>, University of Zagreb, Croatia</p>
+        <p><b>Aleksandar Maršalevski</b>, University of Zagreb, Croatia</p>
+        <p><b>Richard Farkas</b>, DePaul Univeristy, Chicago, United States</p>
+        <p><b>Michael Kilchling</b>, Max Planck Institute for Foreign and international Criminal Law, Freiburg, Germany</p>
+        <p><b>Besa Arifi</b>, South East European Univeristy, Tetovo, Macedonia</p>
+      </div>
     </div>
 
+    <!-- COURSE LECTURERS -->
+
+    <div class="course-directors">
+      <h3>Course lecturers:</h3>
+      <span></span>
+      <div class="directors-list">
+        <p><b>Aida Salihagić Kadić</b>, University of Zagreb, Croatia</p>
+        <p><b>Panos Antsaklis</b>, Alexandra Maternity Hospital, Medical School University of Athens, Greece</p>
+        <p><b>Lara Spalldi Barišić</b>, Policlinic "Veritas", Zagreb, Croatia</p>
+      </div>
+    </div>
+
+    <!-- COURSE DESCRIPTION -->
+
+    <div class="course-directors">
+      <h3>Course description:</h3>
+      <span></span>
+      <div class="description-list">
+        <p>The course is open to interested participants from academia (undergraduate students in higher years of study, postgraduate students, doctoral candidates, junior researchers), practice (governmental institutions, courts, attorney offices, NGOs etc.), journalists and others. The working language is English; therefore proficiency in English is required.</p>
+        <p>The course format foresees an active involvement of participants through their participation in the moot court competition, as well as through the less formal discussions during the free time. Interested participants will have the possibility to present their own papers/PhD projects relevant to the topics before a competent panel of senior researchers and professionals. The number of participants is limited to 40.</p>
+        <p>The participation/attendance certificate issued by the course director and IUC Dubrovnik is equivalent to 4 ECTS, also sponsored by the Faculty of Law, University of Zagreb. For covering travel and accomodation expensses, we strongly advise interested participants to contact their home institutions as well as other fundations that finance educational courses - we can provide interested participants with formal invitation letters if needed. The simple online application form will be open until the 30 January 2019. For further questions please contact the Course coordinator Dr Aleksandar Marsavelski (aleksandar.marsavelski@pravo.hr).</p>
+      </div>
+    </div>
+
+    <!-- COURSE GALLERY -->
+
+    <div class="gallery">
+      <div class="image-container">
+        <img src="../to_include/connect-background.jpg" />
+        <div class="thumbs-container">
+          <div class="gallery-row">
+            <div class="left-slider">
+                <img src="../to_include/arrow-88-16.png" />
+            </div>
+            <ul>
+              <li id="li1">
+                <div class="gallery-column">
+                    <img src="../to_include/connect-background.jpg" />
+                </div>
+                <div class="gallery-column">
+                    <img src="../to_include/home-header-placeholder.jpg" />
+                </div>
+                <div class="gallery-column">
+                    <img src="../to_include/news-header.jpg" />
+                </div>
+                <div class="gallery-column">
+                    <img src="../to_include/organize-header.jpg" />
+                </div>
+                <div class="gallery-column">
+                    <img src="../to_include/home-header-placeholder.jpg" />
+                </div>
+              </li>
+            </ul>
+            <div class="right-slider">
+              <img src="../to_include/arrow-24-16.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <?php
     include('../to_include/footer.php');
