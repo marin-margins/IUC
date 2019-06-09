@@ -28,12 +28,17 @@
             <a href=""><p>Academic programme</p></a>
             <a href=""><p>Organize IUC programme</p></a>
             <a href=""><p>Accomodation</p></a>
-            <a href=""><p>News</p></a>
+            <a href="news/"><p>News</p></a>
             <a href=""><p>Useful Info</p></a>
             <a href=""><p>Contact</p></a>
         </div>
+        <span class="content-divider"></span>
 
-
+        <div  class="content-continue">
+            <a href="">IUC PUBLICATIONS</a>
+            <a href="">IUC JOURNAL</a>
+            <a href="">DONATE</a>
+        </div>
         <div class="content-next">
             <div class="next">
                 <svg xmlns="http://www.w3.org/2000/svg" width="10.682" height="17.121" viewBox="0 0 10.682 17.121"><defs><style>.aprev{fill:none;stroke:#fff;stroke-width:3px;}</style></defs><path class="aprev" d="M3302.5,405l-7.5,7.5,7.5,7.5" transform="translate(-3292.879 -403.939)"/></svg>
@@ -65,13 +70,39 @@
 
 <script>
 
+
     let hamb =  document.getElementById("hamburger");
+    let hamb_navbar = document.getElementsByClassName('hamburger-navbar');
+    let nav_default = document.getElementsByClassName('navbar');
+    let search = document.getElementById("search");
+    let nav_right = document.getElementsByClassName('nav-right');
+    
+    let search_icon = document.getElementsByClassName('search-icon');
+    
+    let nav_left = document.getElementsByClassName('nav-left');
+
+    if(window.innerWidth < 600){
+        search.style.cssText = "display: none";
+        search_icon[0].style.cssText ="display: none";
+    }
     function openHamb(){       
-        hamb.style.cssText ="display:flex;";     
-    };
+        hamb.style.cssText ="display:flex;";   
+        if(window.innerWidth < 600){
+            nav_left[1].style.cssText = "display: none;";                
+            nav_default[0].style.cssText ="display: none;";
+            hamb_navbar[0].style.cssText = "background: transparent;";   
+           
+            nav_right[1].style.cssText = "margin-left: 20px; margin-right: 20px;" ;    
+        
+        }
+        };
 
     function closeHamb(){
         hamb.style.display ="none";
-        
+        if(window.innerWidth < 600){
+        hamb.style.display ="none";
+        nav_default[0].style.cssText ="display: flex;";
+        search.style.cssText = "display: none;";
+    }
     }
 </script>

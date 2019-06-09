@@ -382,13 +382,13 @@ h3, h4, h5 {
 }
 
 .hamburger-navbar {
-    height: 75px;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    height: 75px !important;
+    position: fixed !important;
+    z-index: 10 !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
 }
 
 .hamburger-navbar .course-search-icon{
@@ -420,6 +420,10 @@ h3, h4, h5 {
     justify-content: space-between;
 }
 
+.content-continue{
+    display:none;
+}
+
 .content-list{
     display: flex;
     flex-direction: column;
@@ -430,6 +434,9 @@ h3, h4, h5 {
 
 }
 
+.content-divider{
+    display:none;
+}
 .active-content p{
     margin-left: 118px;
 }
@@ -1713,6 +1720,12 @@ padding: 1.5rem 0rem;
 }
 
 
+@media(max-width: 1650px){
+    .content-next{
+        margin-right: unset;
+    }
+}
+
 
 	@media (max-width: 1400px){
 		/*organize*/
@@ -1724,8 +1737,13 @@ padding: 1.5rem 0rem;
 		
 		.apply-btn {
 			left: 88%;
-		}
+        }
+        
+
+        /* Hamburger */
+       
 	}
+
 
     @media (max-width: 1240px){
         /* FOOTER */
@@ -1745,7 +1763,8 @@ padding: 1.5rem 0rem;
 			width: 85%;
 			margin-left: 7%;
 			margin-right: 8%;
-		}
+        }
+        
 
 		
 
@@ -1788,6 +1807,65 @@ padding: 1.5rem 0rem;
 
 
     @media (max-width: 700px){
+
+
+        /*hamburger*/
+
+       
+        
+        .content-next{
+            display: none;
+        }
+
+        .content-container{
+            margin:100px auto 30px auto;
+            flex-direction: column;
+        }
+
+        .content-list a{
+            max-height: 50px;
+            font-size: 20px;
+        }
+
+        .content-list{
+            margin: 0px 20px;
+        }
+        .pop{
+            display: none;
+        }
+
+        .hamb-info{
+            display: none;
+        }
+
+        .content-divider{
+            display: flex;
+            margin-left: 20px;
+            margin-top:20px;
+            margin-bottom: 20px;
+            width:80%;
+            border-bottom: 1px solid var(--light-blue);
+        }
+
+        .content-continue{
+            display:flex;
+            flex-direction: column;
+            font-family: var(--montserrat);
+            font-weight: 400;
+            font-size: 14px;
+            margin-left: 20px;
+            
+        }
+
+        .content-continue a{
+            text-decoration: none;
+            color: white;
+            margin-bottom: 20px;
+        
+        }
+        .active-content p{
+            margin-left: unset;
+        }
         .header{
             height: 95vh;
         }
@@ -2045,13 +2123,7 @@ padding: 1.5rem 0rem;
             display:none;
         }
 
-        #search{
-            display: none;
-        }
-
-        .search-icon{
-            display:none;
-        }
+       
 
 
         .navbar{
