@@ -400,7 +400,7 @@
 
     </div>
 
-    <!-- DONATE -->
+    <!-- DONATE --> 
     <div class="donate-section">
     <svg xmlns="http://www.w3.org/2000/svg" width="22.908" height="21" viewBox="0 0 22.908 21"><defs><style>.adone{fill:#fff;opacity:0.54;}</style></defs><path class="adone" d="M11.454,4.1C8.45-1.056,0,.449,0,6.91c0,4.449,5.318,9,11.454,15.089C17.592,15.909,22.909,11.36,22.909,6.91,22.909.427,14.437-1.018,11.454,4.1Z" transform="translate(0 -1)"/></svg>
         <h1>DONATE</h1>
