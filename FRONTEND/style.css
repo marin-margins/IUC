@@ -2367,7 +2367,7 @@ input + label  {
 }
 
 input[type=text],input[type=email]{
-	type=text;
+	
 	margin-top:11px;
         background:#FFFFFF;
         height:75px;
