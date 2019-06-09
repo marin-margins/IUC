@@ -1867,7 +1867,7 @@ padding: 1.5rem 0rem;
             margin-left: unset;
         }
         .header{
-            height: 95vh;
+            height: 75vh;
         }
 
         .header-icons{
@@ -1918,6 +1918,11 @@ padding: 1.5rem 0rem;
 
         .collapsible-box{
             top:0;
+            font-size: 14px;
+        }
+
+        .collapsible-box .title{
+            font-size:14px;
         }
 
         .upcoming{
@@ -1925,6 +1930,18 @@ padding: 1.5rem 0rem;
             margin-top:20px;
         }
 
+        .upcoming-row-content{
+            min-width: 320px;
+            margin-top: 15px;
+        }
+
+        .upcoming-date{
+            margin-bottom: 10px;
+        }
+
+        .upcoming-title{
+            align-items: flex-end;
+        }
         .upcoming-co{
             flex-direction: column;
             justify-content: flex-start;
