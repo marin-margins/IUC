@@ -2083,10 +2083,11 @@ padding: 1.5rem 0rem;
         }
 
         .news-row-item{
-           padding: 15px 0px;
+           padding: 20px 0px;
            height: unset;
            flex: unset;
            width: unset;
+           
 
         }
         .news-title .more-news{
