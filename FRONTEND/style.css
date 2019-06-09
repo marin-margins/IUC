@@ -198,6 +198,7 @@ h3, h4, h5 {
 
 .btn:hover{
     background: var(--dark-blue);
+    border: none;
 }
 
 /*NEWS-SUBPAGE*/
@@ -353,8 +354,10 @@ h3, h4, h5 {
     left: 0;
     z-index: 10;
     display: none;
-
+  
 }
+
+
 
 #hamburger .modal-bg{
     position: absolute;
@@ -363,6 +366,7 @@ h3, h4, h5 {
     width: 100%;
     height: 100%;
     background: linear-gradient( 90deg, rgba(1, 7, 39, 1) 48%, rgba(1, 7, 39, 0.85));
+    
 }
 
 #hamburger .modal-content{
@@ -1638,7 +1642,9 @@ padding: 1.5rem 0rem;
     font-size: 14px;
 
 }
-
+.footer-link:hover{
+    color: var(--light-blue);
+}
 #footer-title{
     font-family: var(--playfair);
     font-weight: 900;
