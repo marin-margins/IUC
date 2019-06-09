@@ -34,18 +34,6 @@
         <h1>Organize IUC Programme</h1>
     </div>
     
-    <script>
-
-		let hamb =  document.getElementById("hamburger");
-		function openHamb(){       
-			hamb.style.cssText ="display:flex;";     
-		};
-
-		function closeHamb(){
-			hamb.style.display ="none";
-
-		}
-	</script>
     <!--TABS-->
     <div class="tabs-area">
 		<div class="tabs">
