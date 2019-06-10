@@ -2350,7 +2350,7 @@ padding: 1.5rem 0rem;
   text-position:absolute;
  text-align: center;
 
-  font-color:#F2F2F2;
+  color:#F2F2F2;
   font-family: var(--montserrat);
 font-size:14px;
 
@@ -2492,10 +2492,6 @@ input:focus{
   background-color:#E2E2E2;
   border-color:#3891CC;
   outline: none;
-
-
-
-
 }
 
 
@@ -2566,7 +2562,7 @@ input[type=radio]:focus {
 }
 
 
-
+    }
 
 /* COURSE DIRECTORS */
 
@@ -2685,4 +2681,4 @@ input[type=radio]:focus {
   right: 18%;
   padding-top: 20px;
 }
-    }
+}
