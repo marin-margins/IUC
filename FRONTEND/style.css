@@ -1388,6 +1388,10 @@ padding: 1.5rem 0rem;
 
 /*ORGANIZE*/
 
+.org-body {
+	background-color: white;
+}
+
 .org-navbar{
     display: flex;
     flex-direction: row;
@@ -1403,7 +1407,7 @@ padding: 1.5rem 0rem;
     background-size: cover;
     background-position: center;
     position: relative;
-
+	margin-top: 75px;
 }
 
 .org-overlay{

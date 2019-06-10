@@ -9,7 +9,7 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
-<body>
+<body class="org-body">
 	    <!-- NAVBAR -->
     <div class="navbar course-navbar">
         <div class="nav-left">
@@ -34,6 +34,9 @@
         <h1>Organize IUC Programme</h1>
     </div>
     
+    <?php
+       include("../to_include/hamburger.php");
+    ?>
     <!--TABS-->
     <div class="tabs-area">
 		<div class="tabs">
@@ -116,9 +119,7 @@
     
     
 
-    <?php
-        include("../to_include/hamburger.php");
-    ?>
+   
 
 
     <?php
