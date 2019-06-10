@@ -2060,7 +2060,6 @@ input[type=radio]:focus {
 }
 
 
-    }
 
 /* COURSE DIRECTORS */
 
@@ -2264,7 +2263,7 @@ input[type=radio]:focus {
 			display: none;
 		}
 
-
+    }
 
     @media (max-width: 700px){
 
