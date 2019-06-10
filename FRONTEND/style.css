@@ -2183,7 +2183,7 @@ input[type=radio]:focus {
     .content-next{
         margin-right: unset;
     }
-}
+    }
 
 
 	@media (max-width: 1400px){
