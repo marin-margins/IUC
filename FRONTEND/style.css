@@ -1725,6 +1725,123 @@ padding: 1.5rem 0rem;
 
 }
 
+/* COURSE DIRECTORS */
+
+.course-directors {
+    /*  position: relative;*/
+      padding-top: 5%;
+      margin: auto;
+      width: 50%;
+    }
+    
+    .course-directors span {
+      margin-top: 25px;
+      display: block;
+      border-top: 1px solid #3891CC;
+      width: 94px;
+    }
+    
+    .directors-list {
+      margin-top: 30px;
+    }
+    
+    .course-directors h3{
+      color: #010727;
+      font-size: 20px;
+      font-family: Playfair Display;
+    }
+    
+    .course-directors .directors-list p {
+      color: #010727;
+      font-size: 14px;
+      font-family: Montserrat;
+      margin-top: 20px;
+    }
+    
+    .course-directors .description-list p {
+      color: #010727;
+      font-size: 14px;
+      font-family: Montserrat;
+      line-height: 30px;
+      margin-top: 30px;
+    }
+    
+    /* GALLERY */
+    
+    .gallery {
+      width: 50%;
+      margin: auto;
+      position: relative;
+    }
+    
+    .gallery .image-container img {
+      width: 100%;
+      border-radius: 3px;
+    }
+    
+    .image-container {
+      margin-top: 15%;
+    }
+    
+    .thumbs-container {
+      position: absolute;
+      height: 166px;
+      z-index: 10;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      overflow-y: hidden;
+      background-image: linear-gradient(#01072700, #010727FF);
+      border-radius: 3px;
+    }
+    
+    .thumbs-container .gallery-row {
+      padding-top: 85px;
+      width: 60%;
+      margin: auto;
+    }
+    
+    .gallery-row ul {
+      list-style: none;
+    }
+    
+    .gallery-column {
+      float: left;
+      width: 90px;
+      height: 60px;
+      margin-left: 10px;
+      border: 1px solid white;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .gallery-column img {
+      object-fit: cover;
+      height: 60px;
+      width: 90px;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    .row {
+      position: relative;
+    }
+    
+    .left-slider {
+      position: absolute;
+      left: 18%;
+      padding-top: 20px;
+    }
+    
+    .right-slider {
+      position: absolute;
+      right: 18%;
+      padding-top: 20px;
+    }
 
 @media(max-width: 1650px){
     .content-next{
@@ -2298,9 +2415,10 @@ padding: 1.5rem 0rem;
    	font-size:20px;
 
 }
+
 .apply-container p{
 	margin-top:9px;
-	text-aligment:left;
+	text-align:left;
 	color:#42444B;
         font-weight: bold;
   	font-family: var(--montserrat);
@@ -2564,120 +2682,5 @@ input[type=radio]:focus {
 
     }
 
-/* COURSE DIRECTORS */
 
-.course-directors {
-/*  position: relative;*/
-  padding-top: 5%;
-  margin: auto;
-  width: 50%;
-}
-
-.course-directors span {
-  margin-top: 25px;
-  display: block;
-  border-top: 1px solid #3891CC;
-  width: 94px;
-}
-
-.directors-list {
-  margin-top: 30px;
-}
-
-.course-directors h3{
-  color: #010727;
-  font-size: 20px;
-  font-family: Playfair Display;
-}
-
-.course-directors .directors-list p {
-  color: #010727;
-  font-size: 14px;
-  font-family: Montserrat;
-  margin-top: 20px;
-}
-
-.course-directors .description-list p {
-  color: #010727;
-  font-size: 14px;
-  font-family: Montserrat;
-  line-height: 30px;
-  margin-top: 30px;
-}
-
-/* GALLERY */
-
-.gallery {
-  width: 50%;
-  margin: auto;
-  position: relative;
-}
-
-.gallery .image-container img {
-  width: 100%;
-  border-radius: 3px;
-}
-
-.image-container {
-  margin-top: 15%;
-}
-
-.thumbs-container {
-  position: absolute;
-  height: 166px;
-  z-index: 10;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  overflow-y: hidden;
-  background-image: linear-gradient(#01072700, #010727FF);
-  border-radius: 3px;
-}
-
-.thumbs-container .gallery-row {
-  padding-top: 85px;
-  width: 60%;
-  margin: auto;
-}
-
-.gallery-row ul {
-  list-style: none;
-}
-
-.gallery-column {
-  float: left;
-  width: 90px;
-  height: 60px;
-  margin-left: 10px;
-  border: 1px solid white;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.gallery-column img {
-  object-fit: cover;
-  height: 60px;
-  width: 90px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.row {
-  position: relative;
-}
-
-.left-slider {
-  position: absolute;
-  left: 18%;
-  padding-top: 20px;
-}
-
-.right-slider {
-  position: absolute;
-  right: 18%;
-  padding-top: 20px;
-}
+    }
