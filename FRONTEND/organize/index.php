@@ -11,7 +11,7 @@
 </head>
 <body>
 	    <!-- NAVBAR -->
-    <div class="org-navbar">
+    <div class="navbar course-navbar">
         <div class="nav-left">
         <img src="../to_include/logo-header.png" alt="IUC International University Centre Dubrovnik Logo" class="org-logo">
         <span id="divider"></span>
@@ -122,7 +122,7 @@
 
 
     <?php
-    include('../to_include/footer.php')
+    include('../to_include/footer.php');
     ?>
 </body>
 </html>
