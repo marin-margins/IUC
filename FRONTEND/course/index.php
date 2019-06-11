@@ -85,7 +85,7 @@
     </div>
 
     <!-- COURSE CONTENT -->
-
+    <div class="course-page-wrap">
     <div class="course-directors">
       <h3>Course directors:</h3>
       <span></span>
@@ -159,6 +159,18 @@
         </div>
       </div>
     </div>
+
+    <!-- COURSE VIDEO -->
+
+    <div class="course-video">
+      <div class="image-container">
+        <img src="../to_include/home-header-placeholder.jpg" />
+        <div class="course-image-layer">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="105" height="105" viewBox="0 0 105 105"><defs><style>.a,.d{stroke:#3891cc;fill:none;}.a{stroke:#3891cc;stroke-width:2px;}.b{fill:#3891cc;}.c{stroke:none;}.e{filter:url(#a);}</style><filter id="a" x="10.573" y="14.572" width="75.427" height="75.428" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="b"/><feFlood flood-color="#3891cc"/><feComposite operator="in" in2="b"/><feComposite in="SourceGraphic"/></filter></defs><g transform="translate(-631 -2475)"><g class="a" transform="translate(631 2475)"><circle class="c" cx="52.5" cy="52.5" r="52.5"/><circle class="d" cx="52.5" cy="52.5" r="51.5"/></g><g class="e" transform="matrix(1, 0, 0, 1, 631, 2475)"><path class="b" d="M0-11.769,40.607-23.033,29.343,17.574Z" transform="translate(32 39.86) rotate(45)"/></g></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <?php
     include('../to_include/footer.php');
