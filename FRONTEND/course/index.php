@@ -188,6 +188,35 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.anss{fill:none;stroke:#3891cc;stroke-width:3px;}</style></defs><path class="anss" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg>
       </div>
     </div>
+
+    <!-- COURSE DOCUMENTS FOR DOWNLOAD -->
+
+    <div class="course-download">
+      <div class="course-download-container">
+        <h4>Documents for download</h4>
+        <div class="course-download-content">
+          <h4>Material-1.pdf</h4>
+          <div>
+            <h4>download</h4>
+            <img src="../to_include/download-2-14.png" />
+          </div>
+        </div>
+        <div class="course-download-content">
+          <h4>Material-2.pdf</h4>
+          <div>
+            <h4>download</h4>
+            <img src="../to_include/download-2-14.png" />
+          </div>
+        </div>
+        <div class="course-download-content course-last">
+          <h4>Material-3.pdf</h4>
+          <div>
+            <h4>download</h4>
+            <img src="../to_include/download-2-14.png" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
     <?php

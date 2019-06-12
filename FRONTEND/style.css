@@ -2286,6 +2286,69 @@ input[type=radio]:focus {
       margin-right: 20px;
     }
 
+    /* COURSE DOCUMENTS FOR DOWNLOAD */
+
+    .course-download {
+      width: 100%;
+      background-color: #3891CC;
+      margin-top: 4%;
+    }
+
+    .course-download-container {
+      width: 50%;
+      margin: auto;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      display: block;
+    }
+
+    .course-download-container h4 {
+      font-size: 20px;
+      font-family: Playfair Display;
+      margin-bottom: 2%;
+    }
+
+    .course-download-content {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      border-top: 1px solid #FFF;
+    }
+
+    .course-last {
+      border-bottom: 1px solid #FFF;
+    }
+
+    .course-download-content h4 {
+      font-size: 14px;
+      font-family: Montserrat;
+      font-weight: normal;
+      justify-content: flex-start;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .course-download-content div {
+      display: flex;
+      justify-content: flex-end;
+      height: 14px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+
+    .course-download-content div h4 {
+      font-size: 12px;
+      font-family: Montserrat;
+      font-weight: 550;
+      margin: 0;
+      margin-right: 30px;
+    }
+
+    .course-download-content div img {
+      width: 14px;
+    }
+
 @media(max-width: 1650px){
     .content-next{
         margin-right: unset;
