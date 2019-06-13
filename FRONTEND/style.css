@@ -573,9 +573,14 @@ h3, h4, h5 {
 }
 
 .course-category div {
+  display: flex;
   background-color: #3891CC;
   margin-right: 10px;
   border-radius: 26px;
+}
+
+.course-category div svg {
+  margin: 6px 15px;
 }
 
 .course-category h4 {
@@ -730,15 +735,27 @@ h3, h4, h5 {
 }
 
 .lang-end {
+  display: flex;
   margin-top: 15px;
   height: 60px;
   width: 223px;
   border: 1px solid #FFF;
   margin-right: 46px;
   text-align: center;
+  justify-content: space-between;
+}
+
+.lang-end img {
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  height: 14px;
 }
 
 .lang-end h5 {
+  justify-content: flex-start;
+  margin-left: 30px;
   margin-top: 20px;
   font-size: 14px;
 }
@@ -2347,6 +2364,39 @@ input[type=radio]:focus {
 
     .course-download-content div img {
       width: 14px;
+    }
+
+    /* APPLY BUTTON */
+
+    .apply-button {
+      right: 26px;
+      bottom: 26px;
+      position: fixed;
+      background-color: #3891CC;
+      border-radius: 30px;
+      display: flex;
+      z-index: 15;
+      width: 133px;
+      height: 60px;
+      justify-content: space-between;
+       box-shadow: 0px 3px 6px #000000;
+    }
+
+    .apply-button h4 {
+      font-size: 14px;
+      margin: 0;
+      justify-content: flex-start;
+      font-family: Playfair Display;
+      margin-top: 20px;
+      margin-bottom: 21px;
+      margin-left: 29px;
+    }
+
+    .apply-button svg {
+      justify-content: flex-end;
+      margin-right: 26px;
+      margin-top: 25px;
+      margin-bottom: 2px;
     }
 
 @media(max-width: 1650px){

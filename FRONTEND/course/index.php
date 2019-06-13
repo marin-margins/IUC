@@ -44,9 +44,11 @@
             <div class="course-category">
               <div>
                 <h4>Behavioural studies, Society and Religion</h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"><defs><style>.abc{fill:#FFF;}</style></defs><path class="abc" d="M15,16H5l0-.519c0-1.049.083-1.655,1.323-1.942,1.4-.324,2.787-.613,2.121-1.841C6.472,8.063,7.882,6,10,6c2.076,0,3.522,1.986,1.555,5.7-.646,1.22.688,1.51,2.121,1.841,1.242.287,1.324.893,1.324,1.944L15,16Zm4.009-1.845c-1.075-.248-2.075-.466-1.591-1.381C18.89,9.989,17.807,8.5,16.249,8.5a1.788,1.788,0,0,0-1.873,1.937c0,3.253,1.89,1.475,1.872,5.563H20l0-.386c0-.788-.062-1.244-.993-1.459ZM0,16H3.752c-.017-4.088,1.872-2.31,1.872-5.563A1.788,1.788,0,0,0,3.751,8.5c-1.558,0-2.641,1.489-1.166,4.274.484.916-.516,1.133-1.591,1.381C.062,14.37,0,14.826,0,15.614L0,16Z" transform="translate(0 -6)"/></svg>
               </div>
               <div>
                 <h4>Philosophy and Philosophy of Science</h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><defs><style>.aP,.cP{fill:none;}.aP{stroke:#FFF;stroke-width:2px;}.bP{stroke:none;}</style></defs><g transform="translate(-720 -1130)"><line class="aP" y2="10" transform="translate(725 1130)"/><g class="aP" transform="translate(720 1132)"><rect class="bP" width="10" height="6" rx="3"/><rect class="cP" x="1" y="1" width="8" height="4" rx="2"/></g></g></svg>
               </div>
             </div>
             <div class="content">
@@ -81,6 +83,7 @@
         </div>
         <div class="lang-end">
           <h5>WORK SCHEDULE</h5>
+          <img src="../to_include/download-2-14.png" />
         </div>
     </div>
 
@@ -217,6 +220,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- APPLY BUTTON -->
+
+  <div class="apply-button">
+    <h4>APPLY</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="7.785" height="11.326" viewBox="0 0 7.785 11.326"><defs><style>.a{fill:none;stroke:#fff;stroke-width:3px;}</style></defs><path class="a" d="M3299.6,405l-4.6,4.6,4.6,4.6" transform="translate(3300.664 415.266) rotate(180)"/></svg>
   </div>
 
     <?php
