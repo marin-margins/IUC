@@ -19,7 +19,9 @@ SELECT id, firstname,lastname,instituteId, address, phone,mobile,fax,email,url,a
 
 
 
-INSERT INTO role (id, title) SELECT id, description FROM iuc_old.roletype;
+INSERT INTO iuc_new.role (id, title) SELECT id, description FROM iuc_old.roletype;
+
+INSERT INTO iuc_new.eventtype (name) VALUE ('conference'), ('course');
 
 INSERT INTO iuc_new.eventt (typeId, cycleId, eventnum, title, description, notice, start_date, end_date, mystatus, subtitle, lang_en, lang_de, lang_fr, workschedule, second_cycleId, gcf, paidAmount,paidCurrencyId,isWaiver,participationFee,numUnregParticipants)
 SELECT 1, cycleId, confnum,title,description,notice,start_date,end_date, mystatus, subtitle, lang_en, lang_de, lang_fr, workschedule, second_cycleId, gcf, paidAmmount, paidValuteId, isWaiver, participationFee,numUnregParticipants FROM iuc_old.conference;
@@ -40,3 +42,4 @@ INSERT INTO iuc_new.person_event_role (personId, eventId, roleId, scholarshipId,
 --
 --
 --
+INSERT INTO iuc_new.news(id, title, summary, body, date) SELECT id, title, summary, htmltext, datum FROM iuc_old.news;
