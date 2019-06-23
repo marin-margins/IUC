@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb3a1617-69c3-4630-849b-3a08a007f2fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/iuc_230620191308_KONACNA_VALJDA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/iuc_230620191308_KONACNA_VALJDA.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/transfer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer/transfer.sql" beforeDir="false" afterPath="$PROJECT_DIR$/transfer/transfer.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iuc_230620191867.sql" beforeDir="false" afterPath="$PROJECT_DIR$/iuc_230620191867.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iuc_230620191867.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="663" column="90" selection-start-line="663" selection-start-column="90" selection-end-line="663" selection-end-column="90" />
+            <state relative-caret-position="232">
+              <caret line="634" column="2" lean-forward="true" selection-start-line="634" selection-start-column="2" selection-end-line="634" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -69,6 +68,8 @@
       <find>DROP TABLE IF EXISTS `eventtype`</find>
       <find>collation</find>
       <find>COLLATE=</find>
+      <find>drop table if exists `institutes_list`</find>
+      <find>drop table if exists `person`</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,11 +112,6 @@
               <item name="IUC_baza_v0.1" type="b2602c69:ProjectViewProjectNode" />
               <item name="IUC_baza_v0.1" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="IUC_baza_v0.1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IUC_baza_v0.1" type="462c0819:PsiDirectoryNode" />
-              <item name="transfer" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -150,12 +146,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561307682780</updated>
-      <workItem from="1561307685633" duration="1441000" />
+      <workItem from="1561307685633" duration="1611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1441000" />
+    <option name="totallyTimeSpent" value="1611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-21" width="1922" height="1102" extended-state="0" />
@@ -212,8 +208,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iuc_230620191867.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="663" column="90" selection-start-line="663" selection-start-column="90" selection-end-line="663" selection-end-column="90" />
+        <state relative-caret-position="232">
+          <caret line="634" column="2" lean-forward="true" selection-start-line="634" selection-start-column="2" selection-end-line="634" selection-end-column="2" />
         </state>
       </provider>
     </entry>
