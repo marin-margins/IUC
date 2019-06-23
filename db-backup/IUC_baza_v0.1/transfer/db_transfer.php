@@ -1,9 +1,16 @@
 <?php
 
 $dbnew = new mysqli('localhost','vatroslav','70lk13n','iuc_new');
+
 $dbold = new mysqli('localhost','vatroslav','70lk13n','iuc_old');
 
-$rez = $db->query("SELECT i.name, c.id, i.webAddress, i.isMember, i.address,i.president, i.iucRep, i.financeContact, i.internationalContact, i.memberFrom, i.withdrawl, i.other FROM iuc_old.member_inst i
-JOIN iuc_new.city c ON c.name = i.city");
+$tables = $dbnew->query("SHOW TABLES");
+
+foreach($tables as $k=>$v){
+    var_dump($v['Tables_in_iuc_new']);
+    $dbnew->query("DELETE FROM ".$v['Tables_in_iuc_new']);
+    $dbnew->query("ALTER TABLE ".$v['Tables_in_iuc_new'] . " AUTO_INCREMENT = 1");
+    echo $dbnew->error;
+}
 
 
