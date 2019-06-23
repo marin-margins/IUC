@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iuc_230620191867.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="787" column="35" lean-forward="true" selection-start-line="787" selection-start-column="35" selection-end-line="787" selection-end-column="35" />
+            <state relative-caret-position="667">
+              <caret line="663" column="90" selection-start-line="663" selection-start-column="90" selection-end-line="663" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -150,12 +150,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561307682780</updated>
-      <workItem from="1561307685633" duration="1383000" />
+      <workItem from="1561307685633" duration="1441000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1383000" />
+    <option name="totallyTimeSpent" value="1441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-21" width="1922" height="1102" extended-state="0" />
@@ -212,8 +212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iuc_230620191867.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="787" column="35" lean-forward="true" selection-start-line="787" selection-start-column="35" selection-end-line="787" selection-end-column="35" />
+        <state relative-caret-position="667">
+          <caret line="663" column="90" selection-start-line="663" selection-start-column="90" selection-end-line="663" selection-end-column="90" />
         </state>
       </provider>
     </entry>
