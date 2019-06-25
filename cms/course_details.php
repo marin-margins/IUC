@@ -51,6 +51,13 @@ if (!empty($_POST["instName"]) && isset($_POST["update_button"]) || isset($_POST
 html_handler::build_header("Course details"); //BUILD THE HEADER WITH PAGE TITLE PARAMETAR
 
 html_handler::import_lib(".js");
+$id = $_GET['id'];
+if (isset($GET['id'])) {
+    $query = "SELECT * FROM `eventt` WHERE id = '".$id."'";
+    $result = $db_instance->query($query);
+    $result->fetch_assoc();
+    var_dump($result);
+}
 
 ?>
 
@@ -59,7 +66,7 @@ html_handler::import_lib(".js");
 <script>
 $(document).ready(function() {
     $(function() {
-		$("li#basic_info").click(function() {  		
+		$("li#basic_info").click(function() {
             if($("#div_work_schedule").is(":visible")){
                 $("#div_work_schedule").hide();
                 $('#div_basic_info').show();
@@ -152,6 +159,17 @@ $(document).ready(function() {
 	});
 });
 </script>
+<?php echo $id;
+
+if(isset($_GET['id']))
+{
+    $query = "SELECT * FROM `eventt` WHERE id = '".$id."'";
+    $result = $db_instance->query($query);
+    $row = $result->fetch_assoc();
+}
+
+
+?>
 <div class ="row my-3">
 	<div class="col-md-8">
 	<div class="card-header" style="width:200px">
@@ -180,20 +198,28 @@ $(document).ready(function() {
         <form method="POST" action="institutions.php" id="forma_basic_info">
             <div class="form-group">
                 <label>Title</label>
-                <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="">
+                <input type="hidden" id="formInstitutionID" value="<?php echo $row["title"] ?>" name="update_id">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["title"] ?>">
                 <label>Subtitle</label>
                 <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["subtitle"] ?>">
                 <label>Course no.</label>
                 <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["id"] ?>">
+                <label>From</label>
+                <input type="hidden" id="formInstitutionID" value="" name="update_id">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["start_date"] ?>">
+                <label>To</label>
+                <input type="hidden" id="formInstitutionID" value="" name="update_id">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["end_date"] ?>">
+                <!--
                 <div class="form-group">
 					From <input type="date" id="memberFrom" name="memberFrom">
                 </div>
                 <div class="form-group">
                     To <input type="date" id="memberTo" name="memberTo">
                 </div>
+                -->
 				<label class="my-1 mr-2" for="inlineFormCustomSelectPref">Languages</label>
 				<div class="form-check form-check-inline">
 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -207,22 +233,34 @@ $(document).ready(function() {
 				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
 				  <label class="form-check-label" for="inlineCheckbox3">3 </label>
 				</div>
+                <div></div>
 				<label>Status</label>
                 <select class="form-control" id="selectCountry" name="selectCountry" required>
-                    <option value="" selected disabled hidden>Select Country</option>
-                    <?php /*foreach ($countries_array as $country_row) {
-					echo $country_row;
-									}*/?>
-								</select><label>Academic year</label>
-								<select class="form-control" id="selectCountry" name="selectCountry" required>
-									<option value="" selected disabled hidden>Select Country</option>
-									<?php /*foreach ($countries_array as $country_row) {
-					echo $country_row; ?/
-				}*/?>
+                    <option value="" selected disabled hidden>Select Country1</option>
+                    <?php
+                    $query = "select * from country";
+                    $result = $db_instance->query($query);
+                    while ($country = $result->fetch_assoc()) {
+                        echo '<option value="'.$country["title"].'" selected disabled hidden>Select Country</option>';
+                        echo '<option>'.$country["name"].'</option>';
+                    }
+                    ?>
+                </select>
+                <label>Academic year</label>
+                    <select class="form-control" id="selectCountry" name="selectCountry" required>
+									<option value="" selected disabled hidden>Select Country2</option>
+                        <?php
+                        $query = "select * from cycle";
+                        $result = $db_instance->query($query);
+                        while ($years = $result->fetch_assoc()) {
+                            echo '<option value="'.$years["title"].'" selected disabled hidden>Select Country</option>';
+                            echo '<option>'.$years["title"].'</option>';
+                        }
+				?>
                 </select>
 				<label>Item participants</label>
                 <input type="hidden" id="formInstitutionID" value="" name="update_id">
-                <input type="text" class="form-control" id="institutionName" name="instName" value="">
+                <input type="text" class="form-control" id="institutionName" name="instName" value="<?php echo $row["numUnregParticipants"];?>">
 			</div>
 		</form>
 		</div>
@@ -230,7 +268,7 @@ $(document).ready(function() {
 			<form action="/action_page.php">
 				<div class="form-group">
 					<label for="comment">Course description:</label>
-					<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+					<textarea class="form-control" rows="5" id="comment" name="text"><?php echo $row["description"];?></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
@@ -241,10 +279,10 @@ $(document).ready(function() {
 		<form action="/action_page.php">
 			<div class="form-group">
 				<label for="comment">Work Schedule:</label>
-				<textarea class="form-control" rows="9" id="comment" name="text"></textarea>
+				<textarea class="form-control" rows="9" id="comment" name="text"><?php echo $row["workschedule"]; ?></textarea>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>	
+		</form>
 	</div>
 </div>
 <div class="row" id="div_people" style="display:none;">
@@ -263,14 +301,11 @@ $(document).ready(function() {
 						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
-									<th scope="col">Name</th>
-									<th scope="col">City</th>
+                                    <th scope="col">Firstname</th>
+                                    <th scope="col">Lastname</th>
 									<th scope="col">Country</th>
-									<th scope="col">Status</th>
-									<th scope="col"><?php $year = date('Y');
-	echo "$year fee"?></th>
-									<th scope="col">Web Adress</th>
-									<th scope="col">Withdrawal</th>
+									<th scope="col">Institution</th>
+									<th scope="col">Participation</th>
 								</tr>
 							</thead>
 
@@ -297,14 +332,13 @@ $(document).ready(function() {
 								<td>Random3</td>
 								<td>Random4</td>
 								<td>Random5</td>
-								<td>Random6</td>
-								<td>Random7</td>
+
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-		</div>   
+		</div>
 	</div>
     <div class="col-md-3 d-flex flex-column justify-content-between">
         <div class="p-2 mb-auto">Lecturers</div>
@@ -321,14 +355,11 @@ $(document).ready(function() {
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">City</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
                             <th scope="col">Country</th>
-                            <th scope="col">Status</th>
-                            <th scope="col"><?php $year = date('Y');
-                                echo "$year fee"?></th>
-                            <th scope="col">Web Adress</th>
-                            <th scope="col">Withdrawal</th>
+                            <th scope="col">Institution</th>
+                            <th scope="col">Participation</th>
                         </tr>
                         </thead>
 
@@ -355,8 +386,7 @@ $(document).ready(function() {
                             <td>Random3</td>
                             <td>Random4</td>
                             <td>Random5</td>
-                            <td>Random6</td>
-                            <td>Random7</td>
+
                         </tr>
                         </tbody>
                     </table>
@@ -379,14 +409,11 @@ $(document).ready(function() {
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">City</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
                             <th scope="col">Country</th>
-                            <th scope="col">Status</th>
-                            <th scope="col"><?php $year = date('Y');
-                                echo "$year fee"?></th>
-                            <th scope="col">Web Adress</th>
-                            <th scope="col">Withdrawal</th>
+                            <th scope="col">Institution</th>
+                            <th scope="col">Participation</th>
                         </tr>
                         </thead>
 
@@ -413,8 +440,7 @@ $(document).ready(function() {
                             <td>Random3</td>
                             <td>Random4</td>
                             <td>Random5</td>
-                            <td>Random6</td>
-                            <td>Random7</td>
+                           
                         </tr>
                         </tbody>
                     </table>
@@ -813,6 +839,8 @@ $(document).ready(function() {
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+</div>
+<div>
 </div>
 <!--- Html code ends--->
 <?php
