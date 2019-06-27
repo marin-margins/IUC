@@ -42,6 +42,9 @@ Select a report from list:
   <tr onclick="window.location ='participantsFromSpecificCountry.php'">
    <td id="5">Participants from specific country</td>
   </tr>
+  <tr onclick="window.location ='courseList.php'">
+   <td id="5">Course List</td>
+  </tr>
 
 
 </table>

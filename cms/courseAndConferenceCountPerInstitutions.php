@@ -47,6 +47,13 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
       $pom1 = date("d-M-Y", strtotime($date1));;
       $pom2 = date("d-M-Y", strtotime($date2));;
       echo "<p>Date: ".$pom1."/ ".$pom2."</p>";
+      if($radio == "institutions"){
+        echo "<p>Institution type: all institutions</p>";
+      }elseif ($radio == "members") {
+        echo "<p>Institution type: members</p>";
+      }elseif ($radio == "nonMembers") {
+        echo "<p>Institution type: non members</p>";
+      }
 ?>
   </div>
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">

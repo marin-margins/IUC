@@ -104,11 +104,12 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
 </div>
   <div id="organizers_table" style="visibility:visible;margin-bottom:20px">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
+      <caption style="text-align:left">Organizers</caption>
       <tr>
-        <th style ="border: 1px solid gray;">Name</th>
-        <th style ="border: 1px solid gray;">Email</th>
-        <th style ="border: 1px solid gray;">Course</th>
-        <th style ="border: 1px solid gray;">Course-date</th>
+        <th width=30%  style ="border: 1px solid gray">Name</th>
+        <th width=30%  style ="border: 1px solid gray">Email</th>
+        <th width=30%  style ="border: 1px solid gray">Course</th>
+        <th width=10%  style ="border: 1px solid gray">Course-date</th>
       </tr>
 <?php
       $query = 'SELECT person.firstname as name, person.lastname as lastname, person.email as email, eventt.title as course, eventt.start_date as date
@@ -127,9 +128,9 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
           $name = $row["name"]+$row["lastname"];
           echo "<tr>";
           echo '<td width="30%" style ="border: 1px solid gray;">'.$name.'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["email"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["course"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["date"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["email"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["course"] .'</td>';
+          echo '<td width="10%" style ="border: 1px solid gray;">'. $row["date"] .'</td>';
           echo "</tr>";
         }
       }
@@ -140,6 +141,7 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
 
   <div id="lecturers_table" style="display:none;margin-bottom:20px">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
+      <caption style="text-align:left">Lecturers</caption>
       <tr>
         <th style ="border: 1px solid gray;">Name</th>
         <th style ="border: 1px solid gray;">Email</th>
@@ -167,9 +169,9 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
           $name = $row["name"].$row["lastname"];
           echo "<tr>";
           echo '<td width="30%" style ="border: 1px solid gray;">'.$name.'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["email"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["course"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["date"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["email"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["course"] .'</td>';
+          echo '<td width="10%"style ="border: 1px solid gray;">'. $row["date"] .'</td>';
           echo "</tr>";
         }
       }
@@ -177,9 +179,9 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
 ?>
   </table>
   </div>
-
 <div id="participants_table" style="display:none;margin-bottom:20px">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
+      <caption style="text-align:left;margin-top:20px">Participants</caption>
       <tr>
         <th style ="border: 1px solid gray;">Name</th>
         <th style ="border: 1px solid gray;">Email</th>
@@ -207,9 +209,9 @@ if(isset($_POST["date1"]) &&  empty($_POST["date1"]) || isset($_POST["date2"]) &
           $name = $row["name"].$row["lastname"];
           echo "<tr>";
           echo '<td width="30%" style ="border: 1px solid gray;">'.$name.'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["email"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["course"] .'</td>';
-          echo '<td style ="border: 1px solid gray;">'. $row["date"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["email"] .'</td>';
+          echo '<td width="30%" style ="border: 1px solid gray;">'. $row["course"] .'</td>';
+          echo '<td width="10%"style ="border: 1px solid gray;">'. $row["date"] .'</td>';
           echo "</tr>";
         }
       }
