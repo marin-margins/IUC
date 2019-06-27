@@ -31,7 +31,7 @@ html_handler::build_header("Statistics"); //BUILD THE HEADER WITH PAGE TITLE PAR
 
 
 <h2 style="display:inline;">REPORT: Course List</h2>
-<button type="button" name="export" class="btn btn-danger"  onclick="Export2Doc('exportContent','academicprogrammestatistics');">Export report</button>
+<button type="button" name="export" class="btn btn-danger"  onclick="Export2Doc('exportContent','courselist');">Export report</button>
 <br><br>
 <form action="./courseList.php" method="post" name ="table2">
   Period From:
