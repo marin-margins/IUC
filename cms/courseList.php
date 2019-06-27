@@ -99,7 +99,7 @@ if(isset($_POST["date1"]) && empty($_POST["date1"]) || isset($_POST["date2"]) &&
   <div id="conferences_table" style="display: none;">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="border-collapse: collapse;">
       <tr>
-        <th style ="border: 1px solid gray;">Course</th>
+        <th style ="border: 1px solid gray;">Conference</th>
         <th style ="border: 1px solid gray;">Date</th>
         <th style ="border: 1px solid gray;">Status</th>
       </tr>
