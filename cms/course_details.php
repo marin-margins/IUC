@@ -285,13 +285,71 @@ if(isset($_GET['id']))
 		</form>
 	</div>
 </div>
-<div class="row" id="div_people" style="display:none;">
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <h4 class="modal-title">Participation from institution</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <i class="fas fa-table"></i>
+                                List of Participants
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Role</th>
+                                            <th>Type</th>
+                                            <th>Date</th>
+                                            <th>Programme</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Role</th>
+                                            <th>Type</th>
+                                            <th>Date</th>
+                                            <th>Programme</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody id="mydata">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row" id="div_people" style="display:none;">
 	<div class="col-md-3 d-flex flex-column justify-content-between">
 		<div class="p-2 mb-auto">Directors</div>
 		<div class="p-2">
-			<button type="button" class="btn btn-m btn-primary">Edit details</button>
-			<button type="button" class="btn btn-danger">Delete selected</button>
-			<button type="button" class="btn btn-success">Create new</button>
+			<button type="button" class="btn btn-m btn-primary" data-toggle="modal" data-target="#myModal" name="modal_button">Edit details</button>
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" name="modal_button">Delete selected</button>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" name="modal_button">Create new</button>
 		</div>
 	</div>
 	<div class="col-md-9">
@@ -343,9 +401,9 @@ if(isset($_GET['id']))
     <div class="col-md-3 d-flex flex-column justify-content-between">
         <div class="p-2 mb-auto">Lecturers</div>
         <div class="p-2">
-            <button type="button" class="btn btn-m btn-primary">Edit details</button>
-            <button type="button" class="btn btn-danger">Delete selected</button>
-            <button type="button" class="btn btn-success">Create new</button>
+            <button type="button" class="btn btn-m btn-primary" data-toggle="modal" data-target="#myModal" name="modal_button">Edit details</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" name="modal_button">Delete selected</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" name="modal_button">Create new</button>
         </div>
     </div>
     <div class="col-md-9">
@@ -397,9 +455,9 @@ if(isset($_GET['id']))
     <div class="col-md-3 d-flex flex-column justify-content-between">
         <div class="p-2 mb-auto">Participants</div>
         <div class="p-2">
-            <button type="button" class="btn btn-m btn-primary">Edit details</button>
-            <button type="button" class="btn btn-danger">Delete selected</button>
-            <button type="button" class="btn btn-success">Create new</button>
+            <button type="button" class="btn btn-m btn-primary" data-toggle="modal" data-target="#myModal" name="modal_button">Edit details</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" name="modal_button">Delete selected</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" name="modal_button">Create new</button>
         </div>
     </div>
     <div class="col-md-9">
